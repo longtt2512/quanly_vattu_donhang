@@ -53,9 +53,10 @@ namespace QLTVT.ReportForm
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(125, 51);
+            this.label1.Location = new System.Drawing.Point(94, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(683, 43);
+            this.label1.Size = new System.Drawing.Size(508, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Danh Sách Thông Tin Chi Tiết Vật Tư";
             // 
@@ -64,9 +65,10 @@ namespace QLTVT.ReportForm
             this.button1.BackColor = System.Drawing.Color.Blue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(148, 126);
+            this.button1.Location = new System.Drawing.Point(111, 102);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 45);
+            this.button1.Size = new System.Drawing.Size(144, 37);
             this.button1.TabIndex = 1;
             this.button1.Text = "XEM TRƯỚC";
             this.button1.UseVisualStyleBackColor = false;
@@ -77,9 +79,10 @@ namespace QLTVT.ReportForm
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(518, 126);
+            this.button2.Location = new System.Drawing.Point(388, 102);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(192, 45);
+            this.button2.Size = new System.Drawing.Size(144, 37);
             this.button2.TabIndex = 2;
             this.button2.Text = "XUẤT BẢN";
             this.button2.UseVisualStyleBackColor = false;
@@ -117,21 +120,22 @@ namespace QLTVT.ReportForm
             // vattuGridControl
             // 
             this.vattuGridControl.DataSource = this.vattuBindingSource;
-            this.vattuGridControl.Location = new System.Drawing.Point(12, 216);
+            // 
+            // 
+            // 
+            this.vattuGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.vattuGridControl.Location = new System.Drawing.Point(9, 176);
             this.vattuGridControl.MainView = this.gridView1;
+            this.vattuGridControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.vattuGridControl.Name = "vattuGridControl";
-            this.vattuGridControl.Size = new System.Drawing.Size(816, 375);
+            this.vattuGridControl.Size = new System.Drawing.Size(612, 305);
             this.vattuGridControl.TabIndex = 4;
-            this.vattuGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.vattuGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { this.gridView1 });
             // 
             // gridView1
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAVT,
-            this.colTENVT,
-            this.colDVT,
-            this.colSOLUONGTON});
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { this.colMAVT, this.colTENVT, this.colDVT, this.colSOLUONGTON });
+            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.vattuGridControl;
             this.gridView1.Name = "gridView1";
             // 
@@ -139,55 +143,56 @@ namespace QLTVT.ReportForm
             // 
             this.colMAVT.Caption = "Mã Vật Tư";
             this.colMAVT.FieldName = "MAVT";
-            this.colMAVT.MinWidth = 25;
+            this.colMAVT.MinWidth = 19;
             this.colMAVT.Name = "colMAVT";
             this.colMAVT.OptionsColumn.AllowEdit = false;
             this.colMAVT.Visible = true;
             this.colMAVT.VisibleIndex = 0;
-            this.colMAVT.Width = 94;
+            this.colMAVT.Width = 70;
             // 
             // colTENVT
             // 
             this.colTENVT.Caption = "Tên Vật Tư";
             this.colTENVT.FieldName = "TENVT";
-            this.colTENVT.MinWidth = 25;
+            this.colTENVT.MinWidth = 19;
             this.colTENVT.Name = "colTENVT";
             this.colTENVT.OptionsColumn.AllowEdit = false;
             this.colTENVT.Visible = true;
             this.colTENVT.VisibleIndex = 1;
-            this.colTENVT.Width = 94;
+            this.colTENVT.Width = 70;
             // 
             // colDVT
             // 
             this.colDVT.Caption = "Đơn Vị Tính";
             this.colDVT.FieldName = "DVT";
-            this.colDVT.MinWidth = 25;
+            this.colDVT.MinWidth = 19;
             this.colDVT.Name = "colDVT";
             this.colDVT.OptionsColumn.AllowEdit = false;
             this.colDVT.Visible = true;
             this.colDVT.VisibleIndex = 2;
-            this.colDVT.Width = 94;
+            this.colDVT.Width = 70;
             // 
             // colSOLUONGTON
             // 
             this.colSOLUONGTON.Caption = "Số Lượng Tồn";
             this.colSOLUONGTON.FieldName = "SOLUONGTON";
-            this.colSOLUONGTON.MinWidth = 25;
+            this.colSOLUONGTON.MinWidth = 19;
             this.colSOLUONGTON.Name = "colSOLUONGTON";
             this.colSOLUONGTON.OptionsColumn.AllowEdit = false;
             this.colSOLUONGTON.Visible = true;
             this.colSOLUONGTON.VisibleIndex = 3;
-            this.colSOLUONGTON.Width = 94;
+            this.colSOLUONGTON.Width = 70;
             // 
             // FormDanhSachVatTu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 603);
+            this.ClientSize = new System.Drawing.Size(644, 563);
             this.Controls.Add(this.vattuGridControl);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormDanhSachVatTu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh Sách Vật Tư";
@@ -198,7 +203,6 @@ namespace QLTVT.ReportForm
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

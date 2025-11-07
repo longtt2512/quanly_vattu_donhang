@@ -45,7 +45,7 @@ namespace QLTVT
             InitializeComponent();
         }
 
-        private void btnTHOAT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnTHOAT_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
@@ -174,7 +174,7 @@ namespace QLTVT
             }
         }
 
-        private void btnTHEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnTHEM_Click(object sender, EventArgs e)
         {
             /*Step 1*/
             /*lấy vị trí hiện tại của con trỏ*/
@@ -200,7 +200,7 @@ namespace QLTVT
             this.btnTHOAT.Enabled = false;
 
 
-            this.gcVATTU.Enabled = false;
+            this.dgvVATTU.Enabled = false;
             this.panelNhapLieu.Enabled = true;
         }
 
@@ -218,7 +218,7 @@ namespace QLTVT
          * Step 1: kiểm tra undoList có trông hay không ?
          * Step 2: Neu undoList khong trống thì lấy ra khôi phục
          *********************************************************************/
-        private void btnHOANTAC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnHOANTAC_Click(object sender, EventArgs e)
         {
             /* Step 0 */
             if (dangThemMoi == true && this.btnTHEM.Enabled == false)
@@ -235,7 +235,7 @@ namespace QLTVT
                 this.btnTHOAT.Enabled = true;
 
 
-                this.gcVATTU.Enabled = true;
+                this.dgvVATTU.Enabled = true;
                 this.panelNhapLieu.Enabled = true;
 
                 bdsVatTu.CancelEdit();
@@ -277,7 +277,7 @@ namespace QLTVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtMAVT.Text, @"^[a-zA-Z0-9]+$") == false)
+            if (Regex.IsMatch(txtMAVT.Text, @"^[\p{L}\p{N}]+$") == false)
             {
                 MessageBox.Show("Mã vật tư chỉ có chữ cái và số", "Thông báo", MessageBoxButtons.OK);
                 txtMAVT.Focus();
@@ -298,7 +298,7 @@ namespace QLTVT
                 return false;
             }
             
-            if (Regex.IsMatch(txtTENVT.Text, @"^[a-zA-Z0-9 ]+$") == false)
+            if (Regex.IsMatch(txtTENVT.Text, @"^[\p{L}\p{N}\s]+$") == false)
             {
                 MessageBox.Show("Tên vật tư chỉ chấp nhận chữ, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtTENVT.Focus();
@@ -319,7 +319,7 @@ namespace QLTVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtDONVIVATTU.Text, @"^[a-zA-Z ]+$") == false)
+            if (Regex.IsMatch(txtDONVIVATTU.Text, @"^[\p{L}]+$") == false)
             {
                 MessageBox.Show("Đơn vị vật tư chỉ có chữ cái", "Thông báo", MessageBoxButtons.OK);
                 txtDONVIVATTU.Focus();
@@ -361,7 +361,7 @@ namespace QLTVT
          *          
          * Step 3 : Neu khong phai TH0 thi cac TH1 - TH2 - TH3 deu hop le 
          ***********************************************************************/
-        private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnGHI_Click(object sender, EventArgs e)
         {
             /* Step 0 */
             bool ketQua = kiemTraDuLieuDauVao();
@@ -434,11 +434,10 @@ namespace QLTVT
                         btnHOANTAC.Enabled = true;
 
                         btnLAMMOI.Enabled = true;
-                        btnCHUYENCHINHANH.Enabled = true;
                         btnTHOAT.Enabled = true;
 
                         this.txtMAVT.Enabled = false;
-                        this.gcVATTU.Enabled = true;
+                        this.dgvVATTU.Enabled = true;
 
                         /*lưu 1 câu truy vấn để hoàn tác yêu cầu*/
                         String cauTruyVanHoanTac = "";
@@ -486,13 +485,13 @@ namespace QLTVT
             }
         }
 
-        private void btnLAMMOI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnLAMMOI_Click(object sender, EventArgs e)
         {
             try
             {
                 // do du lieu moi tu dataSet vao gridControl NHANVIEN
                 this.vattuTableAdapter.Fill(this.dataSet.Vattu);
-                this.gcVATTU.Enabled = true;
+                this.dgvVATTU.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -554,7 +553,7 @@ namespace QLTVT
          * Step 1: Kiem tra du lieu dau vao
          * Step 2: Them cau lenh hoan tac neu can
          ***************************************************************************/
-        private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnXOA_Click(object sender, EventArgs e)
         {
             /*Step 1*/
             if (bdsVatTu.Count == 0)

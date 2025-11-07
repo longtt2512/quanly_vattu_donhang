@@ -96,7 +96,6 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnCHUYENCHINHANH.Enabled = true;
                 this.btnTHOAT.Enabled = true;
 
                 this.panelNhapLieu.Enabled = false;
@@ -164,7 +163,7 @@ namespace QLTVT
             }
         }
 
-        private void btnTHEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnTHEM_Click(object sender, EventArgs e)
         {
             /*Step 1*/
             /*lấy vị trí hiện tại của con trỏ*/
@@ -189,16 +188,16 @@ namespace QLTVT
             this.btnTHOAT.Enabled = false;
 
 
-            this.gcKHO.Enabled = false;
+            this.dgvKHO.Enabled = false;
             this.panelNhapLieu.Enabled = true;
         }
 
-        private void btnLAMMOI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnLAMMOI_Click(object sender, EventArgs e)
         {
             try
             {
                 this.khoTableAdapter.Fill(this.dataSet.Kho);
-                this.gcKHO.Enabled = true;
+                this.dgvKHO.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -207,7 +206,7 @@ namespace QLTVT
             }
         }
 
-        private void btnTHOAT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnTHOAT_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -283,7 +282,7 @@ namespace QLTVT
 
 
 
-        private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnGHI_Click(object sender, EventArgs e)
         {
             /* Step 0 */
             bool ketQua = kiemTraDuLieuDauVao();
@@ -351,11 +350,10 @@ namespace QLTVT
                         btnHOANTAC.Enabled = true;
 
                         btnLAMMOI.Enabled = true;
-                        btnCHUYENCHINHANH.Enabled = true;
                         btnTHOAT.Enabled = true;
 
                         this.txtMAKHO.Enabled = false;
-                        this.gcKHO.Enabled = true;
+                        this.dgvKHO.Enabled = true;
 
                         /*lưu 1 câu truy vấn để hoàn tác yêu cầu*/
                         String cauTruyVanHoanTac = "";
@@ -401,7 +399,7 @@ namespace QLTVT
             }
         }
 
-        private void btnHOANTAC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnHOANTAC_Click(object sender, EventArgs e)
         {
             /* Step 0 */
             if (dangThemMoi == true && this.btnTHEM.Enabled == false)
@@ -418,7 +416,7 @@ namespace QLTVT
                 this.btnTHOAT.Enabled = true;
 
 
-                this.gcKHO.Enabled = true;
+                this.dgvKHO.Enabled = true;
                 this.panelNhapLieu.Enabled = true;
 
                 bdsKho.CancelEdit();
@@ -446,7 +444,7 @@ namespace QLTVT
             this.khoTableAdapter.Fill(this.dataSet.Kho);
         }
 
-        private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnXOA_Click(object sender, EventArgs e)
         {
             /*Step 1*/
             if (bdsKho.Count == 0)
