@@ -100,11 +100,11 @@ namespace QLTVT
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormNhanVien));
+            Form f = this.CheckExists(typeof(FormNhanVien_Std));
             if (f != null) f.Activate();
             else
             {
-                FormNhanVien form = new FormNhanVien();
+                FormNhanVien_Std form = new FormNhanVien_Std();
                 form.MdiParent = this;
                 form.Show();
             }

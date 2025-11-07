@@ -89,7 +89,7 @@ namespace QLTVT
         private void FormDangNhap_Load(object sender, EventArgs e)
         {
             // đặt sẵn mật khẩu để đỡ nhập lại nhiều lần
-            txtTAIKHOAN.Text = "LT";// nguyen long - chi nhanh
+            txtTAIKHOAN.Text = "TT";// nguyen long - chi nhanh
             txtMATKHAU.Text = "123";
             if ( KetNoiDatabaseGoc() == 0 )
                 return;
