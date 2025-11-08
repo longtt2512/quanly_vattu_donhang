@@ -61,11 +61,15 @@ namespace QLTVT
             txtMATKHAU.Text = "123";
 
             if (KetNoiDatabaseGoc() == 0) return;
-            layDanhSachPhanManh("SELECT * FROM view_DanhSachPhanManh");
+            layDanhSachPhanManh("SELECT TOP 2 * FROM view_DanhSachPhanManh");
             if (cmbCHINHANH.Items.Count > 0)
             {
                 cmbCHINHANH.SelectedIndex = 0;
-                if (cmbCHINHANH.Items.Count > 1) cmbCHINHANH.SelectedIndex = 1;
+                if (cmbCHINHANH.Items.Count > 1)
+                {
+                    cmbCHINHANH.SelectedIndex = 0;
+                    Program.serverName = cmbCHINHANH.SelectedValue.ToString();
+                }
             }
         }
 
