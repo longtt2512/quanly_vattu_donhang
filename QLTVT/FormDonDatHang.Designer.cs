@@ -74,6 +74,7 @@ namespace QLTVT
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDDH = new DevExpress.XtraEditors.GroupControl();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.gcChiTietDonDatHang = new DevExpress.XtraGrid.GridControl();
             this.bdsChiTietDonDatHang = new System.Windows.Forms.BindingSource(this.components);
             this.gvCTDDH = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -562,10 +563,19 @@ namespace QLTVT
             this.gcDDH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcDDH.Location = new System.Drawing.Point(0, 398);
             this.gcDDH.Name = "gcDDH";
-            this.gcDDH.Size = new System.Drawing.Size(1007, 424);
+            this.gcDDH.Size = new System.Drawing.Size(1007, 0);
             this.gcDDH.TabIndex = 24;
             this.gcDDH.Text = "Thông Tin";
-            this.gcDDH.Visible = true;
+            this.gcDDH.Visible = false;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitter1.Location = new System.Drawing.Point(0, 398);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(1007, 5);
+            this.splitter1.TabIndex = 26;
+            this.splitter1.TabStop = false;
             // 
             // gcChiTietDonDatHang
             // 
@@ -573,12 +583,12 @@ namespace QLTVT
             this.gcChiTietDonDatHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcChiTietDonDatHang.Enabled = true;
             this.gcChiTietDonDatHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gcChiTietDonDatHang.Location = new System.Drawing.Point(2, 2);
+            this.gcChiTietDonDatHang.Location = new System.Drawing.Point(0, 398);
             this.gcChiTietDonDatHang.MainView = this.gvCTDDH;
             this.gcChiTietDonDatHang.MenuManager = this.barManager1;
             this.gcChiTietDonDatHang.Name = "gcChiTietDonDatHang";
-            this.gcChiTietDonDatHang.Size = new System.Drawing.Size(511, 390);
-            this.gcChiTietDonDatHang.TabIndex = 1;
+            this.gcChiTietDonDatHang.Size = new System.Drawing.Size(1007, 341);
+            this.gcChiTietDonDatHang.TabIndex = 25;
             this.gcChiTietDonDatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCTDDH});
             this.gcChiTietDonDatHang.Click += new System.EventHandler(this.gcChiTietDonDatHang_Click);
@@ -861,6 +871,8 @@ namespace QLTVT
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 739);
+            this.Controls.Add(this.gcChiTietDonDatHang);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.gcDDH);
             this.Controls.Add(this.gcDonDatHang);
             this.Controls.Add(this.lblGuidanceDonDatHang);
@@ -931,6 +943,7 @@ namespace QLTVT
         private DataSetTableAdapters.DatHangTableAdapter donDatHangTableAdapter;
         private DataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraEditors.GroupControl gcDDH;
+        private System.Windows.Forms.Splitter splitter1;
         private DevExpress.XtraGrid.GridControl gcChiTietDonDatHang;
         private DevExpress.XtraGrid.Views.Grid.GridView gvCTDDH;
         private DevExpress.XtraGrid.Columns.GridColumn colMasoDDH1;
