@@ -56,7 +56,7 @@ namespace QLTVT
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(900, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1166, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,21 +75,21 @@ namespace QLTVT
             // btnNhanVien
             // 
             this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(152, 22);
+            this.btnNhanVien.Size = new System.Drawing.Size(128, 22);
             this.btnNhanVien.Text = "Nhân viên";
             this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
             // btnVatTu
             // 
             this.btnVatTu.Name = "btnVatTu";
-            this.btnVatTu.Size = new System.Drawing.Size(152, 22);
+            this.btnVatTu.Size = new System.Drawing.Size(128, 22);
             this.btnVatTu.Text = "Vật tư";
             this.btnVatTu.Click += new System.EventHandler(this.btnVatTu_Click);
             // 
             // btnKho
             // 
             this.btnKho.Name = "btnKho";
-            this.btnKho.Size = new System.Drawing.Size(152, 22);
+            this.btnKho.Size = new System.Drawing.Size(128, 22);
             this.btnKho.Text = "Kho hàng";
             this.btnKho.Click += new System.EventHandler(this.btnKho_Click);
             // 
@@ -100,27 +100,27 @@ namespace QLTVT
             this.btnPhieuNhap,
             this.btnPhieuXuat});
             this.menuLapPhieu.Name = "menuLapPhieu";
-            this.menuLapPhieu.Size = new System.Drawing.Size(152, 22);
+            this.menuLapPhieu.Size = new System.Drawing.Size(128, 22);
             this.menuLapPhieu.Text = "Lập phiếu";
             // 
             // btnDonDatHang
             // 
             this.btnDonDatHang.Name = "btnDonDatHang";
-            this.btnDonDatHang.Size = new System.Drawing.Size(152, 22);
+            this.btnDonDatHang.Size = new System.Drawing.Size(146, 22);
             this.btnDonDatHang.Text = "Đơn đặt hàng";
             this.btnDonDatHang.Click += new System.EventHandler(this.btnDonDatHang_Click);
             // 
             // btnPhieuNhap
             // 
             this.btnPhieuNhap.Name = "btnPhieuNhap";
-            this.btnPhieuNhap.Size = new System.Drawing.Size(152, 22);
+            this.btnPhieuNhap.Size = new System.Drawing.Size(146, 22);
             this.btnPhieuNhap.Text = "Phiếu nhập";
             this.btnPhieuNhap.Click += new System.EventHandler(this.btnPhieuNhap_Click);
             // 
             // btnPhieuXuat
             // 
             this.btnPhieuXuat.Name = "btnPhieuXuat";
-            this.btnPhieuXuat.Size = new System.Drawing.Size(152, 22);
+            this.btnPhieuXuat.Size = new System.Drawing.Size(146, 22);
             this.btnPhieuXuat.Text = "Phiếu xuất";
             this.btnPhieuXuat.Click += new System.EventHandler(this.btnPhieuXuat_Click);
             // 
@@ -194,7 +194,7 @@ namespace QLTVT
             // btnDangNhap
             // 
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(152, 22);
+            this.btnDangNhap.Size = new System.Drawing.Size(146, 22);
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
@@ -202,7 +202,7 @@ namespace QLTVT
             // 
             this.btnDangXuat.Enabled = false;
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(152, 22);
+            this.btnDangXuat.Size = new System.Drawing.Size(146, 22);
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
@@ -210,14 +210,14 @@ namespace QLTVT
             // 
             this.btnLapTaiKhoan.Enabled = false;
             this.btnLapTaiKhoan.Name = "btnLapTaiKhoan";
-            this.btnLapTaiKhoan.Size = new System.Drawing.Size(152, 22);
+            this.btnLapTaiKhoan.Size = new System.Drawing.Size(146, 22);
             this.btnLapTaiKhoan.Text = "Tạo tài khoản";
             this.btnLapTaiKhoan.Click += new System.EventHandler(this.btnLapTaiKhoan_Click);
             // 
             // btnThoat
             // 
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(152, 22);
+            this.btnThoat.Size = new System.Drawing.Size(146, 22);
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
@@ -228,10 +228,10 @@ namespace QLTVT
             this.MANHANVIEN,
             this.HOTEN,
             this.NHOM});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 466);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 670);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(900, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1166, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -257,12 +257,12 @@ namespace QLTVT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 488);
+            this.ClientSize = new System.Drawing.Size(1166, 692);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormChinh_Std";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ VẬT TƯ (Phiên bản chuẩn)";

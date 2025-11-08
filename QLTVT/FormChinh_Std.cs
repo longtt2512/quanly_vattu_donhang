@@ -4,17 +4,21 @@ using System.Windows.Forms;
 
 namespace QLTVT
 {
-    // Converted from DevExpress RibbonForm to standard WinForms Form
     public partial class FormChinh_Std : Form
     {
         public FormChinh_Std()
         {
             InitializeComponent();
+            this.MdiChildActivate += (s, e) =>
+            {
+                if (this.ActiveMdiChild != null)
+                    this.ActiveMdiChild.WindowState = FormWindowState.Maximized;
+            };
+      
+
         }
 
-        /************************************************************
-         * CheckExists: tránh mở trùng form MDI
-         ************************************************************/
+  
         private Form CheckExists(Type ftype)
         {
             foreach (Form f in this.MdiChildren)
@@ -23,9 +27,7 @@ namespace QLTVT
             return null;
         }
 
-        /************************************************************
-         * enableButtons: kích hoạt các menu/báo cáo/đăng xuất
-         ************************************************************/
+ 
         public void enableButtons()
         {
             btnDangNhap.Enabled = false;
@@ -49,8 +51,16 @@ namespace QLTVT
 
         private void FormChinh_Std_Load(object sender, EventArgs e)
         {
-            // Tùy chọn: cấu hình form
-            // this.WindowState = FormWindowState.Maximized;
+            using (var form = new FormDangNhap_Std())
+            {
+                var dr = form.ShowDialog(this);  // modal
+                if (dr != DialogResult.OK) { this.Close(); return; } else
+                {
+                    FormNhanVien_Std formNhanVien_Std = new FormNhanVien_Std();
+                    formNhanVien_Std.MdiParent = this;
+                    formNhanVien_Std.Show();
+                }
+            }
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -81,14 +91,14 @@ namespace QLTVT
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormDangNhap));
+            Form f = this.CheckExists(typeof(FormDangNhap_Std));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormDangNhap form = new FormDangNhap();
+                FormDangNhap_Std form = new FormDangNhap_Std();
                 form.Show();
             }
         }
@@ -107,6 +117,7 @@ namespace QLTVT
                 FormNhanVien_Std form = new FormNhanVien_Std();
                 form.MdiParent = this;
                 form.Show();
+
             }
         }
 

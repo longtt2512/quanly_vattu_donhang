@@ -693,3 +693,4 @@ C:\code\quanly_vattu_donhang\QLTVT\obj\Debug\QLVT.csproj.GenerateResource.Cache
 C:\code\quanly_vattu_donhang\QLTVT\obj\Debug\QLTVT.exe.licenses
 C:\code\quanly_vattu_donhang\QLTVT\obj\Debug\QLTVT.FormNhanVien_Std.resources
 C:\code\quanly_vattu_donhang\QLTVT\obj\Debug\QLTVT.FormPhieuNhap_Std.resources
+C:\code\quanly_vattu_donhang\QLTVT\obj\Debug\QLTVT.FormDangNhap_Std.resources

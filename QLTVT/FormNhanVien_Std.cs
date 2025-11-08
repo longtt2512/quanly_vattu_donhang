@@ -13,6 +13,7 @@ namespace QLTVT
         int viTri = 0;
         bool dangThemMoi = false;
         string maChiNhanh = "";
+        string regexTiengViet =  "^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂÂÊÔƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăâêôơưạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹÝýỶỸỴỳỷỹ ]+$";
         Stack undoList = new Stack();
 
         private static int CalculateAge(DateTime dateOfBirth)
@@ -343,7 +344,7 @@ namespace QLTVT
                 MessageBox.Show("Không bỏ trống họ và tên", "Thông báo", MessageBoxButtons.OK);
                 txtHO.Focus(); return false;
             }
-            if (Regex.IsMatch(txtHO.Text, @"^[A-Za-z ]+$") == false)
+            if (Regex.IsMatch(txtHO.Text, @regexTiengViet) == false)
             {
                 MessageBox.Show("Họ của người chỉ có chữ cái và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtHO.Focus(); return false;
@@ -359,7 +360,7 @@ namespace QLTVT
                 MessageBox.Show("Không bỏ trống họ và tên", "Thông báo", MessageBoxButtons.OK);
                 txtTEN.Focus(); return false;
             }
-            if (Regex.IsMatch(txtTEN.Text, @"^[A-Za-z ]+$") == false)
+            if (Regex.IsMatch(txtTEN.Text, @regexTiengViet) == false)
             {
                 MessageBox.Show("Tên người chỉ có chữ cái và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtTEN.Focus(); return false;
@@ -375,7 +376,7 @@ namespace QLTVT
                 MessageBox.Show("Không bỏ trống địa chỉ", "Thông báo", MessageBoxButtons.OK);
                 txtDIACHI.Focus(); return false;
             }
-            if (Regex.IsMatch(txtDIACHI.Text, @"^[a-zA-Z0-9, ]+$") == false)
+            if (Regex.IsMatch(txtHO.Text, @regexTiengViet) == false)
             {
                 MessageBox.Show("Địa chỉ chỉ chấp nhận chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtDIACHI.Focus(); return false;
