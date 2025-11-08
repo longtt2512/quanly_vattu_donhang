@@ -477,7 +477,7 @@ namespace QLTVT
             // 
             this.gcDonDatHang.DataSource = this.bdsDonDatHang;
             this.gcDonDatHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcDonDatHang.Enabled = false;
+            this.gcDonDatHang.Enabled = true;
             this.gcDonDatHang.Location = new System.Drawing.Point(0, 98);
             this.gcDonDatHang.MainView = this.gridView1;
             this.gcDonDatHang.MenuManager = this.barManager1;
@@ -562,16 +562,16 @@ namespace QLTVT
             this.gcDDH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcDDH.Location = new System.Drawing.Point(0, 398);
             this.gcDDH.Name = "gcDDH";
-            this.gcDDH.Size = new System.Drawing.Size(1007, 0);
+            this.gcDDH.Size = new System.Drawing.Size(1007, 424);
             this.gcDDH.TabIndex = 24;
             this.gcDDH.Text = "Thông Tin";
-            this.gcDDH.Visible = false;
+            this.gcDDH.Visible = true;
             // 
             // gcChiTietDonDatHang
             // 
             this.gcChiTietDonDatHang.DataSource = this.bdsChiTietDonDatHang;
             this.gcChiTietDonDatHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcChiTietDonDatHang.Enabled = false;
+            this.gcChiTietDonDatHang.Enabled = true;
             this.gcChiTietDonDatHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcChiTietDonDatHang.Location = new System.Drawing.Point(2, 2);
             this.gcChiTietDonDatHang.MainView = this.gvCTDDH;

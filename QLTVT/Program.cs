@@ -33,7 +33,7 @@ namespace QLTVT
          **********************************************/
         public static SqlConnection conn = new SqlConnection();//conn
         public static String connstr = "";//connstr
-        public static String connstrPublisher = "Data Source=ADMIN;Initial Catalog=QLVT_DATHANG;Integrated Security=true";
+        public static String connstrPublisher = "Data Source=ADMIN;Initial Catalog=QLVT_DATHANG;User ID=sa;Password=Abcd@12345";
         public static SqlDataReader myReader;//myReader
 
 
@@ -105,6 +105,7 @@ namespace QLTVT
          * 
          **********************************************/
         public static string maKhoDuocChon = "";
+        public static string tenKhoDuocChon = "";
         public static string maVatTuDuocChon = "";
 
 

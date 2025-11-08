@@ -47,17 +47,44 @@ namespace QLTVT.SubForm
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string maKhoHang =  ((DataRowView)bdsKhoHang.Current)["MAKHO"].ToString();
-            string tenKhoHang = ((DataRowView)bdsKhoHang.Current)["TENKHO"].ToString();
+            try
+            {
+                if (bdsKhoHang.Current == null)
+                {
+                    MessageBox.Show("Vui lòng chọn một kho hàng từ danh sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            /*Cach nay phai tuy bien ban moi chay duoc*/
-            //Program.formDonDatHang.txtMaKho.Text = maKhoHang;
+                DataRowView drv = (DataRowView)bdsKhoHang.Current;
+                string maKhoHang = drv["MAKHO"].ToString();
+                
+                // Thử các tên cột có thể có
+                string tenKhoHang = "";
+                if (drv.Row.Table.Columns.Contains("TENKHO"))
+                    tenKhoHang = drv["TENKHO"].ToString();
+                else if (drv.Row.Table.Columns.Contains("TenKho"))
+                    tenKhoHang = drv["TenKho"].ToString();
+                else if (drv.Row.Table.Columns.Contains("DIACHI"))
+                    tenKhoHang = drv["DIACHI"].ToString(); // Có thể dùng địa chỉ
+                else
+                {
+                    // Debug: hiển thị tất cả tên cột
+                    string cols = "";
+                    foreach (DataColumn col in drv.Row.Table.Columns)
+                        cols += col.ColumnName + ", ";
+                    MessageBox.Show("Các cột có sẵn: " + cols, "Debug");
+                    tenKhoHang = maKhoHang; // Fallback: dùng mã kho làm tên
+                }
 
-
-            Program.maKhoDuocChon = maKhoHang;
-            Program.tenKhoDuocChon = tenKhoHang;
-            this.DialogResult = DialogResult.OK;
-            this.Close(); 
+                Program.maKhoDuocChon = maKhoHang;
+                Program.tenKhoDuocChon = tenKhoHang;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy thông tin kho: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

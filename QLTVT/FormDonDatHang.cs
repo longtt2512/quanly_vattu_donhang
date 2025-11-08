@@ -109,7 +109,10 @@ namespace QLTVT
             bds = bdsDonDatHang;
             gc = gcDonDatHang;
 
-            /*Step 3: Tự động kích hoạt chế độ "Đơn Đặt Hàng" khi form load*/
+            /*Step 3: Bật grid Chi Tiết Đơn Hàng để luôn hiển thị danh sách chi tiết*/
+            gcChiTietDonDatHang.Enabled = true;
+
+            /*Step 4: Tự động kích hoạt chế độ "Đơn Đặt Hàng" khi form load*/
             btnCheDoDonDatHang_ItemClick(null, null);
             
         }
@@ -306,6 +309,16 @@ namespace QLTVT
                         ((DataRowView)(bdsDonDatHang.Current))["MAKHO"] = formThem.MaKho;
                         ((DataRowView)(bdsDonDatHang.Current))["NhaCC"] = formThem.NhaCungCap;
 
+                        // Refresh các textbox trên form (để validation pass)
+                        bds.EndEdit();
+                        
+                        // Cập nhật trực tiếp các textbox (để đảm bảo validation thấy được dữ liệu)
+                        this.txtMaDonDatHang.Text = formThem.MaDonDatHang;
+                        this.txtNhaCungCap.Text = formThem.NhaCungCap;
+                        this.txtMaKho.Text = formThem.MaKho;
+                        this.txtMaNhanVien.Text = Program.userName;
+                        this.dteNGAY.EditValue = DateTime.Now;
+
                         // Bật chế độ ghi
                         this.btnTHEM.Enabled = false;
                         this.btnXOA.Enabled = false;
@@ -350,6 +363,14 @@ namespace QLTVT
                         ((DataRowView)(bdsChiTietDonDatHang.Current))["MAVT"] = formThem.MaVatTu;
                         ((DataRowView)(bdsChiTietDonDatHang.Current))["SOLUONG"] = formThem.SoLuong;
                         ((DataRowView)(bdsChiTietDonDatHang.Current))["DONGIA"] = formThem.DonGia;
+
+                        // Refresh các textbox trên form (để validation pass)
+                        bds.EndEdit();
+                        
+                        // Cập nhật trực tiếp các textbox (để đảm bảo validation thấy được dữ liệu)
+                        this.txtMaVatTu.Text = formThem.MaVatTu;
+                        this.txtSoLuong.Value = formThem.SoLuong;
+                        this.txtDonGia.Value = formThem.DonGia;
 
                         // Bật chế độ ghi
                         this.btnTHEM.Enabled = false;

@@ -1,5 +1,6 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
+using QLTVT;
 
 namespace QLTVT.SubForm
 {
@@ -27,8 +28,11 @@ namespace QLTVT.SubForm
             
             if (result == DialogResult.OK)
             {
-                this.txtTenKho.Text = Program.tenKhoDuocChon; // Hiển thị tên kho
-                this.txtMaKho.Text = Program.maKhoDuocChon;   // Hidden field lưu mã kho
+                this.txtTenKho.Text = Program.tenKhoDuocChon;  // Hiển thị tên kho
+                if (this.txtMaKho != null)
+                {
+                    this.txtMaKho.Text = Program.maKhoDuocChon;    // Hidden field lưu mã kho
+                }
                 this.MaKho = Program.maKhoDuocChon;
             }
         }
