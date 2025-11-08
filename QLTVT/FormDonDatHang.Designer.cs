@@ -60,6 +60,7 @@ namespace QLTVT
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.cmbCHINHANH = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblGuidanceDonDatHang = new System.Windows.Forms.Label();
             this.dataSet = new QLTVT.DataSet();
             this.bdsDonDatHang = new System.Windows.Forms.BindingSource(this.components);
             this.donDatHangTableAdapter = new QLTVT.DataSetTableAdapters.DatHangTableAdapter();
@@ -243,7 +244,6 @@ namespace QLTVT
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGHI, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHOANTAC, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLAMMOI, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnMENU, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnTHOAT, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -426,6 +426,20 @@ namespace QLTVT
             this.label1.TabIndex = 0;
             this.label1.Text = "Chi Nhánh";
             // 
+            // lblGuidanceDonDatHang
+            // 
+            this.lblGuidanceDonDatHang.AutoSize = false;
+            this.lblGuidanceDonDatHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblGuidanceDonDatHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuidanceDonDatHang.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblGuidanceDonDatHang.Location = new System.Drawing.Point(0, 68);
+            this.lblGuidanceDonDatHang.Name = "lblGuidanceDonDatHang";
+            this.lblGuidanceDonDatHang.Padding = new System.Windows.Forms.Padding(10, 8, 0, 0);
+            this.lblGuidanceDonDatHang.Size = new System.Drawing.Size(1007, 30);
+            this.lblGuidanceDonDatHang.TabIndex = 7;
+            this.lblGuidanceDonDatHang.Text = "📋 Chọn đơn hàng từ danh sách bên dưới để xem chi tiết";
+            this.lblGuidanceDonDatHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // dataSet
             // 
             this.dataSet.DataSetName = "DataSet";
@@ -468,10 +482,11 @@ namespace QLTVT
             this.gcDonDatHang.MainView = this.gridView1;
             this.gcDonDatHang.MenuManager = this.barManager1;
             this.gcDonDatHang.Name = "gcDonDatHang";
-            this.gcDonDatHang.Size = new System.Drawing.Size(1007, 197);
+            this.gcDonDatHang.Size = new System.Drawing.Size(1007, 300);
             this.gcDonDatHang.TabIndex = 6;
             this.gcDonDatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gcDonDatHang.Click += new System.EventHandler(this.gcDonDatHang_Click);
             // 
             // gridView1
             // 
@@ -545,11 +560,12 @@ namespace QLTVT
             this.gcDDH.Controls.Add(this.panelControl3);
             this.gcDDH.Controls.Add(this.panelControl2);
             this.gcDDH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDDH.Location = new System.Drawing.Point(0, 295);
+            this.gcDDH.Location = new System.Drawing.Point(0, 398);
             this.gcDDH.Name = "gcDDH";
-            this.gcDDH.Size = new System.Drawing.Size(1007, 424);
+            this.gcDDH.Size = new System.Drawing.Size(1007, 0);
             this.gcDDH.TabIndex = 24;
             this.gcDDH.Text = "Thông Tin";
+            this.gcDDH.Visible = false;
             // 
             // gcChiTietDonDatHang
             // 
@@ -565,6 +581,7 @@ namespace QLTVT
             this.gcChiTietDonDatHang.TabIndex = 1;
             this.gcChiTietDonDatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCTDDH});
+            this.gcChiTietDonDatHang.Click += new System.EventHandler(this.gcChiTietDonDatHang_Click);
             // 
             // bdsChiTietDonDatHang
             // 
@@ -643,10 +660,12 @@ namespace QLTVT
             this.groupBoxDonDatHang.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxDonDatHang.Location = new System.Drawing.Point(2, 2);
             this.groupBoxDonDatHang.Name = "groupBoxDonDatHang";
-            this.groupBoxDonDatHang.Size = new System.Drawing.Size(484, 179);
+            this.groupBoxDonDatHang.Padding = new System.Windows.Forms.Padding(10);
+            this.groupBoxDonDatHang.Size = new System.Drawing.Size(484, 195);
             this.groupBoxDonDatHang.TabIndex = 0;
             this.groupBoxDonDatHang.TabStop = false;
             this.groupBoxDonDatHang.Text = "Đơn Hàng";
+            this.groupBoxDonDatHang.Click += new System.EventHandler(this.groupBoxDonDatHang_Click);
             // 
             // txtMaNhanVien
             // 
@@ -729,7 +748,7 @@ namespace QLTVT
             this.btnChonVatTu.Enabled = false;
             this.btnChonVatTu.Location = new System.Drawing.Point(326, 30);
             this.btnChonVatTu.Name = "btnChonVatTu";
-            this.btnChonVatTu.Size = new System.Drawing.Size(119, 31);
+            this.btnChonVatTu.Size = new System.Drawing.Size(130, 30);
             this.btnChonVatTu.TabIndex = 13;
             this.btnChonVatTu.Text = "Chọn Vật Tư";
             this.btnChonVatTu.UseVisualStyleBackColor = true;
@@ -749,7 +768,7 @@ namespace QLTVT
             this.btnChonKhoHang.Enabled = false;
             this.btnChonKhoHang.Location = new System.Drawing.Point(326, 136);
             this.btnChonKhoHang.Name = "btnChonKhoHang";
-            this.btnChonKhoHang.Size = new System.Drawing.Size(119, 29);
+            this.btnChonKhoHang.Size = new System.Drawing.Size(130, 30);
             this.btnChonKhoHang.TabIndex = 10;
             this.btnChonKhoHang.Text = "Chọn Kho Hàng";
             this.btnChonKhoHang.UseVisualStyleBackColor = true;
@@ -809,12 +828,14 @@ namespace QLTVT
             this.groupBox1.Controls.Add(this.txtSoLuong);
             this.groupBox1.Controls.Add(sOLUONGLabel);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(2, 187);
+            this.groupBox1.Location = new System.Drawing.Point(2, 205);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(484, 205);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
+            this.groupBox1.Size = new System.Drawing.Size(484, 187);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi Tiết Đơn Hàng";
+            this.groupBox1.Click += new System.EventHandler(this.groupBox1_Click);
             // 
             // panelControl2
             // 
@@ -842,6 +863,7 @@ namespace QLTVT
             this.ClientSize = new System.Drawing.Size(1007, 739);
             this.Controls.Add(this.gcDDH);
             this.Controls.Add(this.gcDonDatHang);
+            this.Controls.Add(this.lblGuidanceDonDatHang);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -944,5 +966,6 @@ namespace QLTVT
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblGuidanceDonDatHang;
     }
 }

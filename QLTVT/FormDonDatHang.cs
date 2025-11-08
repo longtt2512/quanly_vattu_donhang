@@ -108,6 +108,9 @@ namespace QLTVT
             
             bds = bdsDonDatHang;
             gc = gcDonDatHang;
+
+            /*Step 3: Tự động kích hoạt chế độ "Đơn Đặt Hàng" khi form load*/
+            btnCheDoDonDatHang_ItemClick(null, null);
             
         }
 
@@ -126,8 +129,8 @@ namespace QLTVT
          *********************************************************/
         private void btnCheDoDonDatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 0*/
-            btnMENU.Links[0].Caption = "Đơn Đặt Hàng";
+            /*Step 0 - Bỏ qua việc cập nhật caption vì đã ẩn menu*/
+            // btnMENU.Links[0].Caption = "Đơn Đặt Hàng";
 
             /*Step 1*/
             bds = bdsDonDatHang;
@@ -168,7 +171,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnMENU.Enabled = false;
+                // this.btnMENU.Enabled = false; // Đã ẩn menu
                 this.btnTHOAT.Enabled = true;
 
                 this.groupBoxDonDatHang.Enabled = false;
@@ -189,7 +192,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnMENU.Enabled = true;
+                // this.btnMENU.Enabled = true; // Đã ẩn menu
                 this.btnTHOAT.Enabled = true;
 
                 this.txtMaDonDatHang.Enabled = false;
@@ -199,8 +202,8 @@ namespace QLTVT
 
         private void btnCheDoChiTietDonDatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 0*/
-            btnMENU.Links[0].Caption = "Chi Tiết Đơn Đặt Hàng";
+            /*Step 0 - Bỏ qua việc cập nhật caption vì đã ẩn menu*/
+            // btnMENU.Links[0].Caption = "Chi Tiết Đơn Đặt Hàng";
 
             /*Step 1*/
             bds = bdsChiTietDonDatHang;
@@ -241,7 +244,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnMENU.Enabled = false;
+                // this.btnMENU.Enabled = false; // Đã ẩn menu
                 this.btnTHOAT.Enabled = true;
 
                 this.groupBoxDonDatHang.Enabled = false;
@@ -262,7 +265,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnMENU.Enabled = true;
+                // this.btnMENU.Enabled = true; // Đã ẩn menu
                 this.btnTHOAT.Enabled = true;
 
                 this.txtMaDonDatHang.Enabled = false;
@@ -282,46 +285,87 @@ namespace QLTVT
             viTri = bds.Position;
             dangThemMoi = true;
 
-
-            /*Step 2*/
-            /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
-            bds.AddNew();
-            if (btnMENU.Links[0].Caption == "Đơn Đặt Hàng")
+            /*Step 2 - Hiển thị form popup tùy theo chế độ*/
+            if (bds == bdsDonDatHang) // Chế độ Đơn Đặt Hàng
             {
-                this.txtMaDonDatHang.Enabled = true;
-                //this.txtMaKho.Text = "";
-                this.dteNGAY.EditValue = DateTime.Now;
-                this.dteNGAY.Enabled = false;
-                this.txtNhaCungCap.Enabled = true;
-                this.txtMaNhanVien.Text = Program.userName;
-                this.btnChonKhoHang.Enabled = true;
+                // Hiển thị form popup để nhập thông tin đơn hàng
+                using (FormThemDonDatHang formThem = new FormThemDonDatHang())
+                {
+                    formThem.StartPosition = FormStartPosition.CenterParent;
+                    DialogResult result = formThem.ShowDialog(this);
 
-                /*Gan tu dong may truong du lieu nay*/
-                ((DataRowView)(bdsDonDatHang.Current))["MANV"] = Program.userName;
-                ((DataRowView)(bdsDonDatHang.Current))["NGAY"] = DateTime.Now;
+                    if (result == DialogResult.OK)
+                    {
+                        // Thêm dòng mới vào binding source
+                        bds.AddNew();
+                        
+                        // Gán giá trị từ form popup
+                        ((DataRowView)(bdsDonDatHang.Current))["MasoDDH"] = formThem.MaDonDatHang;
+                        ((DataRowView)(bdsDonDatHang.Current))["MANV"] = Program.userName;
+                        ((DataRowView)(bdsDonDatHang.Current))["NGAY"] = DateTime.Now;
+                        ((DataRowView)(bdsDonDatHang.Current))["MAKHO"] = formThem.MaKho;
+                        ((DataRowView)(bdsDonDatHang.Current))["NhaCC"] = formThem.NhaCungCap;
+
+                        // Bật chế độ ghi
+                        this.btnTHEM.Enabled = false;
+                        this.btnXOA.Enabled = false;
+                        this.btnGHI.Enabled = true;
+                        this.btnHOANTAC.Enabled = true;
+                        this.btnLAMMOI.Enabled = false;
+                        this.btnTHOAT.Enabled = false;
+                    }
+                    else
+                    {
+                        // Hủy bỏ thêm mới
+                        dangThemMoi = false;
+                    }
+                }
+                return;
             }
 
-            if (btnMENU.Links[0].Caption == "Chi Tiết Đơn Đặt Hàng")
+            if (bds == bdsChiTietDonDatHang) // Chế độ Chi Tiết Đơn Đặt Hàng
             {
                 DataRowView drv = ((DataRowView)bdsDonDatHang[bdsDonDatHang.Position]);
                 String maNhanVien = drv["MANV"].ToString();
                 if (Program.userName != maNhanVien)
                 {
                     MessageBox.Show("Bạn không thêm chi tiết đơn hàng trên phiếu không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
-                    bdsChiTietDonDatHang.RemoveCurrent();
                     return;
                 }
 
-                
+                // Hiển thị form popup để nhập chi tiết đơn hàng
+                using (FormThemChiTietDonHang formThem = new FormThemChiTietDonHang())
+                {
+                    formThem.StartPosition = FormStartPosition.CenterParent;
+                    DialogResult result = formThem.ShowDialog(this);
 
-                this.txtMaVatTu.Enabled = false;
-                this.btnChonVatTu.Enabled = true;
+                    if (result == DialogResult.OK)
+                    {
+                        // Thêm dòng mới vào binding source
+                        bds.AddNew();
+                        
+                        // Gán giá trị từ form popup
+                        ((DataRowView)(bdsChiTietDonDatHang.Current))["MasoDDH"] = 
+                            ((DataRowView)bdsDonDatHang[bdsDonDatHang.Position])["MasoDDH"];
+                        ((DataRowView)(bdsChiTietDonDatHang.Current))["MAVT"] = formThem.MaVatTu;
+                        ((DataRowView)(bdsChiTietDonDatHang.Current))["SOLUONG"] = formThem.SoLuong;
+                        ((DataRowView)(bdsChiTietDonDatHang.Current))["DONGIA"] = formThem.DonGia;
 
-                this.txtSoLuong.Enabled = true;
-                this.txtSoLuong.EditValue = 1;
-
-                this.txtDonGia.Enabled = true;
-                this.txtDonGia.EditValue = 1;
+                        // Bật chế độ ghi
+                        this.btnTHEM.Enabled = false;
+                        this.btnXOA.Enabled = false;
+                        this.btnGHI.Enabled = true;
+                        this.btnHOANTAC.Enabled = true;
+                        this.btnLAMMOI.Enabled = false;
+                        this.btnTHOAT.Enabled = false;
+                    }
+                    else
+                    {
+                        // Hủy bỏ thêm mới
+                        dangThemMoi = false;
+                    }
+                }
+                return;
             }
 
 
@@ -332,7 +376,7 @@ namespace QLTVT
 
             this.btnHOANTAC.Enabled = true;
             this.btnLAMMOI.Enabled = false;
-            this.btnMENU.Enabled = false;
+            // this.btnMENU.Enabled = false; // Đã ẩn menu
             this.btnTHOAT.Enabled = false;            
         }
 
@@ -486,7 +530,8 @@ namespace QLTVT
 
 
             /*Step 2*/
-            String cheDo = (btnMENU.Links[0].Caption == "Đơn Đặt Hàng") ? "Đơn Đặt Hàng" : "Chi Tiết Đơn Đặt Hàng";
+            // Xác định chế độ dựa vào binding source hiện tại thay vì menu
+            String cheDo = (bds == bdsDonDatHang) ? "Đơn Đặt Hàng" : "Chi Tiết Đơn Đặt Hàng";
 
             bool ketQua = kiemTraDuLieuDauVao(cheDo);
             if (ketQua == false) return;
@@ -594,7 +639,7 @@ namespace QLTVT
 
                         this.btnHOANTAC.Enabled = true;
                         this.btnLAMMOI.Enabled = true;
-                        this.btnMENU.Enabled = true;
+                        // this.btnMENU.Enabled = true; // Đã ẩn menu
                         this.btnTHOAT.Enabled = true;
 
                         //this.groupBoxDonDatHang.Enabled = false;
@@ -641,7 +686,7 @@ namespace QLTVT
                 dangThemMoi = false;
 
                 /*dang o che do Don Dat Hang*/
-                if (btnMENU.Links[0].Caption == "Đơn Đặt Hàng")
+                if (bds == bdsDonDatHang)
                 {
                     this.txtMaDonDatHang.Enabled = false;
 
@@ -652,7 +697,7 @@ namespace QLTVT
                     this.btnChonKhoHang.Enabled = true;
                 }
                 /*dang o che do Chi Tiet Don Dat Hang*/
-                if (btnMENU.Links[0].Caption == "Chi Tiết Đơn Đặt Hàng")
+                if (bds == bdsChiTietDonDatHang)
                 {
                     this.txtMaVatTu.Enabled = false;
                     this.btnChonVatTu.Enabled = true;
@@ -670,7 +715,7 @@ namespace QLTVT
 
                 //this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnMENU.Enabled = true;
+                // this.btnMENU.Enabled = true; // Đã ẩn menu
                 this.btnTHOAT.Enabled = true;
 
 
@@ -756,7 +801,7 @@ namespace QLTVT
         private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string cauTruyVan = "";
-            string cheDo = (btnMENU.Links[0].Caption == "Đơn Đặt Hàng") ? "Đơn Đặt Hàng" : "Chi Tiết Đơn Đặt Hàng";
+            string cheDo = (bds == bdsDonDatHang) ? "Đơn Đặt Hàng" : "Chi Tiết Đơn Đặt Hàng";
 
             dangThemMoi = true;// bat cai nay len de ung voi dieu kien tao cau truy van
 
@@ -884,6 +929,30 @@ namespace QLTVT
                 this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.phieuNhapTableAdapter.Fill(this.dataSet.PhieuNhap);
             }
+        }
+
+        // Tự động chuyển sang chế độ "Đơn Đặt Hàng" khi click vào grid Đơn Đặt Hàng
+        private void gcDonDatHang_Click(object sender, EventArgs e)
+        {
+            btnCheDoDonDatHang_ItemClick(null, null);
+        }
+
+        // Tự động chuyển sang chế độ "Đơn Đặt Hàng" khi click vào groupbox Đơn Hàng
+        private void groupBoxDonDatHang_Click(object sender, EventArgs e)
+        {
+            btnCheDoDonDatHang_ItemClick(null, null);
+        }
+
+        // Tự động chuyển sang chế độ "Chi Tiết Đơn Đặt Hàng" khi click vào grid Chi Tiết
+        private void gcChiTietDonDatHang_Click(object sender, EventArgs e)
+        {
+            btnCheDoChiTietDonDatHang_ItemClick(null, null);
+        }
+
+        // Tự động chuyển sang chế độ "Chi Tiết Đơn Đặt Hàng" khi click vào groupbox Chi Tiết
+        private void groupBox1_Click(object sender, EventArgs e)
+        {
+            btnCheDoChiTietDonDatHang_ItemClick(null, null);
         }
     }
 }

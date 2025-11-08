@@ -33,7 +33,11 @@ namespace QLTVT
             btnDangNhap.Enabled = false;
             btnDangXuat.Enabled = true;
 
-            menuNhapXuat.Visible = true;
+            menuQuanLyNhanVien.Visible = true;
+            menuQuanLyVatTu.Visible = true;
+            menuQuanLyKho.Visible = true;
+            menuQuanLyDonHang.Visible = true;
+            menuQuanLyPhieu.Visible = true;
             menuBaoCao.Visible = true;
             btnLapTaiKhoan.Enabled = true;
 
@@ -70,7 +74,11 @@ namespace QLTVT
             btnDangNhap.Enabled = true;
             btnDangXuat.Enabled = false;
 
-            menuNhapXuat.Visible = false;
+            menuQuanLyNhanVien.Visible = false;
+            menuQuanLyVatTu.Visible = false;
+            menuQuanLyKho.Visible = false;
+            menuQuanLyDonHang.Visible = false;
+            menuQuanLyPhieu.Visible = false;
             menuBaoCao.Visible = false;
 
             Form f = this.CheckExists(typeof(FormDangNhap));

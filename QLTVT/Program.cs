@@ -33,7 +33,7 @@ namespace QLTVT
          **********************************************/
         public static SqlConnection conn = new SqlConnection();//conn
         public static String connstr = "";//connstr
-        public static String connstrPublisher = "Data Source=CHOI;Initial Catalog=QLVT_DATHANG;Integrated Security=true";
+        public static String connstrPublisher = "Data Source=ADMIN;Initial Catalog=QLVT_DATHANG;Integrated Security=true";
         public static SqlDataReader myReader;//myReader
 
 
@@ -76,7 +76,7 @@ namespace QLTVT
         public static String database = "QLVT_DATHANG";
         
         public static String remoteLogin = "HTKN";//remotelogin
-        public static String remotePassword = "123";//remotepassword
+        public static String remotePassword = "123456";//remotepassword
 
         public static String currentLogin = "";//mloginDN
         public static String currentPassword = "";//passwordDN

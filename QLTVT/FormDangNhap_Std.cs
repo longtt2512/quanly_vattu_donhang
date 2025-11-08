@@ -58,7 +58,7 @@ namespace QLTVT
         {
             // (Tuỳ chọn) Điền mặc định để test nhanh
             txtTAIKHOAN.Text = "TT";
-            txtMATKHAU.Text = "123";
+            txtMATKHAU.Text = "123456";
 
             if (KetNoiDatabaseGoc() == 0) return;
             layDanhSachPhanManh("SELECT TOP 2 * FROM view_DanhSachPhanManh");

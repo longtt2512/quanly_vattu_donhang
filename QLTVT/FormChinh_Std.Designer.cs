@@ -18,12 +18,15 @@ namespace QLTVT
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuNhapXuat = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQuanLyNhanVien = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNhanVien = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQuanLyVatTu = new System.Windows.Forms.ToolStripMenuItem();
             this.btnVatTu = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQuanLyKho = new System.Windows.Forms.ToolStripMenuItem();
             this.btnKho = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLapPhieu = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQuanLyDonHang = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDonDatHang = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQuanLyPhieu = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPhieuNhap = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPhieuXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBaoCao = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +53,11 @@ namespace QLTVT
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuNhapXuat,
+            this.menuQuanLyNhanVien,
+            this.menuQuanLyVatTu,
+            this.menuQuanLyKho,
+            this.menuQuanLyDonHang,
+            this.menuQuanLyPhieu,
             this.menuBaoCao,
             this.menuHeThong});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -60,67 +67,91 @@ namespace QLTVT
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // menuNhapXuat
+            // menuQuanLyNhanVien
             // 
-            this.menuNhapXuat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNhanVien,
-            this.btnVatTu,
-            this.btnKho,
-            this.menuLapPhieu});
-            this.menuNhapXuat.Name = "menuNhapXuat";
-            this.menuNhapXuat.Size = new System.Drawing.Size(85, 20);
-            this.menuNhapXuat.Text = "NHẬP XUẤT";
-            this.menuNhapXuat.Visible = false;
+            this.menuQuanLyNhanVien.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNhanVien});
+            this.menuQuanLyNhanVien.Name = "menuQuanLyNhanVien";
+            this.menuQuanLyNhanVien.Size = new System.Drawing.Size(146, 20);
+            this.menuQuanLyNhanVien.Text = "QUẢN LÝ NHÂN VIÊN";
+            this.menuQuanLyNhanVien.Visible = false;
             // 
             // btnNhanVien
             // 
             this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(128, 22);
-            this.btnNhanVien.Text = "Nhân viên";
+            this.btnNhanVien.Size = new System.Drawing.Size(180, 22);
+            this.btnNhanVien.Text = "Danh sách nhân viên";
             this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
+            // 
+            // menuQuanLyVatTu
+            // 
+            this.menuQuanLyVatTu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnVatTu});
+            this.menuQuanLyVatTu.Name = "menuQuanLyVatTu";
+            this.menuQuanLyVatTu.Size = new System.Drawing.Size(125, 20);
+            this.menuQuanLyVatTu.Text = "QUẢN LÝ VẬT TƯ";
+            this.menuQuanLyVatTu.Visible = false;
             // 
             // btnVatTu
             // 
             this.btnVatTu.Name = "btnVatTu";
-            this.btnVatTu.Size = new System.Drawing.Size(128, 22);
-            this.btnVatTu.Text = "Vật tư";
+            this.btnVatTu.Size = new System.Drawing.Size(180, 22);
+            this.btnVatTu.Text = "Danh sách vật tư";
             this.btnVatTu.Click += new System.EventHandler(this.btnVatTu_Click);
+            // 
+            // menuQuanLyKho
+            // 
+            this.menuQuanLyKho.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnKho});
+            this.menuQuanLyKho.Name = "menuQuanLyKho";
+            this.menuQuanLyKho.Size = new System.Drawing.Size(151, 20);
+            this.menuQuanLyKho.Text = "QUẢN LÝ KHO HÀNG";
+            this.menuQuanLyKho.Visible = false;
             // 
             // btnKho
             // 
             this.btnKho.Name = "btnKho";
-            this.btnKho.Size = new System.Drawing.Size(128, 22);
-            this.btnKho.Text = "Kho hàng";
+            this.btnKho.Size = new System.Drawing.Size(180, 22);
+            this.btnKho.Text = "Danh sách kho hàng";
             this.btnKho.Click += new System.EventHandler(this.btnKho_Click);
             // 
-            // menuLapPhieu
+            // menuQuanLyDonHang
             // 
-            this.menuLapPhieu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnDonDatHang,
-            this.btnPhieuNhap,
-            this.btnPhieuXuat});
-            this.menuLapPhieu.Name = "menuLapPhieu";
-            this.menuLapPhieu.Size = new System.Drawing.Size(128, 22);
-            this.menuLapPhieu.Text = "Lập phiếu";
+            this.menuQuanLyDonHang.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnDonDatHang});
+            this.menuQuanLyDonHang.Name = "menuQuanLyDonHang";
+            this.menuQuanLyDonHang.Size = new System.Drawing.Size(150, 20);
+            this.menuQuanLyDonHang.Text = "QUẢN LÝ ĐƠN HÀNG";
+            this.menuQuanLyDonHang.Visible = false;
             // 
             // btnDonDatHang
             // 
             this.btnDonDatHang.Name = "btnDonDatHang";
-            this.btnDonDatHang.Size = new System.Drawing.Size(146, 22);
+            this.btnDonDatHang.Size = new System.Drawing.Size(180, 22);
             this.btnDonDatHang.Text = "Đơn đặt hàng";
             this.btnDonDatHang.Click += new System.EventHandler(this.btnDonDatHang_Click);
+            // 
+            // menuQuanLyPhieu
+            // 
+            this.menuQuanLyPhieu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnPhieuNhap,
+            this.btnPhieuXuat});
+            this.menuQuanLyPhieu.Name = "menuQuanLyPhieu";
+            this.menuQuanLyPhieu.Size = new System.Drawing.Size(126, 20);
+            this.menuQuanLyPhieu.Text = "QUẢN LÝ PHIẾU";
+            this.menuQuanLyPhieu.Visible = false;
             // 
             // btnPhieuNhap
             // 
             this.btnPhieuNhap.Name = "btnPhieuNhap";
-            this.btnPhieuNhap.Size = new System.Drawing.Size(146, 22);
+            this.btnPhieuNhap.Size = new System.Drawing.Size(180, 22);
             this.btnPhieuNhap.Text = "Phiếu nhập";
             this.btnPhieuNhap.Click += new System.EventHandler(this.btnPhieuNhap_Click);
             // 
             // btnPhieuXuat
             // 
             this.btnPhieuXuat.Name = "btnPhieuXuat";
-            this.btnPhieuXuat.Size = new System.Drawing.Size(146, 22);
+            this.btnPhieuXuat.Size = new System.Drawing.Size(180, 22);
             this.btnPhieuXuat.Text = "Phiếu xuất";
             this.btnPhieuXuat.Click += new System.EventHandler(this.btnPhieuXuat_Click);
             // 
@@ -279,12 +310,15 @@ namespace QLTVT
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem menuNhapXuat;
+        private System.Windows.Forms.ToolStripMenuItem menuQuanLyNhanVien;
         private System.Windows.Forms.ToolStripMenuItem btnNhanVien;
+        private System.Windows.Forms.ToolStripMenuItem menuQuanLyVatTu;
         private System.Windows.Forms.ToolStripMenuItem btnVatTu;
+        private System.Windows.Forms.ToolStripMenuItem menuQuanLyKho;
         private System.Windows.Forms.ToolStripMenuItem btnKho;
-        private System.Windows.Forms.ToolStripMenuItem menuLapPhieu;
+        private System.Windows.Forms.ToolStripMenuItem menuQuanLyDonHang;
         private System.Windows.Forms.ToolStripMenuItem btnDonDatHang;
+        private System.Windows.Forms.ToolStripMenuItem menuQuanLyPhieu;
         private System.Windows.Forms.ToolStripMenuItem btnPhieuNhap;
         private System.Windows.Forms.ToolStripMenuItem btnPhieuXuat;
         private System.Windows.Forms.ToolStripMenuItem menuBaoCao;

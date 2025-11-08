@@ -48,12 +48,15 @@ namespace QLTVT.SubForm
         private void button1_Click(object sender, EventArgs e)
         {
             string maKhoHang =  ((DataRowView)bdsKhoHang.Current)["MAKHO"].ToString();
+            string tenKhoHang = ((DataRowView)bdsKhoHang.Current)["TENKHO"].ToString();
 
             /*Cach nay phai tuy bien ban moi chay duoc*/
             //Program.formDonDatHang.txtMaKho.Text = maKhoHang;
 
 
             Program.maKhoDuocChon = maKhoHang;
+            Program.tenKhoDuocChon = tenKhoHang;
+            this.DialogResult = DialogResult.OK;
             this.Close(); 
         }
     }

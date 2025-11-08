@@ -44,6 +44,7 @@ namespace QLTVT.SubForm
             Program.maVatTuDuocChon = maVatTu;
             Program.soLuongVatTu = soLuongVatTu;
 
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
