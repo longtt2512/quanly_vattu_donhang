@@ -138,7 +138,7 @@ namespace QLTVT
         /*các form của toàn dữ án cũng được coi như 1 một biến toàn cục*/
         public static FormDangNhap_Std formDangNhap;
         public static FormChinh_Std formChinh;
-        public static FormNhanVien formNhanVien;
+        public static FormNhanVien_Std formNhanVien;
 
         public static FormChuyenChiNhanh formChuyenChiNhanh;
         public static FormVatTu formVatTu;

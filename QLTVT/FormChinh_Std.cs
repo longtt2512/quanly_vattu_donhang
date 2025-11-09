@@ -127,6 +127,9 @@ namespace QLTVT
                 form.Show();
 
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnNhanVien);
         }
 
         private void btnVatTu_Click(object sender, EventArgs e)
@@ -139,6 +142,9 @@ namespace QLTVT
                 form.MdiParent = this;
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnVatTu);
         }
 
         private void btnKho_Click(object sender, EventArgs e)
@@ -151,6 +157,9 @@ namespace QLTVT
                 form.MdiParent = this;
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnKho);
         }
 
         private void btnDonDatHang_Click(object sender, EventArgs e)
@@ -163,6 +172,9 @@ namespace QLTVT
                 form.MdiParent = this;
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnDonDatHang);
         }
 
         private void btnPhieuNhap_Click(object sender, EventArgs e)
@@ -175,6 +187,9 @@ namespace QLTVT
                 form.MdiParent = this;
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnPhieuNhap);
         }
 
         private void btnPhieuXuat_Click(object sender, EventArgs e)
@@ -187,6 +202,9 @@ namespace QLTVT
                 form.MdiParent = this;
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnPhieuXuat);
         }
 
         private void btnDanhSachNhanVien_Click(object sender, EventArgs e)
@@ -198,6 +216,9 @@ namespace QLTVT
                 FormDanhSachNhanVien form = new FormDanhSachNhanVien();
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnDanhSachNhanVien);
         }
 
         private void btnDanhSachVatTu_Click(object sender, EventArgs e)
@@ -209,6 +230,9 @@ namespace QLTVT
                 FormDanhSachVatTu form = new FormDanhSachVatTu();
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnDanhSachVatTu);
         }
 
         private void btnDonHangKhongPhieuNhap_Click(object sender, EventArgs e)
@@ -220,6 +244,9 @@ namespace QLTVT
                 FormDonHangKhongPhieuNhap form = new FormDonHangKhongPhieuNhap();
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnDonHangKhongPhieuNhap);
         }
 
         private void btnChiTietNhapXuat_Click(object sender, EventArgs e)
@@ -231,6 +258,9 @@ namespace QLTVT
                 FormChiTietSoLuongTriGiaHangHoaNhapXuat form = new FormChiTietSoLuongTriGiaHangHoaNhapXuat();
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnChiTietNhapXuat);
         }
 
         private void btnHoatDongNhanVien_Click(object sender, EventArgs e)
@@ -242,6 +272,9 @@ namespace QLTVT
                 FormHoatDongNhanVien form = new FormHoatDongNhanVien();
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnHoatDongNhanVien);
         }
 
         private void btnTongHopNhapXuat_Click(object sender, EventArgs e)
@@ -253,6 +286,9 @@ namespace QLTVT
                 FormTongHopNhapXuat form = new FormTongHopNhapXuat();
                 form.Show();
             }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnTongHopNhapXuat);
         }
 
         private void btnLapTaiKhoan_Click(object sender, EventArgs e)
@@ -263,6 +299,52 @@ namespace QLTVT
             {
                 FormTaoTaiKhoan_Std form = new FormTaoTaiKhoan_Std();
                 form.Show();
+            }
+            
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnLapTaiKhoan);
+        }
+
+        // Reset tất cả menu items về font bình thường
+        private void ResetAllMenuFont()
+        {
+            System.Drawing.Font normalFont = new System.Drawing.Font(menuStrip1.Font.FontFamily, 9F, System.Drawing.FontStyle.Regular);
+            
+            // Reset parent menus
+            menuQuanLyNhanVien.Font = normalFont;
+            menuQuanLyVatTu.Font = normalFont;
+            menuQuanLyKho.Font = normalFont;
+            menuQuanLyDonHang.Font = normalFont;
+            menuQuanLyPhieu.Font = normalFont;
+            menuBaoCao.Font = normalFont;
+            menuHeThong.Font = normalFont;
+            
+            // Reset child menu items
+            btnNhanVien.Font = normalFont;
+            btnVatTu.Font = normalFont;
+            btnKho.Font = normalFont;
+            btnDonDatHang.Font = normalFont;
+            btnPhieuNhap.Font = normalFont;
+            btnPhieuXuat.Font = normalFont;
+            btnDanhSachNhanVien.Font = normalFont;
+            btnDanhSachVatTu.Font = normalFont;
+            btnChiTietNhapXuat.Font = normalFont;
+            btnDonHangKhongPhieuNhap.Font = normalFont;
+            btnHoatDongNhanVien.Font = normalFont;
+            btnTongHopNhapXuat.Font = normalFont;
+            btnLapTaiKhoan.Font = normalFont;
+        }
+
+        // Đặt font đậm cho menu item được chọn và parent menu
+        private void SetActiveMenuFont(ToolStripMenuItem menuItem)
+        {
+            System.Drawing.Font boldFont = new System.Drawing.Font(menuStrip1.Font.FontFamily, 9F, System.Drawing.FontStyle.Bold);
+            menuItem.Font = boldFont;
+            
+            // Cũng bôi đậm parent menu nếu có
+            if (menuItem.OwnerItem is ToolStripMenuItem parentMenu)
+            {
+                parentMenu.Font = boldFont;
             }
         }
     }

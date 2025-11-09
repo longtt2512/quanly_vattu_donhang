@@ -89,12 +89,15 @@ namespace QLTVT
 
         private void btnCheDoPhieuXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 0*/
-            btnMENU.Links[0].Caption = "Phiếu Xuất";
-
             /*Step 1*/
             bds = bdsPhieuXuat;
-            gc = gcChiTietPhieuXuat;
+            gc = gcPhieuXuat;
+
+            // Làm nổi bật grid đang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
 
 
             /*Step 2*/
@@ -163,12 +166,15 @@ namespace QLTVT
 
         private void btnCheDoChiTietPhieuXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 0*/
-            btnMENU.Links[0].Caption = "Chi Tiết Phiếu Xuất";
-
             /*Step 1*/
             bds = bdsChiTietPhieuXuat;
-            //gc = gcChiTietPhieuXuat;
+            gc = gcChiTietPhieuXuat;
+
+            // Làm nổi bật grid đang active
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
 
 
             /*Step 2*/
@@ -276,78 +282,112 @@ namespace QLTVT
             viTri = bds.Position;
             dangThemMoi = true;
 
-            /*Step 2*/
-            /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
-            bds.AddNew();
-            if (btnMENU.Links[0].Caption == "Phiếu Xuất")
+            /*Step 2 - Hiển thị form popup tùy theo chế độ*/
+            if (bds == bdsPhieuXuat) // Chế độ Phiếu Xuất
             {
-                this.txtMaPhieuXuat.Enabled = true;
+                // Hiển thị form popup để nhập thông tin phiếu xuất
+                using (SubForm.FormThemPhieuXuat formThem = new SubForm.FormThemPhieuXuat())
+                {
+                    formThem.StartPosition = FormStartPosition.CenterParent;
+                    DialogResult result = formThem.ShowDialog(this);
 
-                this.dteNgay.EditValue = DateTime.Now;
-                this.dteNgay.Enabled = false;
+                    if (result == DialogResult.OK)
+                    {
+                        // Thêm dòng mới vào binding source
+                        bds.AddNew();
+                        
+                        // Gán giá trị từ form popup
+                        ((DataRowView)(bdsPhieuXuat.Current))["MAPX"] = formThem.MaPhieuXuat;
+                        ((DataRowView)(bdsPhieuXuat.Current))["NGAY"] = formThem.NgayXuat;
+                        ((DataRowView)(bdsPhieuXuat.Current))["HOTENKH"] = formThem.TenKhachHang;
+                        ((DataRowView)(bdsPhieuXuat.Current))["MANV"] = Program.userName;
+                        ((DataRowView)(bdsPhieuXuat.Current))["MAKHO"] = formThem.MaKho;
 
-                this.txtTenKhachHang.Enabled = true;
-                this.txtMaNhanVien.Text = Program.userName;
+                        // Refresh các textbox trên form (để validation pass)
+                        bds.EndEdit();
+                        
+                        // Cập nhật trực tiếp các textbox (để đảm bảo validation thấy được dữ liệu)
+                        this.txtMaPhieuXuat.Text = formThem.MaPhieuXuat;
+                        this.dteNgay.EditValue = formThem.NgayXuat;
+                        this.txtTenKhachHang.Text = formThem.TenKhachHang;
+                        this.txtMaNhanVien.Text = Program.userName;
+                        this.txtMaKho.Text = formThem.MaKho;
 
-                this.btnChonKhoHang.Enabled = true;
-                this.txtMaKho.Text = Program.maKhoDuocChon;
-
-                this.txtMaVatTuChiTietPhieuXuat.Enabled = false;
-                this.btnChonVatTu.Enabled = false;
-                this.txtSoLuongChiTietPhieuXuat.Enabled = false;
-                this.txtDonGiaChiTietPhieuXuat.Enabled = false;
-                
-                /*Gan tu dong may truong du lieu nay*/
-                ((DataRowView)(bdsPhieuXuat.Current))["NGAY"] = DateTime.Now;
-                ((DataRowView)(bdsPhieuXuat.Current))["MANV"] = Program.userName;
-                ((DataRowView)(bdsPhieuXuat.Current))["MAKHO"] =
-                Program.maKhoDuocChon;
-
+                        // Bật chế độ ghi
+                        this.btnTHEM.Enabled = false;
+                        this.btnXOA.Enabled = false;
+                        this.btnGHI.Enabled = true;
+                        this.btnHOANTAC.Enabled = true;
+                        this.btnLAMMOI.Enabled = false;
+                        this.btnTHOAT.Enabled = false;
+                    }
+                    else
+                    {
+                        // Hủy bỏ thêm mới
+                        dangThemMoi = false;
+                    }
+                }
+                return;
             }
 
-            if (btnMENU.Links[0].Caption == "Chi Tiết Phiếu Xuất")
+            if (bds == bdsChiTietPhieuXuat) // Chế độ Chi Tiết Phiếu Xuất
             {
-
                 DataRowView drv = ((DataRowView)bdsPhieuXuat[bdsPhieuXuat.Position]);
                 String maNhanVien = drv["MANV"].ToString();
                 if (Program.userName != maNhanVien)
                 {
-                    MessageBox.Show("Không thể thêm chi tiết phiếu xuất trên phiếu  không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Bạn không thể thêm chi tiết phiếu xuất trên phiếu không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
                     return;
                 }
 
-               /*Gan tu dong may truong du lieu nay*/
-               ((DataRowView)(bdsChiTietPhieuXuat.Current))["MAPX"] = ((DataRowView)(bdsPhieuXuat.Current))["MAPX"];
-                ((DataRowView)(bdsChiTietPhieuXuat.Current))["MAVT"] =
-                    Program.maVatTuDuocChon;
+                // Lấy mã kho của phiếu xuất hiện tại
+                String maKho = drv["MAKHO"].ToString().Trim();
 
+                // Hiển thị form popup để nhập chi tiết phiếu xuất
+                using (SubForm.FormThemChiTietPhieuXuat formThem = new SubForm.FormThemChiTietPhieuXuat(maKho))
+                {
+                    formThem.StartPosition = FormStartPosition.CenterParent;
+                    DialogResult result = formThem.ShowDialog(this);
 
+                    if (result == DialogResult.OK)
+                    {
+                        // Thêm dòng mới vào binding source
+                        bds.AddNew();
+                        
+                        // Gán giá trị từ form popup
+                        ((DataRowView)(bdsChiTietPhieuXuat.Current))["MAPX"] = 
+                            ((DataRowView)bdsPhieuXuat[bdsPhieuXuat.Position])["MAPX"];
+                        ((DataRowView)(bdsChiTietPhieuXuat.Current))["MAVT"] = formThem.MaVatTu;
+                        ((DataRowView)(bdsChiTietPhieuXuat.Current))["SOLUONG"] = formThem.SoLuong;
+                        ((DataRowView)(bdsChiTietPhieuXuat.Current))["DONGIA"] = formThem.DonGia;
 
+                        // Refresh các textbox trên form (để validation pass)
+                        bds.EndEdit();
+                        
+                        // Cập nhật trực tiếp các textbox (để đảm bảo validation thấy được dữ liệu)
+                        this.txtMaVatTuChiTietPhieuXuat.Text = formThem.MaVatTu;
+                        this.txtSoLuongChiTietPhieuXuat.Value = formThem.SoLuong;
+                        this.txtDonGiaChiTietPhieuXuat.Value = formThem.DonGia;
 
-                this.txtMaVatTuChiTietPhieuXuat.Enabled = false;
-                this.btnChonVatTu.Enabled = true;
+                        // Bật chế độ ghi
+                        this.btnTHEM.Enabled = false;
+                        this.btnXOA.Enabled = false;
+                        this.btnGHI.Enabled = true;
+                        this.btnHOANTAC.Enabled = true;
+                        this.btnLAMMOI.Enabled = false;
+                        this.btnTHOAT.Enabled = false;
 
-                this.txtSoLuongChiTietPhieuXuat.Enabled = true;
-                this.txtSoLuongChiTietPhieuXuat.EditValue = 1;
-
-                this.txtDonGiaChiTietPhieuXuat.Enabled = true;
-                this.txtDonGiaChiTietPhieuXuat.EditValue = 1;
+                        gcPhieuXuat.Enabled = false;
+                        gcChiTietPhieuXuat.Enabled = false;
+                    }
+                    else
+                    {
+                        // Hủy bỏ thêm mới
+                        dangThemMoi = false;
+                    }
+                }
+                return;
             }
-
-            
-
-            /*Step 3*/
-            this.btnTHEM.Enabled = false;
-            this.btnXOA.Enabled = false;
-            this.btnGHI.Enabled = true;
-
-            this.btnHOANTAC.Enabled = true;
-            this.btnLAMMOI.Enabled = false;
-            this.btnMENU.Enabled = false;
-            this.btnTHOAT.Enabled = false;
-
-            gcPhieuXuat.Enabled = false;
-            gcChiTietPhieuXuat.Enabled = false;
         }
 
         private void btnChonKhoHang_Click(object sender, EventArgs e)
@@ -380,7 +420,7 @@ namespace QLTVT
 
                 if (txtMaPhieuXuat.Text == "")
                 {
-                    MessageBox.Show("Không bỏ trống mã phiếu nhập !", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Không bỏ trống mã phiếu xuất !", "Thông báo", MessageBoxButtons.OK);
                     txtMaPhieuXuat.Focus();
                     return false;
                 }
@@ -422,20 +462,6 @@ namespace QLTVT
                 {
                     MessageBox.Show("Không thể thêm chi tiết phiếu xuất với phiếu xuất do người khác tạo !", "Thông báo", MessageBoxButtons.OK);
                     bdsChiTietPhieuXuat.RemoveCurrent();
-                    return false;
-                }
-
-                if (txtMaPhieuXuat.Text == "")
-                {
-                    MessageBox.Show("Không bỏ trống mã phiếu nhập !", "Thông báo", MessageBoxButtons.OK);
-                    txtMaPhieuXuat.Focus();
-                    return false;
-                }
-
-                if (txtMaPhieuXuat.Text.Length > 8)
-                {
-                    MessageBox.Show("Mã phiếu xuất không thể quá 8 kí tự !", "Thông báo", MessageBoxButtons.OK);
-                    txtMaPhieuXuat.Focus();
                     return false;
                 }
 
@@ -546,7 +572,7 @@ namespace QLTVT
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/
-            String cheDo = (btnMENU.Links[0].Caption == "Phiếu Xuất") ? "Phiếu Xuất" : "Chi Tiết Phiếu Xuất";
+            String cheDo = (bds == bdsPhieuXuat) ? "Phiếu Xuất" : "Chi Tiết Phiếu Xuất";
 
             /*Step 2*/
             bool ketQua = kiemTraDuLieuDauVao(cheDo);
@@ -692,8 +718,8 @@ namespace QLTVT
             {
                 dangThemMoi = false;
 
-                /*dang o che do Phiếu Nhập*/
-                if (btnMENU.Links[0].Caption == "Phiếu Xuất")
+                /*dang o che do Phiếu Xuất*/
+                if (bds == bdsPhieuXuat)
                 {
                     this.txtMaPhieuXuat.Enabled = false;
                     this.dteNgay.Enabled = false;
@@ -704,8 +730,8 @@ namespace QLTVT
                     this.txtMaKho.Enabled = false;
                     this.btnChonKhoHang.Enabled = true;
                 }
-                /*dang o che do Chi Tiết Phiếu Nhập*/
-                if (btnMENU.Links[0].Caption == "Chi Tiết Phiếu Nhập")
+                /*dang o che do Chi Tiết Phiếu Xuất*/
+                if (bds == bdsChiTietPhieuXuat)
                 {
                     this.txtMaPhieuXuat.Enabled = false;
                     this.txtMaVatTuChiTietPhieuXuat.Enabled = false;
@@ -773,7 +799,7 @@ namespace QLTVT
         {
             DataRowView drv;
             string cauTruyVanHoanTac = "";
-            string cheDo = (btnMENU.Links[0].Caption == "Phiếu Xuất") ? "Phiếu Xuất" : "Chi Tiết Phiếu Xuất";
+            string cheDo = (bds == bdsPhieuXuat) ? "Phiếu Xuất" : "Chi Tiết Phiếu Xuất";
 
             if (cheDo == "Phiếu Xuất")
             {
@@ -876,6 +902,46 @@ namespace QLTVT
                 // xoa cau truy van hoan tac di
                 undoList.Pop();
             }
+        }
+
+        private void gcPhieuXuat_Click(object sender, EventArgs e)
+        {
+            btnCheDoPhieuXuat_ItemClick(null, null);
+
+            // Làm nổi bật grid đang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+        }
+
+        private void gcChiTietPhieuXuat_Click(object sender, EventArgs e)
+        {
+            btnCheDoChiTietPhieuXuat_ItemClick(null, null);
+
+            // Làm nổi bật grid đang active
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            // Làm nổi bật grid đang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+        }
+
+        private void gvCTDDH_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            // Làm nổi bật grid đang active
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
         }
     }
 }
