@@ -81,14 +81,14 @@ namespace QLTVT
             menuQuanLyPhieu.Visible = false;
             menuBaoCao.Visible = false;
 
-            Form f = this.CheckExists(typeof(FormDangNhap));
+            Form f = this.CheckExists(typeof(FormDangNhap_Std));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormDangNhap form = new FormDangNhap();
+                FormDangNhap_Std form = new FormDangNhap_Std();
                 form.Show();
             }
 
@@ -257,11 +257,11 @@ namespace QLTVT
 
         private void btnLapTaiKhoan_Click(object sender, EventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormTaoTaiKhoan));
+            Form f = this.CheckExists(typeof(FormTaoTaiKhoan_Std));
             if (f != null) f.Activate();
             else
             {
-                FormTaoTaiKhoan form = new FormTaoTaiKhoan();
+                FormTaoTaiKhoan_Std form = new FormTaoTaiKhoan_Std();
                 form.Show();
             }
         }

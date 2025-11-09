@@ -126,6 +126,7 @@ namespace QLTVT
 
         /*Cho nay de phuc vu tinh nang HOAT DONG NHAN VIEN*/
         public static string maNhanVienDuocChon = "";
+        public static string taiKhoan = "";
         public static string hoTen = "";
         public static string diaChi = "";
         public static string ngaySinh = "";
@@ -135,7 +136,7 @@ namespace QLTVT
 
 
         /*các form của toàn dữ án cũng được coi như 1 một biến toàn cục*/
-        public static FormDangNhap formDangNhap;
+        public static FormDangNhap_Std formDangNhap;
         public static FormChinh_Std formChinh;
         public static FormNhanVien formNhanVien;
 

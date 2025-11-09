@@ -118,10 +118,12 @@ namespace QLTVT
 
             bdsNhanVien.AddNew();
             txtMACN.Text = maChiNhanh;
-            dteNGAYSINH.Value = new DateTime(2000, 5, 1);
+            dteNGAYSINH.Value = new DateTime(1990, 1, 1);
             txtLUONG.Value = 4000000;
             trangThaiXoaCheckBox.Checked = false;
-
+            ((DataRowView)bdsNhanVien.Current)["TrangThaiXoa"] = false;
+            ((DataRowView)bdsNhanVien.Current)["NGAYSINH"] = dteNGAYSINH.Value;
+            ((DataRowView)bdsNhanVien.Current)["LUONG"] = txtLUONG.Value;
             txtMANV.Enabled = true;
             btnTHEM.Enabled = false;
             btnXOA.Enabled = false;
@@ -405,7 +407,9 @@ namespace QLTVT
         {
             bool ketQua = kiemTraDuLieuDauVao();
             if (!ketQua) return;
-
+            bdsNhanVien.EndEdit();              // commit binding của control hiện tại
+            var cm = (CurrencyManager)bdsNhanVien.CurrencyManager;
+            cm.EndCurrentEdit();
             string maNhanVien = txtMANV.Text.Trim();
             DataRowView drv = ((DataRowView)bdsNhanVien[bdsNhanVien.Position]);
             string ho = drv["HO"].ToString();

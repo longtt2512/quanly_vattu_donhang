@@ -41,12 +41,27 @@ namespace QLTVT
             this.tabDetails = new System.Windows.Forms.TabControl();
             this.tabDatHang = new System.Windows.Forms.TabPage();
             this.dgvDatHang = new System.Windows.Forms.DataGridView();
+            this.masoDDHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nGAYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nhaCCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mANVDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mAKHODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsDatHang = new System.Windows.Forms.BindingSource(this.components);
             this.tabPhieuNhap = new System.Windows.Forms.TabPage();
             this.dgvPhieuNhap = new System.Windows.Forms.DataGridView();
+            this.mAPNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nGAYDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.masoDDHDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mANVDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mAKHODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsPhieuNhap = new System.Windows.Forms.BindingSource(this.components);
             this.tabPhieuXuat = new System.Windows.Forms.TabPage();
             this.dgvPhieuXuat = new System.Windows.Forms.DataGridView();
+            this.mAPXDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nGAYDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hOTENKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mANVDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mAKHODataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsPhieuXuat = new System.Windows.Forms.BindingSource(this.components);
             this.panelNhapLieu = new System.Windows.Forms.Panel();
             this.dteNGAYSINH = new System.Windows.Forms.DateTimePicker();
@@ -69,22 +84,7 @@ namespace QLTVT
             this.nGAYSINHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lUONGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mACNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trangThaiXoaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.masoDDHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nGAYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nhaCCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mANVDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mAKHODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mAPNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nGAYDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.masoDDHDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mANVDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mAKHODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mAPXDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nGAYDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hOTENKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mANVDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mAKHODataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangThaiXoaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -261,7 +261,7 @@ namespace QLTVT
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 24);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(2);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(825, 39);
             this.panelTop.TabIndex = 2;
@@ -271,8 +271,8 @@ namespace QLTVT
             this.cmbCHINHANH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCHINHANH.Enabled = false;
             this.cmbCHINHANH.FormattingEnabled = true;
-            this.cmbCHINHANH.Location = new System.Drawing.Point(165, 10);
-            this.cmbCHINHANH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCHINHANH.Location = new System.Drawing.Point(63, 10);
+            this.cmbCHINHANH.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCHINHANH.Name = "cmbCHINHANH";
             this.cmbCHINHANH.Size = new System.Drawing.Size(226, 21);
             this.cmbCHINHANH.TabIndex = 0;
@@ -281,7 +281,7 @@ namespace QLTVT
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 12);
+            this.label1.Location = new System.Drawing.Point(3, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
@@ -292,7 +292,7 @@ namespace QLTVT
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitContainer1.Location = new System.Drawing.Point(0, 63);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -323,7 +323,7 @@ namespace QLTVT
             this.dgvNhanVien.DataSource = this.bdsNhanVien;
             this.dgvNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNhanVien.Location = new System.Drawing.Point(0, 0);
-            this.dgvNhanVien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvNhanVien.Margin = new System.Windows.Forms.Padding(2);
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.Size = new System.Drawing.Size(825, 170);
             this.dgvNhanVien.TabIndex = 0;
@@ -345,7 +345,7 @@ namespace QLTVT
             this.tabDetails.Controls.Add(this.tabPhieuXuat);
             this.tabDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetails.Location = new System.Drawing.Point(0, 0);
-            this.tabDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabDetails.Margin = new System.Windows.Forms.Padding(2);
             this.tabDetails.Name = "tabDetails";
             this.tabDetails.SelectedIndex = 0;
             this.tabDetails.Size = new System.Drawing.Size(825, 119);
@@ -355,9 +355,9 @@ namespace QLTVT
             // 
             this.tabDatHang.Controls.Add(this.dgvDatHang);
             this.tabDatHang.Location = new System.Drawing.Point(4, 22);
-            this.tabDatHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabDatHang.Margin = new System.Windows.Forms.Padding(2);
             this.tabDatHang.Name = "tabDatHang";
-            this.tabDatHang.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabDatHang.Padding = new System.Windows.Forms.Padding(2);
             this.tabDatHang.Size = new System.Drawing.Size(817, 93);
             this.tabDatHang.TabIndex = 0;
             this.tabDatHang.Text = "Đặt hàng";
@@ -375,10 +375,40 @@ namespace QLTVT
             this.dgvDatHang.DataSource = this.bdsDatHang;
             this.dgvDatHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatHang.Location = new System.Drawing.Point(2, 2);
-            this.dgvDatHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDatHang.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatHang.Name = "dgvDatHang";
             this.dgvDatHang.Size = new System.Drawing.Size(813, 89);
             this.dgvDatHang.TabIndex = 0;
+            // 
+            // masoDDHDataGridViewTextBoxColumn
+            // 
+            this.masoDDHDataGridViewTextBoxColumn.DataPropertyName = "MasoDDH";
+            this.masoDDHDataGridViewTextBoxColumn.HeaderText = "MasoDDH";
+            this.masoDDHDataGridViewTextBoxColumn.Name = "masoDDHDataGridViewTextBoxColumn";
+            // 
+            // nGAYDataGridViewTextBoxColumn
+            // 
+            this.nGAYDataGridViewTextBoxColumn.DataPropertyName = "NGAY";
+            this.nGAYDataGridViewTextBoxColumn.HeaderText = "NGAY";
+            this.nGAYDataGridViewTextBoxColumn.Name = "nGAYDataGridViewTextBoxColumn";
+            // 
+            // nhaCCDataGridViewTextBoxColumn
+            // 
+            this.nhaCCDataGridViewTextBoxColumn.DataPropertyName = "NhaCC";
+            this.nhaCCDataGridViewTextBoxColumn.HeaderText = "NhaCC";
+            this.nhaCCDataGridViewTextBoxColumn.Name = "nhaCCDataGridViewTextBoxColumn";
+            // 
+            // mANVDataGridViewTextBoxColumn1
+            // 
+            this.mANVDataGridViewTextBoxColumn1.DataPropertyName = "MANV";
+            this.mANVDataGridViewTextBoxColumn1.HeaderText = "MANV";
+            this.mANVDataGridViewTextBoxColumn1.Name = "mANVDataGridViewTextBoxColumn1";
+            // 
+            // mAKHODataGridViewTextBoxColumn
+            // 
+            this.mAKHODataGridViewTextBoxColumn.DataPropertyName = "MAKHO";
+            this.mAKHODataGridViewTextBoxColumn.HeaderText = "MAKHO";
+            this.mAKHODataGridViewTextBoxColumn.Name = "mAKHODataGridViewTextBoxColumn";
             // 
             // bdsDatHang
             // 
@@ -389,9 +419,9 @@ namespace QLTVT
             // 
             this.tabPhieuNhap.Controls.Add(this.dgvPhieuNhap);
             this.tabPhieuNhap.Location = new System.Drawing.Point(4, 22);
-            this.tabPhieuNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPhieuNhap.Margin = new System.Windows.Forms.Padding(2);
             this.tabPhieuNhap.Name = "tabPhieuNhap";
-            this.tabPhieuNhap.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPhieuNhap.Padding = new System.Windows.Forms.Padding(2);
             this.tabPhieuNhap.Size = new System.Drawing.Size(817, 93);
             this.tabPhieuNhap.TabIndex = 1;
             this.tabPhieuNhap.Text = "Phiếu nhập";
@@ -409,10 +439,40 @@ namespace QLTVT
             this.dgvPhieuNhap.DataSource = this.bdsPhieuNhap;
             this.dgvPhieuNhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPhieuNhap.Location = new System.Drawing.Point(2, 2);
-            this.dgvPhieuNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPhieuNhap.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPhieuNhap.Name = "dgvPhieuNhap";
             this.dgvPhieuNhap.Size = new System.Drawing.Size(813, 89);
             this.dgvPhieuNhap.TabIndex = 0;
+            // 
+            // mAPNDataGridViewTextBoxColumn
+            // 
+            this.mAPNDataGridViewTextBoxColumn.DataPropertyName = "MAPN";
+            this.mAPNDataGridViewTextBoxColumn.HeaderText = "MAPN";
+            this.mAPNDataGridViewTextBoxColumn.Name = "mAPNDataGridViewTextBoxColumn";
+            // 
+            // nGAYDataGridViewTextBoxColumn1
+            // 
+            this.nGAYDataGridViewTextBoxColumn1.DataPropertyName = "NGAY";
+            this.nGAYDataGridViewTextBoxColumn1.HeaderText = "NGAY";
+            this.nGAYDataGridViewTextBoxColumn1.Name = "nGAYDataGridViewTextBoxColumn1";
+            // 
+            // masoDDHDataGridViewTextBoxColumn1
+            // 
+            this.masoDDHDataGridViewTextBoxColumn1.DataPropertyName = "MasoDDH";
+            this.masoDDHDataGridViewTextBoxColumn1.HeaderText = "MasoDDH";
+            this.masoDDHDataGridViewTextBoxColumn1.Name = "masoDDHDataGridViewTextBoxColumn1";
+            // 
+            // mANVDataGridViewTextBoxColumn2
+            // 
+            this.mANVDataGridViewTextBoxColumn2.DataPropertyName = "MANV";
+            this.mANVDataGridViewTextBoxColumn2.HeaderText = "MANV";
+            this.mANVDataGridViewTextBoxColumn2.Name = "mANVDataGridViewTextBoxColumn2";
+            // 
+            // mAKHODataGridViewTextBoxColumn1
+            // 
+            this.mAKHODataGridViewTextBoxColumn1.DataPropertyName = "MAKHO";
+            this.mAKHODataGridViewTextBoxColumn1.HeaderText = "MAKHO";
+            this.mAKHODataGridViewTextBoxColumn1.Name = "mAKHODataGridViewTextBoxColumn1";
             // 
             // bdsPhieuNhap
             // 
@@ -423,9 +483,9 @@ namespace QLTVT
             // 
             this.tabPhieuXuat.Controls.Add(this.dgvPhieuXuat);
             this.tabPhieuXuat.Location = new System.Drawing.Point(4, 22);
-            this.tabPhieuXuat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPhieuXuat.Margin = new System.Windows.Forms.Padding(2);
             this.tabPhieuXuat.Name = "tabPhieuXuat";
-            this.tabPhieuXuat.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPhieuXuat.Padding = new System.Windows.Forms.Padding(2);
             this.tabPhieuXuat.Size = new System.Drawing.Size(817, 93);
             this.tabPhieuXuat.TabIndex = 2;
             this.tabPhieuXuat.Text = "Phiếu xuất";
@@ -443,10 +503,40 @@ namespace QLTVT
             this.dgvPhieuXuat.DataSource = this.bdsPhieuXuat;
             this.dgvPhieuXuat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPhieuXuat.Location = new System.Drawing.Point(2, 2);
-            this.dgvPhieuXuat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPhieuXuat.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPhieuXuat.Name = "dgvPhieuXuat";
             this.dgvPhieuXuat.Size = new System.Drawing.Size(813, 89);
             this.dgvPhieuXuat.TabIndex = 0;
+            // 
+            // mAPXDataGridViewTextBoxColumn
+            // 
+            this.mAPXDataGridViewTextBoxColumn.DataPropertyName = "MAPX";
+            this.mAPXDataGridViewTextBoxColumn.HeaderText = "MAPX";
+            this.mAPXDataGridViewTextBoxColumn.Name = "mAPXDataGridViewTextBoxColumn";
+            // 
+            // nGAYDataGridViewTextBoxColumn2
+            // 
+            this.nGAYDataGridViewTextBoxColumn2.DataPropertyName = "NGAY";
+            this.nGAYDataGridViewTextBoxColumn2.HeaderText = "NGAY";
+            this.nGAYDataGridViewTextBoxColumn2.Name = "nGAYDataGridViewTextBoxColumn2";
+            // 
+            // hOTENKHDataGridViewTextBoxColumn
+            // 
+            this.hOTENKHDataGridViewTextBoxColumn.DataPropertyName = "HOTENKH";
+            this.hOTENKHDataGridViewTextBoxColumn.HeaderText = "HOTENKH";
+            this.hOTENKHDataGridViewTextBoxColumn.Name = "hOTENKHDataGridViewTextBoxColumn";
+            // 
+            // mANVDataGridViewTextBoxColumn3
+            // 
+            this.mANVDataGridViewTextBoxColumn3.DataPropertyName = "MANV";
+            this.mANVDataGridViewTextBoxColumn3.HeaderText = "MANV";
+            this.mANVDataGridViewTextBoxColumn3.Name = "mANVDataGridViewTextBoxColumn3";
+            // 
+            // mAKHODataGridViewTextBoxColumn2
+            // 
+            this.mAKHODataGridViewTextBoxColumn2.DataPropertyName = "MAKHO";
+            this.mAKHODataGridViewTextBoxColumn2.HeaderText = "MAKHO";
+            this.mAKHODataGridViewTextBoxColumn2.Name = "mAKHODataGridViewTextBoxColumn2";
             // 
             // bdsPhieuXuat
             // 
@@ -473,7 +563,7 @@ namespace QLTVT
             this.panelNhapLieu.Controls.Add(this.txtMANV);
             this.panelNhapLieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNhapLieu.Location = new System.Drawing.Point(0, 355);
-            this.panelNhapLieu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelNhapLieu.Margin = new System.Windows.Forms.Padding(2);
             this.panelNhapLieu.Name = "panelNhapLieu";
             this.panelNhapLieu.Size = new System.Drawing.Size(825, 108);
             this.panelNhapLieu.TabIndex = 0;
@@ -484,7 +574,7 @@ namespace QLTVT
             this.dteNGAYSINH.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsNhanVien, "NGAYSINH", true));
             this.dteNGAYSINH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dteNGAYSINH.Location = new System.Drawing.Point(264, 71);
-            this.dteNGAYSINH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dteNGAYSINH.Margin = new System.Windows.Forms.Padding(2);
             this.dteNGAYSINH.Name = "dteNGAYSINH";
             this.dteNGAYSINH.Size = new System.Drawing.Size(114, 20);
             this.dteNGAYSINH.TabIndex = 1;
@@ -494,7 +584,7 @@ namespace QLTVT
             // 
             this.trangThaiXoaCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bdsNhanVien, "TrangThaiXoa", true));
             this.trangThaiXoaCheckBox.Location = new System.Drawing.Point(624, 75);
-            this.trangThaiXoaCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.trangThaiXoaCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.trangThaiXoaCheckBox.Name = "trangThaiXoaCheckBox";
             this.trangThaiXoaCheckBox.Size = new System.Drawing.Size(14, 14);
             this.trangThaiXoaCheckBox.TabIndex = 3;
@@ -508,7 +598,7 @@ namespace QLTVT
             0,
             0});
             this.txtLUONG.Location = new System.Drawing.Point(441, 71);
-            this.txtLUONG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLUONG.Margin = new System.Windows.Forms.Padding(2);
             this.txtLUONG.Maximum = new decimal(new int[] {
             100000000,
             0,
@@ -522,7 +612,7 @@ namespace QLTVT
             // 
             this.txtDIACHI.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNhanVien, "DIACHI", true));
             this.txtDIACHI.Location = new System.Drawing.Point(75, 71);
-            this.txtDIACHI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDIACHI.Margin = new System.Windows.Forms.Padding(2);
             this.txtDIACHI.Name = "txtDIACHI";
             this.txtDIACHI.Size = new System.Drawing.Size(106, 20);
             this.txtDIACHI.TabIndex = 7;
@@ -532,7 +622,7 @@ namespace QLTVT
             this.txtMACN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNhanVien, "MACN", true));
             this.txtMACN.Enabled = false;
             this.txtMACN.Location = new System.Drawing.Point(578, 14);
-            this.txtMACN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMACN.Margin = new System.Windows.Forms.Padding(2);
             this.txtMACN.Name = "txtMACN";
             this.txtMACN.Size = new System.Drawing.Size(61, 20);
             this.txtMACN.TabIndex = 9;
@@ -541,7 +631,7 @@ namespace QLTVT
             // 
             this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNhanVien, "TEN", true));
             this.txtTEN.Location = new System.Drawing.Point(420, 14);
-            this.txtTEN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTEN.Margin = new System.Windows.Forms.Padding(2);
             this.txtTEN.Name = "txtTEN";
             this.txtTEN.Size = new System.Drawing.Size(91, 20);
             this.txtTEN.TabIndex = 11;
@@ -550,7 +640,7 @@ namespace QLTVT
             // 
             this.txtHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNhanVien, "HO", true));
             this.txtHO.Location = new System.Drawing.Point(225, 14);
-            this.txtHO.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtHO.Margin = new System.Windows.Forms.Padding(2);
             this.txtHO.Name = "txtHO";
             this.txtHO.Size = new System.Drawing.Size(91, 20);
             this.txtHO.TabIndex = 13;
@@ -559,7 +649,7 @@ namespace QLTVT
             // 
             this.txtMANV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNhanVien, "MANV", true));
             this.txtMANV.Location = new System.Drawing.Point(75, 14);
-            this.txtMANV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMANV.Margin = new System.Windows.Forms.Padding(2);
             this.txtMANV.Name = "txtMANV";
             this.txtMANV.Size = new System.Drawing.Size(91, 20);
             this.txtMANV.TabIndex = 15;
@@ -642,96 +732,8 @@ namespace QLTVT
             this.trangThaiXoaDataGridViewTextBoxColumn.DataPropertyName = "TrangThaiXoa";
             this.trangThaiXoaDataGridViewTextBoxColumn.HeaderText = "TrangThaiXoa";
             this.trangThaiXoaDataGridViewTextBoxColumn.Name = "trangThaiXoaDataGridViewTextBoxColumn";
-            // 
-            // masoDDHDataGridViewTextBoxColumn
-            // 
-            this.masoDDHDataGridViewTextBoxColumn.DataPropertyName = "MasoDDH";
-            this.masoDDHDataGridViewTextBoxColumn.HeaderText = "MasoDDH";
-            this.masoDDHDataGridViewTextBoxColumn.Name = "masoDDHDataGridViewTextBoxColumn";
-            // 
-            // nGAYDataGridViewTextBoxColumn
-            // 
-            this.nGAYDataGridViewTextBoxColumn.DataPropertyName = "NGAY";
-            this.nGAYDataGridViewTextBoxColumn.HeaderText = "NGAY";
-            this.nGAYDataGridViewTextBoxColumn.Name = "nGAYDataGridViewTextBoxColumn";
-            // 
-            // nhaCCDataGridViewTextBoxColumn
-            // 
-            this.nhaCCDataGridViewTextBoxColumn.DataPropertyName = "NhaCC";
-            this.nhaCCDataGridViewTextBoxColumn.HeaderText = "NhaCC";
-            this.nhaCCDataGridViewTextBoxColumn.Name = "nhaCCDataGridViewTextBoxColumn";
-            // 
-            // mANVDataGridViewTextBoxColumn1
-            // 
-            this.mANVDataGridViewTextBoxColumn1.DataPropertyName = "MANV";
-            this.mANVDataGridViewTextBoxColumn1.HeaderText = "MANV";
-            this.mANVDataGridViewTextBoxColumn1.Name = "mANVDataGridViewTextBoxColumn1";
-            // 
-            // mAKHODataGridViewTextBoxColumn
-            // 
-            this.mAKHODataGridViewTextBoxColumn.DataPropertyName = "MAKHO";
-            this.mAKHODataGridViewTextBoxColumn.HeaderText = "MAKHO";
-            this.mAKHODataGridViewTextBoxColumn.Name = "mAKHODataGridViewTextBoxColumn";
-            // 
-            // mAPNDataGridViewTextBoxColumn
-            // 
-            this.mAPNDataGridViewTextBoxColumn.DataPropertyName = "MAPN";
-            this.mAPNDataGridViewTextBoxColumn.HeaderText = "MAPN";
-            this.mAPNDataGridViewTextBoxColumn.Name = "mAPNDataGridViewTextBoxColumn";
-            // 
-            // nGAYDataGridViewTextBoxColumn1
-            // 
-            this.nGAYDataGridViewTextBoxColumn1.DataPropertyName = "NGAY";
-            this.nGAYDataGridViewTextBoxColumn1.HeaderText = "NGAY";
-            this.nGAYDataGridViewTextBoxColumn1.Name = "nGAYDataGridViewTextBoxColumn1";
-            // 
-            // masoDDHDataGridViewTextBoxColumn1
-            // 
-            this.masoDDHDataGridViewTextBoxColumn1.DataPropertyName = "MasoDDH";
-            this.masoDDHDataGridViewTextBoxColumn1.HeaderText = "MasoDDH";
-            this.masoDDHDataGridViewTextBoxColumn1.Name = "masoDDHDataGridViewTextBoxColumn1";
-            // 
-            // mANVDataGridViewTextBoxColumn2
-            // 
-            this.mANVDataGridViewTextBoxColumn2.DataPropertyName = "MANV";
-            this.mANVDataGridViewTextBoxColumn2.HeaderText = "MANV";
-            this.mANVDataGridViewTextBoxColumn2.Name = "mANVDataGridViewTextBoxColumn2";
-            // 
-            // mAKHODataGridViewTextBoxColumn1
-            // 
-            this.mAKHODataGridViewTextBoxColumn1.DataPropertyName = "MAKHO";
-            this.mAKHODataGridViewTextBoxColumn1.HeaderText = "MAKHO";
-            this.mAKHODataGridViewTextBoxColumn1.Name = "mAKHODataGridViewTextBoxColumn1";
-            // 
-            // mAPXDataGridViewTextBoxColumn
-            // 
-            this.mAPXDataGridViewTextBoxColumn.DataPropertyName = "MAPX";
-            this.mAPXDataGridViewTextBoxColumn.HeaderText = "MAPX";
-            this.mAPXDataGridViewTextBoxColumn.Name = "mAPXDataGridViewTextBoxColumn";
-            // 
-            // nGAYDataGridViewTextBoxColumn2
-            // 
-            this.nGAYDataGridViewTextBoxColumn2.DataPropertyName = "NGAY";
-            this.nGAYDataGridViewTextBoxColumn2.HeaderText = "NGAY";
-            this.nGAYDataGridViewTextBoxColumn2.Name = "nGAYDataGridViewTextBoxColumn2";
-            // 
-            // hOTENKHDataGridViewTextBoxColumn
-            // 
-            this.hOTENKHDataGridViewTextBoxColumn.DataPropertyName = "HOTENKH";
-            this.hOTENKHDataGridViewTextBoxColumn.HeaderText = "HOTENKH";
-            this.hOTENKHDataGridViewTextBoxColumn.Name = "hOTENKHDataGridViewTextBoxColumn";
-            // 
-            // mANVDataGridViewTextBoxColumn3
-            // 
-            this.mANVDataGridViewTextBoxColumn3.DataPropertyName = "MANV";
-            this.mANVDataGridViewTextBoxColumn3.HeaderText = "MANV";
-            this.mANVDataGridViewTextBoxColumn3.Name = "mANVDataGridViewTextBoxColumn3";
-            // 
-            // mAKHODataGridViewTextBoxColumn2
-            // 
-            this.mAKHODataGridViewTextBoxColumn2.DataPropertyName = "MAKHO";
-            this.mAKHODataGridViewTextBoxColumn2.HeaderText = "MAKHO";
-            this.mAKHODataGridViewTextBoxColumn2.Name = "mAKHODataGridViewTextBoxColumn2";
+            this.trangThaiXoaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.trangThaiXoaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FormNhanVien_Std
             // 
@@ -742,10 +744,10 @@ namespace QLTVT
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormNhanVien_Std";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nhân Viên (chuẩn)";
+            this.Text = "Nhân Viên";
             this.Load += new System.EventHandler(this.FormNhanVien_Std_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -825,14 +827,6 @@ namespace QLTVT
         private System.Windows.Forms.Label lUONGLabel;
         private System.Windows.Forms.Label trangThaiXoaLabel;
         private System.Windows.Forms.Label nGAYSINHLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mANVDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tENDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dIACHIDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nGAYSINHDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lUONGDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mACNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trangThaiXoaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn masoDDHDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nGAYDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nhaCCDataGridViewTextBoxColumn;
@@ -848,5 +842,13 @@ namespace QLTVT
         private System.Windows.Forms.DataGridViewTextBoxColumn hOTENKHDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mANVDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn mAKHODataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mANVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tENDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dIACHIDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nGAYSINHDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lUONGDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mACNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn trangThaiXoaDataGridViewTextBoxColumn;
     }
 }

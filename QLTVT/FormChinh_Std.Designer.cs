@@ -296,7 +296,7 @@ namespace QLTVT
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormChinh_Std";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUẢN LÝ VẬT TƯ (Phiên bản chuẩn)";
+            this.Text = "QUẢN LÝ VẬT TƯ";
             this.Load += new System.EventHandler(this.FormChinh_Std_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
