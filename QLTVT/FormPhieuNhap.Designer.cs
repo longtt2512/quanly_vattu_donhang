@@ -522,6 +522,9 @@ namespace QLTVT
             this.gridView1.DetailHeight = 554;
             this.gridView1.GridControl = this.gcPhieuNhap;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowViewCaption = true;
+            this.gridView1.ViewCaption = "Danh sách phiếu nhập";
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // colMAPN
             // 
@@ -639,6 +642,7 @@ namespace QLTVT
             this.gvCTDDH.DetailHeight = 554;
             this.gvCTDDH.GridControl = this.gcChiTietPhieuNhap;
             this.gvCTDDH.Name = "gvCTDDH";
+            this.gvCTDDH.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCTDDH_FocusedRowChanged);
             this.gvCTDDH.OptionsBehavior.Editable = false;
             this.gvCTDDH.OptionsView.ShowGroupPanel = false;
             this.gvCTDDH.OptionsView.ShowViewCaption = true;

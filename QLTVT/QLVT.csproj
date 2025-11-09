@@ -276,6 +276,30 @@
     <Compile Include="SubForm\FormChuyenChiNhanh.Designer.cs">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubForm\FormThemChiTietDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\FormThemChiTietDonHang.Designer.cs">
+      <DependentUpon>FormThemChiTietDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForm\FormThemChiTietPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\FormThemChiTietPhieuNhap.Designer.cs">
+      <DependentUpon>FormThemChiTietPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForm\FormThemDonDatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\FormThemDonDatHang.Designer.cs">
+      <DependentUpon>FormThemDonDatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForm\FormThemPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\FormThemPhieuNhap.Designer.cs">
+      <DependentUpon>FormThemPhieuNhap.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormChinh.resx">
       <DependentUpon>FormChinh.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +403,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubForm\FormChuyenChiNhanh.resx">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\FormThemChiTietDonHang.resx">
+      <DependentUpon>FormThemChiTietDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\FormThemChiTietPhieuNhap.resx">
+      <DependentUpon>FormThemChiTietPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\FormThemDonDatHang.resx">
+      <DependentUpon>FormThemDonDatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\FormThemPhieuNhap.resx">
+      <DependentUpon>FormThemPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="DataSet.xsc">

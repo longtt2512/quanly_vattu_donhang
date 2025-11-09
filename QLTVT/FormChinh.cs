@@ -41,6 +41,45 @@ namespace QLTVT
 
 
         /************************************************************
+         * ResetAllMenuFont: 
+         * Reset tất cả menu button về font Regular
+         ************************************************************/
+        private void ResetAllMenuFont()
+        {
+            // Menu chính
+            btnNhanVien.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            btnVatTu.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            btnKho.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            btnDonDatHang.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            btnPhieuNhap.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            btnPhieuXuat.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            
+            // Submenu báo cáo
+            btnDanhSachNhanVien.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            btnDanhSachVatTu.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            btnChiTietNhapXuat.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            btnDonHangKhongPhieuNhap.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            btnHoatDongNhanVien.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            btnTongHopNhapXuat.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            
+            // Menu tài khoản
+            btnLapTaiKhoan.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+        }
+
+
+
+        /************************************************************
+         * SetActiveMenuFont: 
+         * Set font Bold cho menu button đang được chọn
+         ************************************************************/
+        private void SetActiveMenuFont(BarButtonItem btn)
+        {
+            btn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+        }
+
+
+
+        /************************************************************
          *enableButtons: kích hoạt các tab chức năng và nút đăng xuất
          ************************************************************/
         public void enableButtons()
@@ -170,6 +209,9 @@ namespace QLTVT
 
         private void btnNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnNhanVien);
+
             Form f = this.CheckExists(typeof(FormNhanVien));
             if (f != null)
             {
@@ -185,6 +227,9 @@ namespace QLTVT
 
         private void btnVatTu_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnVatTu);
+
             Form f = this.CheckExists(typeof(FormVatTu));
             if (f != null)
             {
@@ -200,6 +245,9 @@ namespace QLTVT
 
         private void btnKho_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnKho);
+
             Form f = this.CheckExists(typeof(FormKho));
             if (f != null)
             {
@@ -215,6 +263,9 @@ namespace QLTVT
 
         private void btnDonDatHang_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnDonDatHang);
+
             Form f = this.CheckExists(typeof(FormDonDatHang));
             if (f != null)
             {
@@ -230,6 +281,9 @@ namespace QLTVT
 
         private void btnPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnPhieuNhap);
+
             Form f = this.CheckExists(typeof(FormPhieuNhap));
             if (f != null)
             {
@@ -245,6 +299,9 @@ namespace QLTVT
 
         private void btnPhieuXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnPhieuXuat);
+
             Form f = this.CheckExists(typeof(FormPhieuXuat));
             if (f != null)
             {
@@ -260,6 +317,9 @@ namespace QLTVT
 
         private void btnDanhSachNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnDanhSachNhanVien);
+
             Form f = this.CheckExists(typeof(FormDanhSachNhanVien));
             if (f != null)
             {
@@ -275,6 +335,9 @@ namespace QLTVT
 
         private void btnDanhSachVatTu_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnDanhSachVatTu);
+
             Form f = this.CheckExists(typeof(FormDanhSachVatTu));
             if (f != null)
             {
@@ -290,6 +353,9 @@ namespace QLTVT
 
         private void btnDonHangKhongPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnDonHangKhongPhieuNhap);
+
             Form f = this.CheckExists(typeof(FormDonHangKhongPhieuNhap));
             if (f != null)
             {
@@ -305,6 +371,9 @@ namespace QLTVT
 
         private void btnChiTietNhapXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnChiTietNhapXuat);
+
             Form f = this.CheckExists(typeof(FormChiTietSoLuongTriGiaHangHoaNhapXuat));
             if (f != null)
             {
@@ -320,6 +389,9 @@ namespace QLTVT
 
         private void btnHoatDongNhanVien_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnHoatDongNhanVien);
+
             Form f = this.CheckExists(typeof(FormHoatDongNhanVien));
             if (f != null)
             {
@@ -335,6 +407,9 @@ namespace QLTVT
 
         private void btnTongHopNhapXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnTongHopNhapXuat);
+
             Form f = this.CheckExists(typeof(FormTongHopNhapXuat));
             if (f != null)
             {
@@ -350,6 +425,9 @@ namespace QLTVT
 
         private void btnLapTaiKhoan_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ResetAllMenuFont();
+            SetActiveMenuFont(btnLapTaiKhoan);
+
             Form f = this.CheckExists(typeof(FormTaoTaiKhoan));
             if (f != null)
             {

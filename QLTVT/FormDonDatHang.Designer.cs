@@ -499,7 +499,9 @@ namespace QLTVT
             this.colMAKHO});
             this.gridView1.GridControl = this.gcDonDatHang;
             this.gridView1.Name = "gridView1";
-            this.gridView1.ViewCaption = "Đơn Đặt Hàng";
+            this.gridView1.OptionsView.ShowViewCaption = true;
+            this.gridView1.ViewCaption = "Danh sách đơn đặt hàng";
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // colMasoDDH
             // 
@@ -607,6 +609,7 @@ namespace QLTVT
             this.colDONGIA});
             this.gvCTDDH.GridControl = this.gcChiTietDonDatHang;
             this.gvCTDDH.Name = "gvCTDDH";
+            this.gvCTDDH.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCTDDH_FocusedRowChanged);
             this.gvCTDDH.OptionsBehavior.Editable = false;
             this.gvCTDDH.OptionsView.ShowGroupPanel = false;
             this.gvCTDDH.OptionsView.ShowViewCaption = true;

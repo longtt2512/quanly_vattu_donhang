@@ -198,6 +198,11 @@ namespace QLTVT
             gcPhieuNhap.Enabled = true;
             gcChiTietPhieuNhap.Enabled = true;
 
+            /*Làm nổi bật grid Phiếu Nhập - dùng ViewCaption Background*/
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
 
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
@@ -271,6 +276,12 @@ namespace QLTVT
             /*Bat cac grid control len*/
             gcPhieuNhap.Enabled = true;
             gcChiTietPhieuNhap.Enabled = true;
+
+            /*Làm nổi bật grid Chi Tiết Phiếu Nhập - dùng ViewCaption Background*/
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
 
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
@@ -957,12 +968,54 @@ namespace QLTVT
         private void gcPhieuNhap_Click(object sender, EventArgs e)
         {
             btnCheDoPhieuNhap_ItemClick(null, null);
+            
+            // Làm nổi bật grid đang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
         }
 
         // Tự động chuyển sang chế độ "Chi Tiết Phiếu Nhập" khi click vào grid Chi Tiết
         private void gcChiTietPhieuNhap_Click(object sender, EventArgs e)
         {
             btnCheDoChiTietPhieuNhap_ItemClick(null, null);
+            
+            // Làm nổi bật grid đang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+        }
+
+        // Khi click vào một dòng trong gridView của Phiếu Nhập
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (bds != bdsPhieuNhap)
+            {
+                btnCheDoPhieuNhap_ItemClick(null, null);
+            }
+            
+            // Làm nổi bật grid đang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+        }
+
+        // Khi click vào một dòng trong gridView của Chi Tiết Phiếu Nhập
+        private void gvCTDDH_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (bds != bdsChiTietPhieuNhap)
+            {
+                btnCheDoChiTietPhieuNhap_ItemClick(null, null);
+            }
+            
+            // Làm nổi bật grid đang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
         }
     }
 }

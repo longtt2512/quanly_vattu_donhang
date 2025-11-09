@@ -1,4 +1,4 @@
-Ôªøusing DevExpress.XtraGrid;
+using DevExpress.XtraGrid;
 using QLTVT.SubForm;
 using System;
 using System.Collections;
@@ -17,36 +17,36 @@ namespace QLTVT
 
     public partial class FormDonDatHang : Form
     {
-        /* v·ªã tr√≠ c·ªßa con tr·ªè tr√™n grid view*/
+        /* v? trÌ c?a con tr? trÍn grid view*/
         int viTri = 0;
         /********************************************
-         * ƒëang th√™m m·ªõi -> true -> ƒëang d√πng btnTHEM
-         *              -> false -> c√≥ th·ªÉ l√† btnGHI( ch·ªânh s·ª≠a) ho·∫∑c btnXOA
+         * ang thÍm m?i -> true -> ang d˘ng btnTHEM
+         *              -> false -> cÛ th? l‡ btnGHI( ch?nh s?a) ho?c btnXOA
          *              
-         * M·ª•c ƒë√≠ch: d√πng bi·∫øn n√†y ƒë·ªÉ ph√¢n bi·ªát gi·ªØa btnTHEM - th√™m m·ªõi ho√†n to√†n
-         * v√† vi·ªác ch·ªânh s·ª≠a nh√¢n vi√™n( do m√¨nh ko d√πng th√™m btnXOA )
-         * Tr·∫°ng th√°i true or false s·∫Ω ƒë∆∞·ª£c s·ª≠ d·ª•ng 
-         * trong btnGHI - vi·ªác n√†y ƒë·ªÉ ph·ª•c v·ª• cho btnHOANTAC
+         * M?c Ìch: d˘ng bi?n n‡y ? ph‚n bi?t gi?a btnTHEM - thÍm m?i ho‡n to‡n
+         * v‡ vi?c ch?nh s?a nh‚n viÍn( do m?nh ko d˘ng thÍm btnXOA )
+         * Tr?ng th·i true or false s? ˝?c s? d?ng 
+         * trong btnGHI - vi?c n‡y ? ph?c v? cho btnHOANTAC
          ********************************************/
         bool dangThemMoi = false;
         public string makho = "";   
         string maChiNhanh = "";
         /**********************************************************
-         * undoList - ph·ª•c v·ª• cho btnHOANTAC -  ch·ª©a c√°c th√¥ng tin c·ªßa ƒë·ªëi t∆∞·ª£ng b·ªã t√°c ƒë·ªông 
+         * undoList - ph?c v? cho btnHOANTAC -  ch?a c·c thÙng tin c?a ?i t˝?ng b? t·c ?ng 
          * 
-         * n√≥ l√† n∆°i l∆∞u tr·ªØ c√°c ƒë·ªëi t∆∞·ª£ng c·∫ßn thi·∫øt ƒë·ªÉ ho√†n t√°c c√°c thao t√°c
+         * nÛ l‡ nıi l˝u tr? c·c ?i t˝?ng c?n thi?t ? ho‡n t·c c·c thao t·c
          * 
-         * n·∫øu btnGHI s·∫Ω ·ª©ng v·ªõi INSERT
-         * n·∫øu btnXOA s·∫Ω ·ª©ng v·ªõi DELETE
-         * n·∫øu btnCHUYENCHINHANH s·∫Ω ·ª©ng v·ªõi CHANGEBRAND
+         * n?u btnGHI s? ?ng v?i INSERT
+         * n?u btnXOA s? ?ng v?i DELETE
+         * n?u btnCHUYENCHINHANH s? ?ng v?i CHANGEBRAND
          **********************************************************/
         Stack undoList = new Stack();
 
 
 
         /********************************************************
-         * ch·ª©a nh·ªØng d·ªØ li·ªáu hi·ªán t·∫°i ƒëang l√†m vi·ªác
-         * gc ch·ª©a grid view ƒëang l√†m vi·ªác
+         * ch?a nh?ng d? li?u hi?n t?i ang l‡m vi?c
+         * gc ch?a grid view ang l‡m vi?c
          ********************************************************/
         BindingSource bds = null;
         GridControl gc = null;
@@ -56,11 +56,11 @@ namespace QLTVT
 
         /************************************************************
          * CheckExists:
-         * ƒê·ªÉ tr√°nh vi·ªác ng∆∞·ªùi d√πng ·∫•n v√†o 1 form ƒë·∫øn 2 l·∫ßn ch√∫ng ta 
-         * c·∫ßn s·ª≠ d·ª•ng h√†m n√†y ƒë·ªÉ ki·ªÉm tra xem c√°i form hi·ªán t·∫°i ƒë√£ 
-         * c√≥ trong b·ªô nh·ªõ ch∆∞a
-         * N·∫øu c√≥ tr·∫£ v·ªÅ "f"
-         * N·∫øu kh√¥ng tr·∫£ v·ªÅ "null"
+         * –? tr·nh vi?c ng˝?i d˘ng ?n v‡o 1 form ?n 2 l?n ch˙ng ta 
+         * c?n s? d?ng h‡m n‡y ? ki?m tra xem c·i form hi?n t?i ? 
+         * cÛ trong b? nh? ch˝a
+         * N?u cÛ tr? v? "f"
+         * N?u khÙng tr? v? "null"
          ************************************************************/
         private Form CheckExists(Type ftype)
         {
@@ -109,10 +109,10 @@ namespace QLTVT
             bds = bdsDonDatHang;
             gc = gcDonDatHang;
 
-            /*Step 3: B·∫≠t grid Chi Ti·∫øt ƒê∆°n H√†ng ƒë·ªÉ lu√¥n hi·ªÉn th·ªã danh s√°ch chi ti·∫øt*/
+            /*Step 3: B?t grid Chi Ti?t –ın H‡ng ? luÙn hi?n th? danh s·ch chi ti?t*/
             gcChiTietDonDatHang.Enabled = true;
 
-            /*Step 4: T·ª± ƒë·ªông k√≠ch ho·∫°t ch·∫ø ƒë·ªô "ƒê∆°n ƒê·∫∑t H√†ng" khi form load*/
+            /*Step 4: T? ?ng kÌch ho?t ch? ? "–ın –?t H‡ng" khi form load*/
             btnCheDoDonDatHang_ItemClick(null, null);
             
         }
@@ -125,20 +125,20 @@ namespace QLTVT
 
 
         /*********************************************************
-         * Step 0: Hi·ªán ch·∫ø ƒë·ªô l√†m vi·ªác
-         * Step 1: c·∫≠p nh·∫≠t binding source v√† grid control
+         * Step 0: Hi?n ch? ? l‡m vi?c
+         * Step 1: c?p nh?t binding source v‡ grid control
          * 
-         * t·∫Øt c√°c ch·ª©c nƒÉng li√™n quan t·ªõi chi ti·∫øt ƒë∆°n h√†ng
+         * t?t c·c ch?c n„ng liÍn quan t?i chi ti?t ın h‡ng
          *********************************************************/
         private void btnCheDoDonDatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 0 - B·ªè qua vi·ªác c·∫≠p nh·∫≠t caption v√¨ ƒë√£ ·∫©n menu*/
-            // btnMENU.Links[0].Caption = "ƒê∆°n ƒê·∫∑t H√†ng";
+            /*Step 0 - B? qua vi?c c?p nh?t caption v? ? ?n menu*/
+            // btnMENU.Links[0].Caption = "–ın –?t H‡ng";
 
             /*Step 1*/
             bds = bdsDonDatHang;
             gc = gcDonDatHang;
-            //MessageBox.Show("Ch·∫ø ƒê·ªô L√†m Vi·ªác ƒê∆°n ƒê·∫∑t H√†ng", "Th√¥ng b√°o", MessageBoxButtons.OK);
+            //MessageBox.Show("Ch? –? L‡m Vi?c –ın –?t H‡ng", "ThÙng b·o", MessageBoxButtons.OK);
 
             /*Step 2*/
             /*Bat chuc nang cua don dat hang*/
@@ -161,6 +161,11 @@ namespace QLTVT
             gcDonDatHang.Enabled = true;
             gcChiTietDonDatHang.Enabled = true;
 
+            /*L‡m n?i b?t grid –ın –?t H‡ng - d˘ng ViewCaption Background*/
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
 
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
@@ -174,7 +179,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                // this.btnMENU.Enabled = false; // ƒê√£ ·∫©n menu
+                // this.btnMENU.Enabled = false; // –? ?n menu
                 this.btnTHOAT.Enabled = true;
 
                 this.groupBoxDonDatHang.Enabled = false;
@@ -195,7 +200,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                // this.btnMENU.Enabled = true; // ƒê√£ ·∫©n menu
+                // this.btnMENU.Enabled = true; // –? ?n menu
                 this.btnTHOAT.Enabled = true;
 
                 this.txtMaDonDatHang.Enabled = false;
@@ -205,13 +210,13 @@ namespace QLTVT
 
         private void btnCheDoChiTietDonDatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 0 - B·ªè qua vi·ªác c·∫≠p nh·∫≠t caption v√¨ ƒë√£ ·∫©n menu*/
-            // btnMENU.Links[0].Caption = "Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng";
+            /*Step 0 - B? qua vi?c c?p nh?t caption v? ? ?n menu*/
+            // btnMENU.Links[0].Caption = "Chi Ti?t –ın –?t H‡ng";
 
             /*Step 1*/
             bds = bdsChiTietDonDatHang;
             gc = gcChiTietDonDatHang;
-            //MessageBox.Show("Ch·∫ø ƒê·ªô L√†m Vi·ªác Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng", "Th√¥ng b√°o", MessageBoxButtons.OK);
+            //MessageBox.Show("Ch? –? L‡m Vi?c Chi Ti?t –ın –?t H‡ng", "ThÙng b·o", MessageBoxButtons.OK);
 
             /*Step 2*/
             /*Tat chuc nang don dat hang*/
@@ -235,6 +240,12 @@ namespace QLTVT
             gcDonDatHang.Enabled = true;
             gcChiTietDonDatHang.Enabled = true;
 
+            /*L‡m n?i b?t grid Chi Ti?t –ın –?t H‡ng - d˘ng ViewCaption Background*/
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
             if (Program.role == "CONGTY")
@@ -247,7 +258,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                // this.btnMENU.Enabled = false; // ƒê√£ ·∫©n menu
+                // this.btnMENU.Enabled = false; // –? ?n menu
                 this.btnTHOAT.Enabled = true;
 
                 this.groupBoxDonDatHang.Enabled = false;
@@ -268,7 +279,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                // this.btnMENU.Enabled = true; // ƒê√£ ·∫©n menu
+                // this.btnMENU.Enabled = true; // –? ?n menu
                 this.btnTHOAT.Enabled = true;
 
                 this.txtMaDonDatHang.Enabled = false;
@@ -284,14 +295,14 @@ namespace QLTVT
         private void btnTHEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/
-            /*l·∫•y v·ªã tr√≠ hi·ªán t·∫°i c·ªßa con tr·ªè*/
+            /*l?y v? trÌ hi?n t?i c?a con tr?*/
             viTri = bds.Position;
             dangThemMoi = true;
 
-            /*Step 2 - Hi·ªÉn th·ªã form popup t√πy theo ch·∫ø ƒë·ªô*/
-            if (bds == bdsDonDatHang) // Ch·∫ø ƒë·ªô ƒê∆°n ƒê·∫∑t H√†ng
+            /*Step 2 - Hi?n th? form popup t˘y theo ch? ?*/
+            if (bds == bdsDonDatHang) // Ch? ? –ın –?t H‡ng
             {
-                // Hi·ªÉn th·ªã form popup ƒë·ªÉ nh·∫≠p th√¥ng tin ƒë∆°n h√†ng
+                // Hi?n th? form popup ? nh?p thÙng tin ın h‡ng
                 using (FormThemDonDatHang formThem = new FormThemDonDatHang())
                 {
                     formThem.StartPosition = FormStartPosition.CenterParent;
@@ -299,27 +310,27 @@ namespace QLTVT
 
                     if (result == DialogResult.OK)
                     {
-                        // Th√™m d√≤ng m·ªõi v√†o binding source
+                        // ThÍm d?ng m?i v‡o binding source
                         bds.AddNew();
                         
-                        // G√°n gi√° tr·ªã t·ª´ form popup
+                        // G·n gi· tr? t? form popup
                         ((DataRowView)(bdsDonDatHang.Current))["MasoDDH"] = formThem.MaDonDatHang;
                         ((DataRowView)(bdsDonDatHang.Current))["MANV"] = Program.userName;
                         ((DataRowView)(bdsDonDatHang.Current))["NGAY"] = DateTime.Now;
                         ((DataRowView)(bdsDonDatHang.Current))["MAKHO"] = formThem.MaKho;
                         ((DataRowView)(bdsDonDatHang.Current))["NhaCC"] = formThem.NhaCungCap;
 
-                        // Refresh c√°c textbox tr√™n form (ƒë·ªÉ validation pass)
+                        // Refresh c·c textbox trÍn form (? validation pass)
                         bds.EndEdit();
                         
-                        // C·∫≠p nh·∫≠t tr·ª±c ti·∫øp c√°c textbox (ƒë·ªÉ ƒë·∫£m b·∫£o validation th·∫•y ƒë∆∞·ª£c d·ªØ li·ªáu)
+                        // C?p nh?t tr?c ti?p c·c textbox (? ?m b?o validation th?y ˝?c d? li?u)
                         this.txtMaDonDatHang.Text = formThem.MaDonDatHang;
                         this.txtNhaCungCap.Text = formThem.NhaCungCap;
                         this.txtMaKho.Text = formThem.MaKho;
                         this.txtMaNhanVien.Text = Program.userName;
                         this.dteNGAY.EditValue = DateTime.Now;
 
-                        // B·∫≠t ch·∫ø ƒë·ªô ghi
+                        // B?t ch? ? ghi
                         this.btnTHEM.Enabled = false;
                         this.btnXOA.Enabled = false;
                         this.btnGHI.Enabled = true;
@@ -329,24 +340,24 @@ namespace QLTVT
                     }
                     else
                     {
-                        // H·ªßy b·ªè th√™m m·ªõi
+                        // H?y b? thÍm m?i
                         dangThemMoi = false;
                     }
                 }
                 return;
             }
 
-            if (bds == bdsChiTietDonDatHang) // Ch·∫ø ƒë·ªô Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng
+            if (bds == bdsChiTietDonDatHang) // Ch? ? Chi Ti?t –ın –?t H‡ng
             {
                 DataRowView drv = ((DataRowView)bdsDonDatHang[bdsDonDatHang.Position]);
                 String maNhanVien = drv["MANV"].ToString();
                 if (Program.userName != maNhanVien)
                 {
-                    MessageBox.Show("B·∫°n kh√¥ng th√™m chi ti·∫øt ƒë∆°n h√†ng tr√™n phi·∫øu kh√¥ng ph·∫£i do m√¨nh t·∫°o", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("B?n khÙng thÍm chi ti?t ın h‡ng trÍn phi?u khÙng ph?i do m?nh t?o", "ThÙng b·o", MessageBoxButtons.OK);
                     return;
                 }
 
-                // Hi·ªÉn th·ªã form popup ƒë·ªÉ nh·∫≠p chi ti·∫øt ƒë∆°n h√†ng
+                // Hi?n th? form popup ? nh?p chi ti?t ın h‡ng
                 using (FormThemChiTietDonHang formThem = new FormThemChiTietDonHang())
                 {
                     formThem.StartPosition = FormStartPosition.CenterParent;
@@ -354,25 +365,25 @@ namespace QLTVT
 
                     if (result == DialogResult.OK)
                     {
-                        // Th√™m d√≤ng m·ªõi v√†o binding source
+                        // ThÍm d?ng m?i v‡o binding source
                         bds.AddNew();
                         
-                        // G√°n gi√° tr·ªã t·ª´ form popup
+                        // G·n gi· tr? t? form popup
                         ((DataRowView)(bdsChiTietDonDatHang.Current))["MasoDDH"] = 
                             ((DataRowView)bdsDonDatHang[bdsDonDatHang.Position])["MasoDDH"];
                         ((DataRowView)(bdsChiTietDonDatHang.Current))["MAVT"] = formThem.MaVatTu;
                         ((DataRowView)(bdsChiTietDonDatHang.Current))["SOLUONG"] = formThem.SoLuong;
                         ((DataRowView)(bdsChiTietDonDatHang.Current))["DONGIA"] = formThem.DonGia;
 
-                        // Refresh c√°c textbox tr√™n form (ƒë·ªÉ validation pass)
+                        // Refresh c·c textbox trÍn form (? validation pass)
                         bds.EndEdit();
                         
-                        // C·∫≠p nh·∫≠t tr·ª±c ti·∫øp c√°c textbox (ƒë·ªÉ ƒë·∫£m b·∫£o validation th·∫•y ƒë∆∞·ª£c d·ªØ li·ªáu)
+                        // C?p nh?t tr?c ti?p c·c textbox (? ?m b?o validation th?y ˝?c d? li?u)
                         this.txtMaVatTu.Text = formThem.MaVatTu;
                         this.txtSoLuong.Value = formThem.SoLuong;
                         this.txtDonGia.Value = formThem.DonGia;
 
-                        // B·∫≠t ch·∫ø ƒë·ªô ghi
+                        // B?t ch? ? ghi
                         this.btnTHEM.Enabled = false;
                         this.btnXOA.Enabled = false;
                         this.btnGHI.Enabled = true;
@@ -382,7 +393,7 @@ namespace QLTVT
                     }
                     else
                     {
-                        // H·ªßy b·ªè th√™m m·ªõi
+                        // H?y b? thÍm m?i
                         dangThemMoi = false;
                     }
                 }
@@ -397,68 +408,68 @@ namespace QLTVT
 
             this.btnHOANTAC.Enabled = true;
             this.btnLAMMOI.Enabled = false;
-            // this.btnMENU.Enabled = false; // ƒê√£ ·∫©n menu
+            // this.btnMENU.Enabled = false; // –? ?n menu
             this.btnTHOAT.Enabled = false;            
         }
 
 
         /**************************************************
          * ham nay kiem tra du lieu dau vao
-         * true l√† qua h·∫øt
-         * false l√† thi·∫øu m·ªôt d·ªØ li·ªáu n√†o ƒë√≥
+         * true l‡ qua h?t
+         * false l‡ thi?u m?t d? li?u n‡o Û
          **************************************************/
         private bool kiemTraDuLieuDauVao(String cheDo)
         {
-            if (cheDo == "ƒê∆°n ƒê·∫∑t H√†ng")
+            if (cheDo == "–ın –?t H‡ng")
             {
                 if( txtMaDonDatHang.Text == "")
                 {
-                    MessageBox.Show("Kh√¥ng th·ªÉ b·ªè tr·ªëng m√£ ƒë∆°n h√†ng","Th√¥ng b√°o",MessageBoxButtons.OK);
+                    MessageBox.Show("KhÙng th? b? tr?ng m? ın h‡ng","ThÙng b·o",MessageBoxButtons.OK);
                     return false;
                 }
                 if (txtMaDonDatHang.Text.Length > 8)
                 {
-                    MessageBox.Show("M√£ ƒë∆°n ƒë·∫∑t h√†ng kh√¥ng qu√° 8 k√≠ t·ª±", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("M? ın ?t h‡ng khÙng qu· 8 kÌ t?", "ThÙng b·o", MessageBoxButtons.OK);
                     return false;
                 }
                 if ( txtMaNhanVien.Text == "")
                 {
-                    MessageBox.Show("Kh√¥ng th·ªÉ b·ªè tr·ªëng m√£ nh√¢n vi√™n", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("KhÙng th? b? tr?ng m? nh‚n viÍn", "ThÙng b·o", MessageBoxButtons.OK);
                     return false;
                 }
                 if( txtNhaCungCap.Text == "")
                 {
-                    MessageBox.Show("Kh√¥ng th·ªÉ b·ªè tr·ªëng nh√† cung c·∫•p", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("KhÙng th? b? tr?ng nh‡ cung c?p", "ThÙng b·o", MessageBoxButtons.OK);
                     return false;
                 }
                 if (txtNhaCungCap.Text.Length > 100)
                 {
-                    MessageBox.Show("T√™n nh√† cung c·∫•p kh√¥ng qu√° 100 k√≠ t·ª±", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("TÍn nh‡ cung c?p khÙng qu· 100 kÌ t?", "ThÙng b·o", MessageBoxButtons.OK);
                     return false;
                 }
                 if ( txtMaKho.Text == "")
                 {
-                    MessageBox.Show("Kh√¥ng th·ªÉ b·ªè tr·ªëng m√£ kho", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("KhÙng th? b? tr?ng m? kho", "ThÙng b·o", MessageBoxButtons.OK);
                     return false;
                 }    
             }
 
-            if (cheDo == "Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng")
+            if (cheDo == "Chi Ti?t –ın –?t H‡ng")
             {
                 if( txtMaVatTu.Text == "")
                 {
-                    MessageBox.Show("Kh√¥ng th·ªÉ b·ªè tr·ªëng m√£ v·∫≠t t∆∞", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("KhÙng th? b? tr?ng m? v?t t˝", "ThÙng b·o", MessageBoxButtons.OK);
                     return false;
                 }
                 if( txtSoLuong.Value < 0 || txtDonGia.Value < 0)
                 {
-                    MessageBox.Show("Kh√¥ng th·ªÉ nh·ªè h∆°n 1", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("KhÙng th? nh? hın 1", "ThÙng b·o", MessageBoxButtons.OK);
                     return false;
                 }
                 /*
                 if( txtSoLuong.Value > Program.soLuongVatTu)
                 {
-                    MessageBox.Show("S√¥ l∆∞·ª£ng ƒë·∫∑t mua l·ªõn h∆°n s·ªë l∆∞·ª£ng v·∫≠t t∆∞ hi·ªán c√≥", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("SÙ l˝?ng ?t mua l?n hın s? l˝?ng v?t t˝ hi?n cÛ", "ThÙng b·o", MessageBoxButtons.OK);
                     return false;
                 }*/
             }
@@ -479,7 +490,7 @@ namespace QLTVT
 
 
             /*Dang chinh sua don dat hang*/
-            if ( cheDo == "ƒê∆°n ƒê·∫∑t H√†ng" && dangThemMoi == false)
+            if ( cheDo == "–ın –?t H‡ng" && dangThemMoi == false)
             {
                 drv = ((DataRowView)bdsDonDatHang[bdsDonDatHang.Position]);
                 /*Ngay can duoc xu ly dac biet hon*/
@@ -494,7 +505,7 @@ namespace QLTVT
                     "WHERE MasoDDH = '" + drv["MasoDDH"].ToString().Trim() + "'";
             }  
             /*Dang xoa don dat hang*/
-            if ( cheDo == "ƒê∆°n ƒê·∫∑t H√†ng" && dangThemMoi == true)
+            if ( cheDo == "–ın –?t H‡ng" && dangThemMoi == true)
             {
                 drv = ((DataRowView)bdsDonDatHang[bdsDonDatHang.Position]);
                 DateTime ngay = ((DateTime)drv["NGAY"]);
@@ -508,7 +519,7 @@ namespace QLTVT
             }
 
             /*Dang chinh sua chi tiet don dat hang*/
-            if(cheDo == "Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng" && dangThemMoi == false)
+            if(cheDo == "Chi Ti?t –ın –?t H‡ng" && dangThemMoi == false)
             {
                 drv = ((DataRowView)bdsChiTietDonDatHang[bdsChiTietDonDatHang.Position]);
 
@@ -526,7 +537,7 @@ namespace QLTVT
 
 
         /**************************************************
-         * Step 1: Kiem tra xem day co phai nguoi lap don hang hay kh√¥ng
+         * Step 1: Kiem tra xem day co phai nguoi lap don hang hay khÙng
          * Step 2: lay che do dang lam viec, kiem tra du lieu dau vao. Neu OK thi 
          * tiep tuc tao cau truy van hoan tac neu dangThemMoi = false
          * Step 3: kiem tra xem cai ma don hang nay da ton tai chua ?
@@ -544,15 +555,15 @@ namespace QLTVT
 
             if (Program.userName != maNhanVien && dangThemMoi == false)
             {
-                MessageBox.Show("B·∫°n kh√¥ng th·ªÉ s·ª≠a phi·∫øu do ng∆∞·ªùi kh√°c l·∫≠p", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                MessageBox.Show("B?n khÙng th? s?a phi?u do ng˝?i kh·c l?p", "ThÙng b·o", MessageBoxButtons.OK);
                 return;
             }
 
 
 
             /*Step 2*/
-            // X√°c ƒë·ªãnh ch·∫ø ƒë·ªô d·ª±a v√†o binding source hi·ªán t·∫°i thay v√¨ menu
-            String cheDo = (bds == bdsDonDatHang) ? "ƒê∆°n ƒê·∫∑t H√†ng" : "Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng";
+            // X·c ?nh ch? ? d?a v‡o binding source hi?n t?i thay v? menu
+            String cheDo = (bds == bdsDonDatHang) ? "–ın –?t H‡ng" : "Chi Ti?t –ın –?t H‡ng";
 
             bool ketQua = kiemTraDuLieuDauVao(cheDo);
             if (ketQua == false) return;
@@ -580,7 +591,7 @@ namespace QLTVT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Th·ª±c thi database th·∫•t b·∫°i!\n\n" + ex.Message, "Th√¥ng b√°o",
+                MessageBox.Show("Th?c thi database th?t b?i!\n\n" + ex.Message, "ThÙng b·o",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine(ex.Message);
                 return;
@@ -599,9 +610,9 @@ namespace QLTVT
              * truong hop them moi don dat hang moi quan tam xem no ton tai hay
              * chua ?
              ******************************************************************/
-            if ( result == 1 && cheDo == "ƒê∆°n ƒê·∫∑t H√†ng" && viTriHienTai != viTriMaDonDatHang)
+            if ( result == 1 && cheDo == "–ın –?t H‡ng" && viTriHienTai != viTriMaDonDatHang)
             {
-                MessageBox.Show("M√£ ƒë∆°n h√†ng n√†y ƒë√£ ƒë∆∞·ª£c s·ª≠ d·ª•ng !\n\n", "Th√¥ng b√°o",
+                MessageBox.Show("M? ın h‡ng n‡y ? ˝?c s? d?ng !\n\n", "ThÙng b·o",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -611,7 +622,7 @@ namespace QLTVT
             
             else
             {
-                DialogResult dr = MessageBox.Show("B·∫°n c√≥ ch·∫Øc mu·ªën ghi d·ªØ li·ªáu v√†o c∆° s·ªü d·ªØ li·ªáu ?", "Th√¥ng b√°o",
+                DialogResult dr = MessageBox.Show("B?n cÛ ch?c mu?n ghi d? li?u v‡o cı s? d? li?u ?", "ThÙng b·o",
                          MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dr == DialogResult.OK)
                 {
@@ -619,7 +630,7 @@ namespace QLTVT
                     {
                         //Console.WriteLine(txtMaNhanVien.Text);
                         /*TH1: them moi don dat hang*/
-                        if (cheDo == "ƒê∆°n ƒê·∫∑t H√†ng" && dangThemMoi == true)
+                        if (cheDo == "–ın –?t H‡ng" && dangThemMoi == true)
                         {
                             cauTruyVanHoanTac =
                                 "DELETE FROM DBO.DATHANG " +
@@ -627,7 +638,7 @@ namespace QLTVT
                         }
 
                         /*TH2: them moi chi tiet don hang*/
-                        if (cheDo == "Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng" && dangThemMoi == true)
+                        if (cheDo == "Chi Ti?t –ın –?t H‡ng" && dangThemMoi == true)
                         {
                             /*Gan tu dong may truong du lieu nay*/
                             ((DataRowView)(bdsChiTietDonDatHang.Current))["MasoDDH"] = ((DataRowView)(bdsDonDatHang.Current))["MasoDDH"];
@@ -660,20 +671,20 @@ namespace QLTVT
 
                         this.btnHOANTAC.Enabled = true;
                         this.btnLAMMOI.Enabled = true;
-                        // this.btnMENU.Enabled = true; // ƒê√£ ·∫©n menu
+                        // this.btnMENU.Enabled = true; // –? ?n menu
                         this.btnTHOAT.Enabled = true;
 
                         //this.groupBoxDonDatHang.Enabled = false;
 
-                        /*c·∫≠p nh·∫≠t l·∫°i tr·∫°ng th√°i th√™m m·ªõi cho ch·∫Øc*/
+                        /*c?p nh?t l?i tr?ng th·i thÍm m?i cho ch?c*/
                         dangThemMoi = false;
-                        MessageBox.Show("Ghi th√†nh c√¥ng", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                        MessageBox.Show("Ghi th‡nh cÙng", "ThÙng b·o", MessageBoxButtons.OK);
                     }
                     catch(Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                         bds.RemoveCurrent();
-                        MessageBox.Show("Da xay ra loi !\n\n" + ex.Message, "L·ªói",
+                        MessageBox.Show("Da xay ra loi !\n\n" + ex.Message, "L?i",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
@@ -695,9 +706,9 @@ namespace QLTVT
          * Vi du: statement = INSERT | DELETE | CHANGEBRAND
          * 
          * bdsNhanVien.CancelEdit() - phuc hoi lai du lieu neu chua an btnGHI
-         * Step 0: tr∆∞·ªùng h·ª£p ƒë√£ ·∫•n btnTHEM nh∆∞ng ch∆∞a ·∫•n btnGHI
-         * Step 1: ki·ªÉm tra undoList c√≥ tr√¥ng hay kh√¥ng ?
-         * Step 2: Neu undoList khong tr·ªëng th√¨ l·∫•y ra kh√¥i ph·ª•c
+         * Step 0: tr˝?ng h?p ? ?n btnTHEM nh˝ng ch˝a ?n btnGHI
+         * Step 1: ki?m tra undoList cÛ trÙng hay khÙng ?
+         * Step 2: Neu undoList khong tr?ng th? l?y ra khÙi ph?c
          *********************************************************************/
         private void btnHOANTAC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -736,14 +747,14 @@ namespace QLTVT
 
                 //this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                // this.btnMENU.Enabled = true; // ƒê√£ ·∫©n menu
+                // this.btnMENU.Enabled = true; // –? ?n menu
                 this.btnTHOAT.Enabled = true;
 
 
                 bds.CancelEdit();
                 /*xoa dong hien tai*/
                 bds.RemoveCurrent();
-                /* tr·ªü v·ªÅ l√∫c ƒë·∫ßu con tr·ªè ƒëang ƒë·ª©ng*/
+                /* tr? v? l˙c ?u con tr? ang ?ng*/
                 bds.Position = viTri;
                 return;
             }
@@ -751,7 +762,7 @@ namespace QLTVT
             /*Step 1*/
             if (undoList.Count == 0)
             {
-                MessageBox.Show("Kh√¥ng c√≤n thao t√°c n√†o ƒë·ªÉ kh√¥i ph·ª•c", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                MessageBox.Show("KhÙng c?n thao t·c n‡o ? khÙi ph?c", "ThÙng b·o", MessageBoxButtons.OK);
                 btnHOANTAC.Enabled = false;
                 return;
             }
@@ -784,7 +795,7 @@ namespace QLTVT
             }
             catch (Exception ex)
             {
-                MessageBox.Show("L·ªói L√†m m·ªõi" + ex.Message, "Th√¥ng b√°o", MessageBoxButtons.OK);
+                MessageBox.Show("L?i L‡m m?i" + ex.Message, "ThÙng b·o", MessageBoxButtons.OK);
                 return;
             }
         }
@@ -813,45 +824,45 @@ namespace QLTVT
 
 
         /**
-         * Step 1: l·∫•y ch·∫ø ƒë·ªô ƒëang s·ª≠ d·ª•ng v√† ƒë·∫∑t dangThemMoi = true ƒë·ªÉ ph·ª•c v·ª• ƒëi·ªÅu ki·ªán t·∫°o c√¢u truy
-         * v·∫•n ho√†n t√°c
-         * Step 2: ki·ªÉm tra ƒëi·ªÅu ki·ªán theo ch·∫ø ƒë·ªô ƒëang s·ª≠ d·ª•ng
-         * Step 3: n·∫°p c√¢u truy v·∫•n ho√†n t√°c v√†o undolist
-         * Step 4: Th·ª±c hi·ªán x√≥a n·∫øu OK
+         * Step 1: l?y ch? ? ang s? d?ng v‡ ?t dangThemMoi = true ? ph?c v? i?u ki?n t?o c‚u truy
+         * v?n ho‡n t·c
+         * Step 2: ki?m tra i?u ki?n theo ch? ? ang s? d?ng
+         * Step 3: n?p c‚u truy v?n ho‡n t·c v‡o undolist
+         * Step 4: Th?c hi?n xÛa n?u OK
          */
         private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string cauTruyVan = "";
-            string cheDo = (bds == bdsDonDatHang) ? "ƒê∆°n ƒê·∫∑t H√†ng" : "Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng";
+            string cheDo = (bds == bdsDonDatHang) ? "–ın –?t H‡ng" : "Chi Ti?t –ın –?t H‡ng";
 
             dangThemMoi = true;// bat cai nay len de ung voi dieu kien tao cau truy van
 
-            if (cheDo == "ƒê∆°n ƒê·∫∑t H√†ng")
+            if (cheDo == "–ın –?t H‡ng")
             {
-                /*C√°i bdsChiTietDonHangHang l√† ƒë·∫°i di·ªán cho binding source ri√™ng bi·ªát c·ªßa CTDDH
-                 *C√≤n cTDDHBindingSource l√† l·∫•y ngay t·ª´ trong data source DATHANG
+                /*C·i bdsChiTietDonHangHang l‡ ?i di?n cho binding source riÍng bi?t c?a CTDDH
+                 *C?n cTDDHBindingSource l‡ l?y ngay t? trong data source DATHANG
                  */
                 if(bdsChiTietDonDatHang.Count > 0)
                 {
-                    MessageBox.Show("Kh√¥ng th·ªÉ x√≥a ƒë∆°n ƒë·∫∑t h√†ng n√†y v√¨ c√≥ chi ti·∫øt ƒë∆°n ƒë·∫∑t h√†ng", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("KhÙng th? xÛa ın ?t h‡ng n‡y v? cÛ chi ti?t ın ?t h‡ng", "ThÙng b·o", MessageBoxButtons.OK);
                     return;
                 }
 
                 if (bdsPhieuNhap.Count > 0)
                 {
-                    MessageBox.Show("Kh√¥ng th·ªÉ x√≥a ƒë∆°n ƒë·∫∑t h√†ng n√†y v√¨ c√≥ phi·∫øu nh·∫≠p", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("KhÙng th? xÛa ın ?t h‡ng n‡y v? cÛ phi?u nh?p", "ThÙng b·o", MessageBoxButtons.OK);
                     return;
                 }
 
                 
             }
-            if( cheDo == "Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng")
+            if( cheDo == "Chi Ti?t –ın –?t H‡ng")
             {
                 DataRowView drv = ((DataRowView)bdsDonDatHang[bdsDonDatHang.Position]);
                 String maNhanVien = drv["MANV"].ToString();
                 if (Program.userName != maNhanVien)
                 {
-                    MessageBox.Show("B·∫°n kh√¥ng x√≥a chi ti·∫øt ƒë∆°n h√†ng tr√™n phi·∫øu kh√¥ng ph·∫£i do m√¨nh t·∫°o", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("B?n khÙng xÛa chi ti?t ın h‡ng trÍn phi?u khÙng ph?i do m?nh t?o", "ThÙng b·o", MessageBoxButtons.OK);
                     //bdsChiTietDonDatHang.RemoveCurrent();
                     return;
                 }
@@ -863,18 +874,18 @@ namespace QLTVT
             undoList.Push(cauTruyVan);
 
             /*Step 2*/
-            if (MessageBox.Show("B·∫°n c√≥ ch·∫Øc ch·∫Øn mu·ªën x√≥a kh√¥ng ?", "Th√¥ng b√°o",
+            if (MessageBox.Show("B?n cÛ ch?c ch?n mu?n xÛa khÙng ?", "ThÙng b·o",
                 MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
                     /*Step 3*/
                     viTri = bds.Position;
-                    if(cheDo == "ƒê∆°n ƒê·∫∑t H√†ng" )
+                    if(cheDo == "–ın –?t H‡ng" )
                     {
                         bdsDonDatHang.RemoveCurrent();
                     }
-                    if(cheDo == "Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng")
+                    if(cheDo == "Chi Ti?t –ın –?t H‡ng")
                     {
                         bdsChiTietDonDatHang.RemoveCurrent();
                     }
@@ -888,13 +899,13 @@ namespace QLTVT
 
                     /*Cap nhat lai do ben tren can tao cau truy van nen da dat dangThemMoi = true*/
                     dangThemMoi = false;
-                    MessageBox.Show("X√≥a th√†nh c√¥ng ", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("XÛa th‡nh cÙng ", "ThÙng b·o", MessageBoxButtons.OK);
                     this.btnHOANTAC.Enabled = true;
                 }
                 catch (Exception ex)
                 {
                     /*Step 4*/
-                    MessageBox.Show("L·ªói x√≥a nh√¢n vi√™n. H√£y th·ª≠ l·∫°i\n" + ex.Message, "Th√¥ng b√°o", MessageBoxButtons.OK);
+                    MessageBox.Show("L?i xÛa nh‚n viÍn. H?y th? l?i\n" + ex.Message, "ThÙng b·o", MessageBoxButtons.OK);
                     this.donDatHangTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.donDatHangTableAdapter.Update(this.dataSet.DatHang);
 
@@ -937,7 +948,7 @@ namespace QLTVT
 
             if (Program.KetNoi() == 0)
             {
-                MessageBox.Show("X·∫£y ra l·ªói k·∫øt n·ªëi v·ªõi chi nh√°nh hi·ªán t·∫°i", "Th√¥ng b√°o", MessageBoxButtons.OK);
+                MessageBox.Show("X?y ra l?i k?t n?i v?i chi nh·nh hi?n t?i", "ThÙng b·o", MessageBoxButtons.OK);
             }
             else
             {
@@ -952,28 +963,82 @@ namespace QLTVT
             }
         }
 
-        // T·ª± ƒë·ªông chuy·ªÉn sang ch·∫ø ƒë·ªô "ƒê∆°n ƒê·∫∑t H√†ng" khi click v√†o grid ƒê∆°n ƒê·∫∑t H√†ng
+        // T? ?ng chuy?n sang ch? ? "–ın –?t H‡ng" khi click v‡o grid –ın –?t H‡ng
         private void gcDonDatHang_Click(object sender, EventArgs e)
         {
             btnCheDoDonDatHang_ItemClick(null, null);
+            
+            // L‡m n?i b?t grid ang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
         }
 
-        // T·ª± ƒë·ªông chuy·ªÉn sang ch·∫ø ƒë·ªô "ƒê∆°n ƒê·∫∑t H√†ng" khi click v√†o groupbox ƒê∆°n H√†ng
+        // T? ?ng chuy?n sang ch? ? "–ın –?t H‡ng" khi click v‡o groupbox –ın H‡ng
         private void groupBoxDonDatHang_Click(object sender, EventArgs e)
         {
             btnCheDoDonDatHang_ItemClick(null, null);
+            
+            // L‡m n?i b?t grid ang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
         }
 
-        // T·ª± ƒë·ªông chuy·ªÉn sang ch·∫ø ƒë·ªô "Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng" khi click v√†o grid Chi Ti·∫øt
+        // T? ?ng chuy?n sang ch? ? "Chi Ti?t –ın –?t H‡ng" khi click v‡o grid Chi Ti?t
         private void gcChiTietDonDatHang_Click(object sender, EventArgs e)
         {
             btnCheDoChiTietDonDatHang_ItemClick(null, null);
+            
+            // L‡m n?i b?t grid ang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
         }
 
-        // T·ª± ƒë·ªông chuy·ªÉn sang ch·∫ø ƒë·ªô "Chi Ti·∫øt ƒê∆°n ƒê·∫∑t H√†ng" khi click v√†o groupbox Chi Ti·∫øt
+        // T? ?ng chuy?n sang ch? ? "Chi Ti?t –ın –?t H‡ng" khi click v‡o groupbox Chi Ti?t
         private void groupBox1_Click(object sender, EventArgs e)
         {
             btnCheDoChiTietDonDatHang_ItemClick(null, null);
+            
+            // L‡m n?i b?t grid ang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+        }
+
+        // Khi click v‡o m?t d?ng trong gridView c?a –ın –?t H‡ng
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (bds != bdsDonDatHang)
+            {
+                btnCheDoDonDatHang_ItemClick(null, null);
+            }
+            
+            // L‡m n?i b?t grid ang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+        }
+
+        // Khi click v‡o m?t d?ng trong gridView c?a Chi Ti?t –ın –?t H‡ng
+        private void gvCTDDH_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (bds != bdsChiTietDonDatHang)
+            {
+                btnCheDoChiTietDonDatHang_ItemClick(null, null);
+            }
+            
+            // L‡m n?i b?t grid ang active
+            gridView1.Appearance.ViewCaption.BackColor = System.Drawing.SystemColors.Control;
+            gridView1.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular);
+            gvCTDDH.Appearance.ViewCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            gvCTDDH.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
         }
     }
 }
