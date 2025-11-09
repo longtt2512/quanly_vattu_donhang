@@ -96,22 +96,23 @@ namespace QLTVT.ReportForm
                 report.txtTuNgay.Text = dteTuNgay.EditValue.ToString();
                 report.txtToiNgay.Text = dteToiNgay.EditValue.ToString();
 
-                if (File.Exists(@"D:\ReportHoatDongNhanVien.pdf"))
+                string exportPath = Program.GetExportPath("ReportHoatDongNhanVien.pdf");
+                if (File.Exists(exportPath))
                 {
-                    DialogResult dr = MessageBox.Show("File ReportHoatDongNhanVien.pdf tại ổ D đã có!\nBạn có muốn tạo lại?",
+                    DialogResult dr = MessageBox.Show($"File ReportHoatDongNhanVien.pdf tại {exportPath} đã có!\nBạn có muốn tạo lại?",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
-                        report.ExportToPdf(@"D:\ReportHoatDongNhanVien.pdf");
-                        MessageBox.Show("File ReportHoatDongNhanVien.pdf đã được ghi thành công tại ổ D",
+                        report.ExportToPdf(exportPath);
+                        MessageBox.Show($"File ReportHoatDongNhanVien.pdf đã được ghi thành công tại {exportPath}",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
                 else
                 {
-                    report.ExportToPdf(@"D:\ReportHoatDongNhanVien.pdf");
-                    MessageBox.Show("File ReportHoatDongNhanVien.pdf đã được ghi thành công tại ổ D",
+                    report.ExportToPdf(exportPath);
+                    MessageBox.Show($"File ReportHoatDongNhanVien.pdf đã được ghi thành công tại {exportPath}",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

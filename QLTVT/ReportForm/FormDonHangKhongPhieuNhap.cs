@@ -138,22 +138,23 @@ namespace QLTVT.ReportForm
                 ReportDonHangKhongPhieuNhap report = new ReportDonHangKhongPhieuNhap();
                 /*GAN TEN CHI NHANH CHO BAO CAO*/
                 report.txtChiNhanh.Text = chiNhanh.ToUpper();
-                if (File.Exists(@"D:\ReportDonHangKhongPhieuNhap.pdf"))
+                string exportPath = Program.GetExportPath("ReportDonHangKhongPhieuNhap.pdf");
+                if (File.Exists(exportPath))
                 {
-                    DialogResult dr = MessageBox.Show("File ReportDonHangKhongPhieuNhap.pdf tại ổ D đã có!\nBạn có muốn tạo lại?",
+                    DialogResult dr = MessageBox.Show($"File ReportDonHangKhongPhieuNhap.pdf tại {exportPath} đã có!\nBạn có muốn tạo lại?",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
-                        report.ExportToPdf(@"D:\ReportDonHangKhongPhieuNhap.pdf");
-                        MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
+                        report.ExportToPdf(exportPath);
+                        MessageBox.Show($"File ReportDonHangKhongPhieuNhap.pdf đã được ghi thành công tại {exportPath}",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
                 else
                 {
-                    report.ExportToPdf(@"D:\ReportDonHangKhongPhieuNhap.pdf");
-                    MessageBox.Show("File ReportDonHangKhongPhieuNhap.pdf đã được ghi thành công tại ổ D",
+                    report.ExportToPdf(exportPath);
+                    MessageBox.Show($"File ReportDonHangKhongPhieuNhap.pdf đã được ghi thành công tại {exportPath}",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

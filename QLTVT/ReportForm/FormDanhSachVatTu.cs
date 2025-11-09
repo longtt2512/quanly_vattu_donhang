@@ -31,22 +31,23 @@ namespace QLTVT.ReportForm
             ReportDanhSachVatTu report = new ReportDanhSachVatTu();
             try
             {
-                if (File.Exists(@"D:\ReportDanhSachVatTu.pdf"))
+                string exportPath = Program.GetExportPath("ReportDanhSachVatTu.pdf");
+                if (File.Exists(exportPath))
                 {
-                    DialogResult dr = MessageBox.Show("File ReportDanhSachVatTu.pdf tại ổ D đã có!\nBạn có muốn tạo lại?",
+                    DialogResult dr = MessageBox.Show($"File ReportDanhSachVatTu.pdf tại {exportPath} đã có!\nBạn có muốn tạo lại?",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
-                        report.ExportToPdf(@"D:\ReportDanhSachVatTu.pdf");
-                        MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
+                        report.ExportToPdf(exportPath);
+                        MessageBox.Show($"File ReportDanhSachVatTu.pdf đã được ghi thành công tại {exportPath}",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
                 else
                 {
-                    report.ExportToPdf(@"D:\ReportDanhSachVatTu.pdf");
-                    MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
+                    report.ExportToPdf(exportPath);
+                    MessageBox.Show($"File ReportDanhSachVatTu.pdf đã được ghi thành công tại {exportPath}",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

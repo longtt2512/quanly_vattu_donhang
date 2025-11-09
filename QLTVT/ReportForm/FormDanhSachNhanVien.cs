@@ -83,22 +83,23 @@ namespace QLTVT.ReportForm
                 ReportDanhSachNhanVien report = new ReportDanhSachNhanVien();
                 /*GAN TEN CHI NHANH CHO BAO CAO*/
                 report.txtChiNhanh.Text = chiNhanh.ToUpper();
-                if (File.Exists(@"D:\ReportDanhSachNhanVien.pdf"))
+                string exportPath = Program.GetExportPath("ReportDanhSachNhanVien.pdf");
+                if (File.Exists(exportPath))
                 {
-                    DialogResult dr = MessageBox.Show("File ReportDSNhanVien.pdf tại ổ D đã có!\nBạn có muốn tạo lại?",
+                    DialogResult dr = MessageBox.Show($"File ReportDanhSachNhanVien.pdf tại {exportPath} đã có!\nBạn có muốn tạo lại?",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dr == DialogResult.Yes)
                     {
-                        report.ExportToPdf(@"D:\ReportDSNhanVien.pdf");
-                        MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
+                        report.ExportToPdf(exportPath);
+                        MessageBox.Show($"File ReportDanhSachNhanVien.pdf đã được ghi thành công tại {exportPath}",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
                 else
                 {
-                    report.ExportToPdf(@"D:\ReportDanhSachNhanVien.pdf");
-                    MessageBox.Show("File ReportDSNhanVien.pdf đã được ghi thành công tại ổ D",
+                    report.ExportToPdf(exportPath);
+                    MessageBox.Show($"File ReportDanhSachNhanVien.pdf đã được ghi thành công tại {exportPath}",
                 "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

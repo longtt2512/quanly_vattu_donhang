@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.IO;
 using System.Windows.Forms;
 
 namespace QLTVT
@@ -157,6 +158,16 @@ namespace QLTVT
         public static FormChiTietSoLuongTriGiaHangHoaNhapXuat formChiTietSoLuongTriGiaHangHoaNhapXuat;
         public static FormHoatDongNhanVien formHoatDongNhanVien;
         public static FormTongHopNhapXuat formTongHopNhapXuat;
+
+        // Global export path for reports and files. Default is D:\
+        public static string ExportRoot = @"D:\";
+
+        public static string GetExportPath(string fileName)
+        {
+            if (string.IsNullOrWhiteSpace(fileName)) return ExportRoot;
+            return Path.Combine(ExportRoot, fileName);
+        }
+
         /*****************************************************
          * mở kết nối tới server 
          * @return trả về 1 nếu thành công
