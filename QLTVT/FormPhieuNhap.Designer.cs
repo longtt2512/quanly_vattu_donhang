@@ -76,6 +76,7 @@ namespace QLTVT
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDDH = new DevExpress.XtraEditors.GroupControl();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.gcChiTietPhieuNhap = new DevExpress.XtraGrid.GridControl();
             this.bdsChiTietPhieuNhap = new System.Windows.Forms.BindingSource(this.components);
             this.gvCTDDH = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -277,7 +278,6 @@ namespace QLTVT
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGHI, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHOANTAC, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLAMMOI, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnMENU, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnTHOAT, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -499,7 +499,7 @@ namespace QLTVT
             // 
             // 
             this.gcPhieuNhap.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gcPhieuNhap.Enabled = false;
+            this.gcPhieuNhap.Enabled = true;
             this.gcPhieuNhap.Location = new System.Drawing.Point(0, 56);
             this.gcPhieuNhap.MainView = this.gridView1;
             this.gcPhieuNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -509,6 +509,7 @@ namespace QLTVT
             this.gcPhieuNhap.TabIndex = 7;
             this.gcPhieuNhap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gcPhieuNhap.Click += new System.EventHandler(this.gcPhieuNhap_Click);
             // 
             // gridView1
             // 
@@ -585,9 +586,19 @@ namespace QLTVT
             this.gcDDH.Location = new System.Drawing.Point(0, 227);
             this.gcDDH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gcDDH.Name = "gcDDH";
-            this.gcDDH.Size = new System.Drawing.Size(1745, 621);
+            this.gcDDH.Size = new System.Drawing.Size(1745, 0);
             this.gcDDH.TabIndex = 25;
             this.gcDDH.Text = "Đặt Hàng";
+            this.gcDDH.Visible = false;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitter1.Location = new System.Drawing.Point(0, 227);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(1745, 5);
+            this.splitter1.TabIndex = 27;
+            this.splitter1.TabStop = false;
             // 
             // gcChiTietPhieuNhap
             // 
@@ -597,20 +608,21 @@ namespace QLTVT
             // 
             // 
             this.gcChiTietPhieuNhap.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gcChiTietPhieuNhap.Enabled = false;
+            this.gcChiTietPhieuNhap.Enabled = true;
             this.gcChiTietPhieuNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             gridLevelNode2.RelationName = "Level1";
             this.gcChiTietPhieuNhap.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode2});
-            this.gcChiTietPhieuNhap.Location = new System.Drawing.Point(864, 23);
+            this.gcChiTietPhieuNhap.Location = new System.Drawing.Point(0, 232);
             this.gcChiTietPhieuNhap.MainView = this.gvCTDDH;
             this.gcChiTietPhieuNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gcChiTietPhieuNhap.MenuManager = this.barManager1;
             this.gcChiTietPhieuNhap.Name = "gcChiTietPhieuNhap";
-            this.gcChiTietPhieuNhap.Size = new System.Drawing.Size(879, 596);
-            this.gcChiTietPhieuNhap.TabIndex = 1;
+            this.gcChiTietPhieuNhap.Size = new System.Drawing.Size(1745, 616);
+            this.gcChiTietPhieuNhap.TabIndex = 26;
             this.gcChiTietPhieuNhap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCTDDH});
+            this.gcChiTietPhieuNhap.Click += new System.EventHandler(this.gcChiTietPhieuNhap_Click);
             // 
             // bdsChiTietPhieuNhap
             // 
@@ -981,6 +993,8 @@ namespace QLTVT
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1745, 848);
+            this.Controls.Add(this.gcChiTietPhieuNhap);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.gcDDH);
             this.Controls.Add(this.gcPhieuNhap);
             this.Controls.Add(this.panelControl1);
@@ -1049,6 +1063,7 @@ namespace QLTVT
         private DevExpress.XtraGrid.GridControl gcPhieuNhap;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.GroupControl gcDDH;
+        private System.Windows.Forms.Splitter splitter1;
         private DevExpress.XtraGrid.GridControl gcChiTietPhieuNhap;
         private DevExpress.XtraGrid.Views.Grid.GridView gvCTDDH;
         private System.Windows.Forms.GroupBox groupBoxPhieuNhap;

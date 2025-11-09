@@ -101,6 +101,13 @@ namespace QLTVT
             cmbCHINHANH.DisplayMember = "TENCN";
             cmbCHINHANH.ValueMember = "TENSERVER";
             cmbCHINHANH.SelectedIndex = Program.brand;
+
+            /*Step 3: Bật grid Chi Tiết Phiếu Nhập để luôn hiển thị danh sách chi tiết*/
+            gcChiTietPhieuNhap.Enabled = true;
+            gcPhieuNhap.Enabled = true;
+
+            /*Step 4: Tự động kích hoạt chế độ "Phiếu Nhập" khi form load*/
+            btnCheDoPhieuNhap_ItemClick(null, null);
         }
 
         private void groupBoxDonDatHang_Enter(object sender, EventArgs e)
@@ -161,8 +168,8 @@ namespace QLTVT
 
         private void btnCheDoPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 0*/
-            btnMENU.Links[0].Caption = "Phiếu Nhập";
+            /*Step 0 - Bỏ qua việc cập nhật caption vì đã ẩn menu*/
+            // btnMENU.Links[0].Caption = "Phiếu Nhập";
 
             /*Step 1*/
             bds = bdsPhieuNhap;
@@ -205,7 +212,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnMENU.Enabled = true;
+                // this.btnMENU.Enabled = true; // Đã ẩn menu
                 this.btnTHOAT.Enabled = true;
 
                 this.groupBoxPhieuNhap.Enabled = false;
@@ -226,7 +233,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnMENU.Enabled = true;
+                // this.btnMENU.Enabled = true; // Đã ẩn menu
                 this.btnTHOAT.Enabled = true;
 
                 //this.txtMaDonDatHang.Enabled = false;
@@ -236,8 +243,8 @@ namespace QLTVT
 
         private void btnCheDoChiTietPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 0*/
-            btnMENU.Links[0].Caption = "Chi Tiết Phiếu Nhập";
+            /*Step 0 - Bỏ qua việc cập nhật caption vì đã ẩn menu*/
+            // btnMENU.Links[0].Caption = "Chi Tiết Phiếu Nhập";
 
             /*Step 1*/
             bds = bdsChiTietPhieuNhap;
@@ -277,7 +284,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnMENU.Enabled = true;
+                // this.btnMENU.Enabled = true; // Đã ẩn menu
                 this.btnTHOAT.Enabled = true;
             }
 
@@ -294,7 +301,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnMENU.Enabled = true;
+                // this.btnMENU.Enabled = true; // Đã ẩn menu
                 this.btnTHOAT.Enabled = true;
             }
         }
@@ -318,79 +325,113 @@ namespace QLTVT
             viTri = bds.Position;
             dangThemMoi = true;
 
+            /*Step 2 - Hiển thị form popup tùy theo chế độ*/
+            if (bds == bdsPhieuNhap) // Chế độ Phiếu Nhập
+            {
+                // Hiển thị form popup để nhập thông tin phiếu nhập
+                using (SubForm.FormThemPhieuNhap formThem = new SubForm.FormThemPhieuNhap())
+                {
+                    formThem.StartPosition = FormStartPosition.CenterParent;
+                    DialogResult result = formThem.ShowDialog(this);
 
-            /*Step 2*/
-            /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
-            bds.AddNew();
-            if (btnMENU.Links[0].Caption == "Phiếu Nhập")
-            { 
-                this.txtMaPhieuNhap.Enabled = true;
+                    if (result == DialogResult.OK)
+                    {
+                        // Thêm dòng mới vào binding source
+                        bds.AddNew();
+                        
+                        // Gán giá trị từ form popup
+                        ((DataRowView)(bdsPhieuNhap.Current))["MAPN"] = formThem.MaPhieuNhap;
+                        ((DataRowView)(bdsPhieuNhap.Current))["NGAY"] = DateTime.Now;
+                        ((DataRowView)(bdsPhieuNhap.Current))["MasoDDH"] = formThem.MaDonDatHang;
+                        ((DataRowView)(bdsPhieuNhap.Current))["MANV"] = Program.userName;
+                        ((DataRowView)(bdsPhieuNhap.Current))["MAKHO"] = Program.maKhoDuocChon;
 
-                this.dteNgay.EditValue = DateTime.Now;
-                this.dteNgay.Enabled = false;
+                        // Refresh các textbox trên form (để validation pass)
+                        bds.EndEdit();
+                        
+                        // Cập nhật trực tiếp các textbox (để đảm bảo validation thấy được dữ liệu)
+                        this.txtMaPhieuNhap.Text = formThem.MaPhieuNhap;
+                        this.txtMaDonDatHang.Text = formThem.MaDonDatHang;
+                        this.txtMaNhanVien.Text = Program.userName;
+                        this.txtMaKho.Text = Program.maKhoDuocChon;
+                        this.dteNgay.EditValue = DateTime.Now;
 
-                this.txtMaDonDatHang.Enabled = false;
-                this.btnChonDonHang.Enabled = true;
-
-                this.txtMaNhanVien.Text = Program.userName;
-                this.txtMaKho.Text = Program.maKhoDuocChon;
-         
-
-                /*Gan tu dong may truong du lieu nay*/
-                ((DataRowView)(bdsPhieuNhap.Current))["NGAY"] = DateTime.Now;
-                ((DataRowView)(bdsPhieuNhap.Current))["MasoDDH"] = Program.maDonDatHangDuocChon;
-                ((DataRowView)(bdsPhieuNhap.Current))["MANV"] = Program.userName;
-                ((DataRowView)(bdsPhieuNhap.Current))["MAKHO"] =
-                Program.maKhoDuocChon;
-
+                        // Bật chế độ ghi
+                        this.btnTHEM.Enabled = false;
+                        this.btnXOA.Enabled = false;
+                        this.btnGHI.Enabled = true;
+                        this.btnHOANTAC.Enabled = true;
+                        this.btnLAMMOI.Enabled = false;
+                        this.btnTHOAT.Enabled = false;
+                    }
+                    else
+                    {
+                        // Hủy bỏ thêm mới
+                        dangThemMoi = false;
+                    }
+                }
+                return;
             }
 
-            if (btnMENU.Links[0].Caption == "Chi Tiết Phiếu Nhập")
+            if (bds == bdsChiTietPhieuNhap) // Chế độ Chi Tiết Phiếu Nhập
             {
                 DataRowView drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
                 String maNhanVien = drv["MANV"].ToString();
                 if (Program.userName != maNhanVien)
                 {
                     MessageBox.Show("Bạn không thêm chi tiết phiếu nhập trên phiếu không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
-                    bdsChiTietPhieuNhap.RemoveCurrent();
                     return;
                 }
 
-                /*Gan tu dong may truong du lieu nay*/
-                ((DataRowView)(bdsChiTietPhieuNhap.Current))["MAPN"] = ((DataRowView)(bdsPhieuNhap.Current))["MAPN"];
-                ((DataRowView)(bdsChiTietPhieuNhap.Current))["MAVT"] =
-                    Program.maVatTuDuocChon;
-                ((DataRowView)(bdsChiTietPhieuNhap.Current))["SOLUONG"] =
-                    Program.soLuongVatTu;
-                ((DataRowView)(bdsChiTietPhieuNhap.Current))["DONGIA"] =
-                    Program.donGia;
+                // Lấy mã đơn đặt hàng của phiếu nhập hiện tại
+                String maDonDatHang = drv["MasoDDH"].ToString().Trim();
 
-                this.txtMaVatTu.Enabled = false;
-                this.btnChonChiTietDonHang.Enabled = true;
+                // Hiển thị form popup để nhập chi tiết phiếu nhập
+                using (SubForm.FormThemChiTietPhieuNhap formThem = new SubForm.FormThemChiTietPhieuNhap())
+                {
+                    formThem.MaDonDatHangPhieuNhap = maDonDatHang; // Truyền mã đơn hàng để validate
+                    formThem.StartPosition = FormStartPosition.CenterParent;
+                    DialogResult result = formThem.ShowDialog(this);
 
-                this.txtSoLuong.Enabled = true;
-                this.txtSoLuong.EditValue = 1;
+                    if (result == DialogResult.OK)
+                    {
+                        // Thêm dòng mới vào binding source
+                        bds.AddNew();
+                        
+                        // Gán giá trị từ form popup
+                        ((DataRowView)(bdsChiTietPhieuNhap.Current))["MAPN"] = 
+                            ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position])["MAPN"];
+                        ((DataRowView)(bdsChiTietPhieuNhap.Current))["MAVT"] = formThem.MaVatTu;
+                        ((DataRowView)(bdsChiTietPhieuNhap.Current))["SOLUONG"] = formThem.SoLuong;
+                        ((DataRowView)(bdsChiTietPhieuNhap.Current))["DONGIA"] = formThem.DonGia;
 
-                this.txtDonGia.Enabled = true;
-                this.txtDonGia.EditValue = 1;
+                        // Refresh các textbox trên form (để validation pass)
+                        bds.EndEdit();
+                        
+                        // Cập nhật trực tiếp các textbox (để đảm bảo validation thấy được dữ liệu)
+                        this.txtMaVatChiTietPhieuNhap.Text = formThem.MaVatTu;
+                        this.txtSoLuongChiTietPhieuNhap.Value = formThem.SoLuong;
+                        this.txtDonGiaChiTietPhieuNhap.Value = formThem.DonGia;
 
-                this.txtSoLuongChiTietPhieuNhap.Enabled = true;
-                this.txtDonGiaChiTietPhieuNhap.Enabled = true;
+                        // Bật chế độ ghi
+                        this.btnTHEM.Enabled = false;
+                        this.btnXOA.Enabled = false;
+                        this.btnGHI.Enabled = true;
+                        this.btnHOANTAC.Enabled = true;
+                        this.btnLAMMOI.Enabled = false;
+                        this.btnTHOAT.Enabled = false;
+
+                        gcPhieuNhap.Enabled = false;
+                        gcChiTietPhieuNhap.Enabled = false;
+                    }
+                    else
+                    {
+                        // Hủy bỏ thêm mới
+                        dangThemMoi = false;
+                    }
+                }
+                return;
             }
-
-
-            /*Step 3*/
-            this.btnTHEM.Enabled = false;
-            this.btnXOA.Enabled = false;
-            this.btnGHI.Enabled = true;
-
-            this.btnHOANTAC.Enabled = true;
-            this.btnLAMMOI.Enabled = false;
-            this.btnMENU.Enabled = false;
-            this.btnTHOAT.Enabled = false;
-
-            gcPhieuNhap.Enabled = false;
-            gcChiTietPhieuNhap.Enabled = false;
         }
 
         private void btnTHOAT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -467,7 +508,7 @@ namespace QLTVT
                 dangThemMoi = false;
 
                 /*dang o che do Phiếu Nhập*/
-                if (btnMENU.Links[0].Caption == "Phiếu Nhập")
+                if (bds == bdsPhieuNhap)
                 {
                     this.txtMaDonDatHang.Enabled = false;
                     dteNgay.Enabled = false;
@@ -479,7 +520,7 @@ namespace QLTVT
                     txtMaDonDatHang.Enabled = false;
                 }
                 /*dang o che do Chi Tiết Phiếu Nhập*/
-                if (btnMENU.Links[0].Caption == "Chi Tiết Phiếu Nhập")
+                if (bds == bdsChiTietPhieuNhap)
                 {
                     this.txtMaDonDatHang.Enabled = false;
                     this.btnChonChiTietDonHang.Enabled = false;
@@ -497,7 +538,7 @@ namespace QLTVT
 
                 //this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnMENU.Enabled = true;
+                // this.btnMENU.Enabled = true; // Đã ẩn menu
                 this.btnTHOAT.Enabled = true;
 
                 this.gcPhieuNhap.Enabled = true;
@@ -666,7 +707,7 @@ namespace QLTVT
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/
-            String cheDo = (btnMENU.Links[0].Caption == "Phiếu Nhập") ? "Phiếu Nhập" : "Chi Tiết Phiếu Nhập";
+            String cheDo = (bds == bdsPhieuNhap) ? "Phiếu Nhập" : "Chi Tiết Phiếu Nhập";
 
 
             /*Step 2*/
@@ -769,7 +810,7 @@ namespace QLTVT
 
                         this.btnHOANTAC.Enabled = true;
                         this.btnLAMMOI.Enabled = true;
-                        this.btnMENU.Enabled = true;
+                        // this.btnMENU.Enabled = true; // Đã ẩn menu
                         this.btnTHOAT.Enabled = true;
 
                         this.gcPhieuNhap.Enabled = true;
@@ -805,7 +846,7 @@ namespace QLTVT
         {
             DataRowView drv;
             string cauTruyVanHoanTac = "";
-            string cheDo = (btnMENU.Links[0].Caption == "Phiếu Nhập") ? "Phiếu Nhập" : "Chi Tiết Phiếu Nhập";
+            string cheDo = (bds == bdsPhieuNhap) ? "Phiếu Nhập" : "Chi Tiết Phiếu Nhập";
             
 
 
@@ -910,6 +951,18 @@ namespace QLTVT
                 // xoa cau truy van hoan tac di
                 undoList.Pop();
             }
+        }
+
+        // Tự động chuyển sang chế độ "Phiếu Nhập" khi click vào grid Phiếu Nhập
+        private void gcPhieuNhap_Click(object sender, EventArgs e)
+        {
+            btnCheDoPhieuNhap_ItemClick(null, null);
+        }
+
+        // Tự động chuyển sang chế độ "Chi Tiết Phiếu Nhập" khi click vào grid Chi Tiết
+        private void gcChiTietPhieuNhap_Click(object sender, EventArgs e)
+        {
+            btnCheDoChiTietPhieuNhap_ItemClick(null, null);
         }
     }
 }

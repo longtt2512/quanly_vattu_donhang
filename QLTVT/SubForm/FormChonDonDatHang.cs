@@ -37,6 +37,7 @@ namespace QLTVT.SubForm
 
         private void btnTHOAT_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Dispose();
         }
 
@@ -116,6 +117,7 @@ namespace QLTVT.SubForm
             //Console.WriteLine(maDonHang);
             //Console.WriteLine(maKho);
 
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

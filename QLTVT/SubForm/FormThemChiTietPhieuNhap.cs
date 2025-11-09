@@ -3,26 +3,33 @@ using System.Windows.Forms;
 
 namespace QLTVT.SubForm
 {
-    public partial class FormThemChiTietDonHang : Form
+    public partial class FormThemChiTietPhieuNhap : Form
     {
         public string MaVatTu { get; set; }
         public int SoLuong { get; set; }
         public decimal DonGia { get; set; }
+        public string MaDonDatHangPhieuNhap { get; set; } // Mã đơn hàng của phiếu nhập hiện tại
 
-        public FormThemChiTietDonHang()
+        public FormThemChiTietPhieuNhap()
         {
             InitializeComponent();
         }
 
-        private void FormThemChiTietDonHang_Load(object sender, EventArgs e)
+        private void FormThemChiTietPhieuNhap_Load(object sender, EventArgs e)
         {
             numSoLuong.Value = 1;
             numDonGia.Value = 1000;
+            
+            // Set mã đơn hàng để FormChonChiTietDonHang có thể validate
+            if (!string.IsNullOrEmpty(MaDonDatHangPhieuNhap))
+            {
+                Program.maDonDatHangDuocChon = MaDonDatHangPhieuNhap.Trim();
+            }
         }
 
-        private void btnChonVatTu_Click(object sender, EventArgs e)
+        private void btnChonChiTietDonHang_Click(object sender, EventArgs e)
         {
-            FormChonVatTu f = new FormChonVatTu();
+            FormChonChiTietDonHang f = new FormChonChiTietDonHang();
             f.StartPosition = FormStartPosition.CenterParent;
             DialogResult result = f.ShowDialog(this);
             
@@ -30,6 +37,19 @@ namespace QLTVT.SubForm
             {
                 this.txtMaVatTu.Text = Program.maVatTuDuocChon;
                 this.MaVatTu = Program.maVatTuDuocChon;
+                
+                // Tự động điền số lượng và đơn giá từ chi tiết đơn hàng
+                if (Program.soLuongVatTu > 0)
+                {
+                    numSoLuong.Value = Program.soLuongVatTu;
+                    this.SoLuong = Program.soLuongVatTu;
+                }
+                
+                if (Program.donGia > 0)
+                {
+                    numDonGia.Value = Program.donGia;
+                    this.DonGia = Program.donGia;
+                }
             }
         }
 
@@ -38,8 +58,8 @@ namespace QLTVT.SubForm
             // Validate
             if (string.IsNullOrWhiteSpace(txtMaVatTu.Text))
             {
-                MessageBox.Show("Vui lòng chọn vật tư", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                btnChonVatTu.Focus();
+                MessageBox.Show("Vui lòng chọn chi tiết đơn hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnChonChiTietDonHang.Focus();
                 return;
             }
 

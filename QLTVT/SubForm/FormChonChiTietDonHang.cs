@@ -72,11 +72,13 @@ namespace QLTVT.SubForm
             Program.maVatTuDuocChon = maVatTu;
             Program.soLuongVatTu = soLuong;
             Program.donGia = donGia;
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void btnTHOAT_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Dispose();
         }
     }

@@ -2,7 +2,7 @@
 
 namespace QLTVT.SubForm
 {
-    partial class FormThemChiTietDonHang
+    partial class FormThemChiTietPhieuNhap
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -29,7 +29,7 @@ namespace QLTVT.SubForm
             this.txtMaVatTu = new System.Windows.Forms.TextBox();
             this.numSoLuong = new System.Windows.Forms.NumericUpDown();
             this.numDonGia = new System.Windows.Forms.NumericUpDown();
-            this.btnChonVatTu = new System.Windows.Forms.Button();
+            this.btnChonChiTietDonHang = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,47 +43,46 @@ namespace QLTVT.SubForm
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 100);
+            this.label1.Location = new System.Drawing.Point(34, 144);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Vật tư *";
+            this.label1.Size = new System.Drawing.Size(114, 22);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Số lượng *";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 162);
+            this.label2.Location = new System.Drawing.Point(34, 188);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Số lượng *";
+            this.label2.Size = new System.Drawing.Size(94, 22);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Đơn giá *";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 225);
+            this.label4.Location = new System.Drawing.Point(34, 100);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 22);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Đơn giá *";
+            this.label4.Size = new System.Drawing.Size(182, 22);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Chi tiết đơn hàng *";
             // 
             // txtMaVatTu
             // 
             this.txtMaVatTu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMaVatTu.Location = new System.Drawing.Point(191, 96);
+            this.txtMaVatTu.Location = new System.Drawing.Point(222, 96);
             this.txtMaVatTu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaVatTu.Name = "txtMaVatTu";
             this.txtMaVatTu.ReadOnly = true;
             this.txtMaVatTu.Size = new System.Drawing.Size(168, 28);
-            this.txtMaVatTu.TabIndex = 3;
+            this.txtMaVatTu.TabIndex = 1;
             // 
             // numSoLuong
             // 
             this.numSoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.numSoLuong.Location = new System.Drawing.Point(191, 159);
-            this.numSoLuong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numSoLuong.Location = new System.Drawing.Point(222, 140);
             this.numSoLuong.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -95,9 +94,9 @@ namespace QLTVT.SubForm
             0,
             0});
             this.numSoLuong.Name = "numSoLuong";
-            this.numSoLuong.Size = new System.Drawing.Size(169, 28);
-            this.numSoLuong.TabIndex = 5;
-            this.numSoLuong.ThousandsSeparator = true;
+            this.numSoLuong.Size = new System.Drawing.Size(288, 28);
+            this.numSoLuong.TabIndex = 3;
+            this.numSoLuong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numSoLuong.Value = new decimal(new int[] {
             1,
             0,
@@ -106,45 +105,40 @@ namespace QLTVT.SubForm
             // 
             // numDonGia
             // 
+            this.numDonGia.DecimalPlaces = 2;
             this.numDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.numDonGia.Increment = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numDonGia.Location = new System.Drawing.Point(191, 221);
-            this.numDonGia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numDonGia.Location = new System.Drawing.Point(222, 184);
             this.numDonGia.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
             this.numDonGia.Minimum = new decimal(new int[] {
-            1000,
+            1,
             0,
             0,
             0});
             this.numDonGia.Name = "numDonGia";
-            this.numDonGia.Size = new System.Drawing.Size(225, 28);
+            this.numDonGia.Size = new System.Drawing.Size(288, 28);
             this.numDonGia.TabIndex = 6;
-            this.numDonGia.ThousandsSeparator = true;
+            this.numDonGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numDonGia.Value = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             // 
-            // btnChonVatTu
+            // btnChonChiTietDonHang
             // 
-            this.btnChonVatTu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnChonVatTu.Location = new System.Drawing.Point(371, 94);
-            this.btnChonVatTu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnChonVatTu.Name = "btnChonVatTu";
-            this.btnChonVatTu.Size = new System.Drawing.Size(135, 35);
-            this.btnChonVatTu.TabIndex = 4;
-            this.btnChonVatTu.Text = "Chọn vật tư...";
-            this.btnChonVatTu.UseVisualStyleBackColor = true;
-            this.btnChonVatTu.Click += new System.EventHandler(this.btnChonVatTu_Click);
+            this.btnChonChiTietDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnChonChiTietDonHang.Location = new System.Drawing.Point(402, 94);
+            this.btnChonChiTietDonHang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnChonChiTietDonHang.Name = "btnChonChiTietDonHang";
+            this.btnChonChiTietDonHang.Size = new System.Drawing.Size(109, 35);
+            this.btnChonChiTietDonHang.TabIndex = 5;
+            this.btnChonChiTietDonHang.Text = "Chọn...";
+            this.btnChonChiTietDonHang.UseVisualStyleBackColor = true;
+            this.btnChonChiTietDonHang.Click += new System.EventHandler(this.btnChonChiTietDonHang_Click);
             // 
             // btnOK
             // 
@@ -152,7 +146,7 @@ namespace QLTVT.SubForm
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(259, 300);
+            this.btnOK.Location = new System.Drawing.Point(264, 262);
             this.btnOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(112, 44);
@@ -164,7 +158,7 @@ namespace QLTVT.SubForm
             // btnHuy
             // 
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnHuy.Location = new System.Drawing.Point(394, 300);
+            this.btnHuy.Location = new System.Drawing.Point(399, 262);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(112, 44);
@@ -179,44 +173,44 @@ namespace QLTVT.SubForm
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(544, 62);
+            this.panel1.Size = new System.Drawing.Size(548, 60);
             this.panel1.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(107, 16);
+            this.label3.Location = new System.Drawing.Point(85, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(301, 29);
+            this.label3.Size = new System.Drawing.Size(383, 32);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Thêm Chi Tiết Đơn Hàng";
+            this.label3.Text = "Thêm Chi Tiết Phiếu Nhập";
             // 
-            // FormThemChiTietDonHang
+            // FormThemChiTietPhieuNhap
             // 
-            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 376);
+            this.ClientSize = new System.Drawing.Size(548, 325);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.btnChonVatTu);
+            this.Controls.Add(this.btnChonChiTietDonHang);
             this.Controls.Add(this.numDonGia);
             this.Controls.Add(this.numSoLuong);
-            this.Controls.Add(this.txtMaVatTu);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtMaVatTu);
+            this.Controls.Add(this.label4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormThemChiTietDonHang";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Thêm Chi Tiết Đơn Hàng";
-            this.Load += new System.EventHandler(this.FormThemChiTietDonHang_Load);
+            this.Name = "FormThemChiTietPhieuNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Thêm Chi Tiết Phiếu Nhập";
+            this.Load += new System.EventHandler(this.FormThemChiTietPhieuNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDonGia)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -234,7 +228,7 @@ namespace QLTVT.SubForm
         private System.Windows.Forms.TextBox txtMaVatTu;
         private System.Windows.Forms.NumericUpDown numSoLuong;
         private System.Windows.Forms.NumericUpDown numDonGia;
-        private System.Windows.Forms.Button btnChonVatTu;
+        private System.Windows.Forms.Button btnChonChiTietDonHang;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Panel panel1;
