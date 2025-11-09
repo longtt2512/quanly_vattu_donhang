@@ -67,7 +67,7 @@ namespace QLTVT.ReportForm
         {
             DateTime fromDate = (DateTime)dteTuNgay.DateTime;
             DateTime toDate = (DateTime)dteToiNgay.DateTime;
-            string chiNhanh = cmbCHINHANH.SelectedValue.ToString().Contains("1") ? "Helsinki" : "Lisbon";
+            string chiNhanh = cmbCHINHANH.SelectedValue.ToString().Contains("1") ? "Chi nhánh 1" : "Chi nhánh 2";
 
             
 
