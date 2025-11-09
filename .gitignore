@@ -1,1 +1,5 @@
 QLTVT/obj/Release/build.force
+.idea/*
+.vs/*
+QLTVT/bin/*
+QLTVT/obj/*
