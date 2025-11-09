@@ -126,6 +126,7 @@ namespace QLTVT.ReportForm
             layDanhSachPhanManh("SELECT TOP 2 * FROM view_DanhSachPhanManh");
             cmbCHINHANH.SelectedIndex = 0;
             cmbCHINHANH.SelectedIndex = 1;
+            cmbCHINHANH.SelectedIndex = Program.brand;
         }
 
         private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)

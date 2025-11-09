@@ -95,8 +95,8 @@ namespace QLTVT
                 return;
             //Lấy 2 cái đầu tiên của danh sách
             layDanhSachPhanManh("SELECT TOP 2 * FROM view_DanhSachPhanManh");
-            cmbCHINHANH.SelectedIndex = 0;
             cmbCHINHANH.SelectedIndex = 1;
+            cmbCHINHANH.SelectedIndex = 0;
         }
 
 
