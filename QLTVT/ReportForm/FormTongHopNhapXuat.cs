@@ -79,5 +79,41 @@ namespace QLTVT.ReportForm
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime fromDate = (DateTime)dteTuNgay.DateTime;
+                DateTime toDate = (DateTime)dteToiNgay.DateTime;
+                string chiNhanh = cmbCHINHANH.SelectedValue.ToString().Contains("1") ? "Chi nhánh 1" : "Chi nhánh 2";
+
+                ReportTongHopNhapXuat report = new ReportTongHopNhapXuat(fromDate, toDate);
+                report.txtTuNgay.Text = dteTuNgay.EditValue.ToString();
+                report.txtToiNgay.Text = dteToiNgay.EditValue.ToString();
+                report.txtChiNhanh.Text = chiNhanh;
+
+                string exportPath = Program.GetExportPath("ReportTongHopNhapXuat.pdf");
+                if (System.IO.File.Exists(exportPath))
+                {
+                    DialogResult dr = MessageBox.Show($"File ReportTongHopNhapXuat.pdf tại {exportPath} đã có!\nBạn có muốn tạo lại?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.Yes)
+                    {
+                        report.ExportToPdf(exportPath);
+                        MessageBox.Show($"File ReportTongHopNhapXuat.pdf đã được ghi thành công tại {exportPath}", "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    report.ExportToPdf(exportPath);
+                    MessageBox.Show($"File ReportTongHopNhapXuat.pdf đã được ghi thành công tại {exportPath}", "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Vui lòng đóng file ReportTongHopNhapXuat.pdf", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                return;
+            }
+        }
     }
 }

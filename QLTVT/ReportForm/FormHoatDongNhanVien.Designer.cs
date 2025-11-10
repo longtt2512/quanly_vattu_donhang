@@ -41,7 +41,6 @@ namespace QLTVT.ReportForm
             this.dteTuNgay = new DevExpress.XtraEditors.DateEdit();
             this.dteToiNgay = new DevExpress.XtraEditors.DateEdit();
             this.btnChonNhanVien = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtNgaySinh = new System.Windows.Forms.TextBox();
@@ -55,13 +54,16 @@ namespace QLTVT.ReportForm
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(279, 28);
+            this.label1.AutoSize = false;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 60);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(422, 40);
+            this.label1.Size = new System.Drawing.Size(893, 41);
             this.label1.TabIndex = 0;
             this.label1.Text = "HOẠT ĐỘNG NHÂN VIÊN";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -77,7 +79,7 @@ namespace QLTVT.ReportForm
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(86, 209);
+            this.label3.Location = new System.Drawing.Point(86, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 23);
             this.label3.TabIndex = 2;
@@ -87,7 +89,7 @@ namespace QLTVT.ReportForm
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(86, 309);
+            this.label4.Location = new System.Drawing.Point(86, 326);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 23);
             this.label4.TabIndex = 3;
@@ -97,7 +99,7 @@ namespace QLTVT.ReportForm
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(86, 365);
+            this.label5.Location = new System.Drawing.Point(86, 368);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 23);
             this.label5.TabIndex = 4;
@@ -131,81 +133,77 @@ namespace QLTVT.ReportForm
             this.txtMaNhanVien.Location = new System.Drawing.Point(300, 158);
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.Size = new System.Drawing.Size(169, 22);
+            this.txtMaNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaNhanVien.TabIndex = 7;
             // 
             // txtHoVaTen
             // 
             this.txtHoVaTen.Enabled = false;
-            this.txtHoVaTen.Location = new System.Drawing.Point(300, 208);
+            this.txtHoVaTen.Location = new System.Drawing.Point(300, 200);
             this.txtHoVaTen.Name = "txtHoVaTen";
             this.txtHoVaTen.Size = new System.Drawing.Size(169, 22);
+            this.txtHoVaTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHoVaTen.TabIndex = 8;
             // 
             // dteTuNgay
             // 
             this.dteTuNgay.EditValue = null;
-            this.dteTuNgay.Location = new System.Drawing.Point(300, 309);
+            this.dteTuNgay.Location = new System.Drawing.Point(300, 326);
             this.dteTuNgay.Name = "dteTuNgay";
             this.dteTuNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteTuNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteTuNgay.Size = new System.Drawing.Size(169, 24);
+            this.dteTuNgay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dteTuNgay.TabIndex = 9;
             // 
             // dteToiNgay
             // 
             this.dteToiNgay.EditValue = null;
-            this.dteToiNgay.Location = new System.Drawing.Point(300, 364);
+            this.dteToiNgay.Location = new System.Drawing.Point(300, 368);
             this.dteToiNgay.Name = "dteToiNgay";
             this.dteToiNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteToiNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteToiNgay.Size = new System.Drawing.Size(169, 24);
+            this.dteToiNgay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dteToiNgay.TabIndex = 10;
             // 
             // btnChonNhanVien
             // 
-            this.btnChonNhanVien.Location = new System.Drawing.Point(525, 122);
+            this.btnChonNhanVien.Location = new System.Drawing.Point(15, 15);
             this.btnChonNhanVien.Name = "btnChonNhanVien";
-            this.btnChonNhanVien.Size = new System.Drawing.Size(171, 44);
+            this.btnChonNhanVien.Size = new System.Drawing.Size(150, 27);
             this.btnChonNhanVien.TabIndex = 11;
-            this.btnChonNhanVien.Text = "Chọn Nhân Viên";
+            this.btnChonNhanVien.Text = "Chọn nhân viên";
             this.btnChonNhanVien.UseVisualStyleBackColor = true;
+            this.btnChonNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.btnChonNhanVien.Click += new System.EventHandler(this.btnChonNhanVien_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(176, 433);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 54);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "XEM TRƯỚC";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(515, 433);
+            this.button2.Location = new System.Drawing.Point(175, 15);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(181, 54);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "XUẤT BẢN";
-            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Size = new System.Drawing.Size(100, 27);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Xuất file";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(533, 207);
+            this.label7.Location = new System.Drawing.Point(86, 242);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 23);
             this.label7.TabIndex = 14;
@@ -214,16 +212,18 @@ namespace QLTVT.ReportForm
             // txtNgaySinh
             // 
             this.txtNgaySinh.Enabled = false;
-            this.txtNgaySinh.Location = new System.Drawing.Point(660, 206);
+            this.txtNgaySinh.Location = new System.Drawing.Point(300, 242);
             this.txtNgaySinh.Name = "txtNgaySinh";
-            this.txtNgaySinh.Size = new System.Drawing.Size(103, 22);
+            this.txtNgaySinh.Size = new System.Drawing.Size(169, 22);
+            this.txtNgaySinh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNgaySinh.TabIndex = 15;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(86, 258);
+            this.label8.Location = new System.Drawing.Point(86, 284);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 23);
             this.label8.TabIndex = 16;
@@ -232,9 +232,11 @@ namespace QLTVT.ReportForm
             // txtDiaChi
             // 
             this.txtDiaChi.Enabled = false;
-            this.txtDiaChi.Location = new System.Drawing.Point(300, 257);
+            this.txtDiaChi.Location = new System.Drawing.Point(300, 284);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(169, 22);
+            this.txtDiaChi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiaChi.TabIndex = 17;
             // 
             // FormHoatDongNhanVien
@@ -247,7 +249,6 @@ namespace QLTVT.ReportForm
             this.Controls.Add(this.txtNgaySinh);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnChonNhanVien);
             this.Controls.Add(this.dteToiNgay);
             this.Controls.Add(this.dteTuNgay);
@@ -287,7 +288,6 @@ namespace QLTVT.ReportForm
         private DevExpress.XtraEditors.DateEdit dteTuNgay;
         private DevExpress.XtraEditors.DateEdit dteToiNgay;
         private System.Windows.Forms.Button btnChonNhanVien;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNgaySinh;
