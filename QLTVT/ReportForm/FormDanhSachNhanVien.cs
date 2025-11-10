@@ -105,8 +105,8 @@ namespace QLTVT.ReportForm
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Vui lòng đóng file ReportDSNhanVien.pdf",
-                    "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng đóng file ReportDanhSachNhanVien.pdf",
+                    "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }

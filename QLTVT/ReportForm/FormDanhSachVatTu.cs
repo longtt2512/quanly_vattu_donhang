@@ -22,6 +22,10 @@ namespace QLTVT.ReportForm
         private void button1_Click(object sender, EventArgs e)
         {
             ReportDanhSachVatTu report = new ReportDanhSachVatTu();
+            // Đồng bộ nguồn dữ liệu của report với danh sách đang hiển thị trên form
+            report.DataSource = this.dataSet;
+            report.DataMember = "Vattu";
+
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
         }
@@ -29,6 +33,9 @@ namespace QLTVT.ReportForm
         private void button2_Click(object sender, EventArgs e)
         {
             ReportDanhSachVatTu report = new ReportDanhSachVatTu();
+            // Đồng bộ nguồn dữ liệu của report với danh sách đang hiển thị trên form
+            report.DataSource = this.dataSet;
+            report.DataMember = "Vattu";
             try
             {
                 string exportPath = Program.GetExportPath("ReportDanhSachVatTu.pdf");
