@@ -102,7 +102,7 @@ namespace QLTVT.ReportForm
                 MessageBox.Show("Xảy ra lỗi kết nối với chi nhánh hiện tại", "Thông báo", MessageBoxButtons.OK);
             }
 
-            chiNhanh = cmbCHINHANH.SelectedValue.ToString().Contains("1") ? "Chi nhánh 1" : "Chi nhánh 2";
+            chiNhanh = cmbCHINHANH.Text;
         }
 
         private void FormDonHangKhongPhieuNhap_Load(object sender, EventArgs e)
@@ -120,6 +120,7 @@ namespace QLTVT.ReportForm
             layDanhSachPhanManh("SELECT TOP 2 * FROM view_DanhSachPhanManh");
             cmbCHINHANH.SelectedIndex = 0;
             cmbCHINHANH.SelectedIndex = 1;
+            cmbCHINHANH.SelectedIndex = Program.brand;
         }
 
         private void button1_Click(object sender, EventArgs e)
