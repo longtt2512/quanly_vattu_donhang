@@ -180,7 +180,8 @@ namespace QLTVT
                 this.btnTHOAT.Enabled = true;
 
                 this.groupBoxDonDatHang.Enabled = false;
-
+                // Cho phép sửa nhà cung cấp
+                this.txtNhaCungCap.Enabled = true;
 
             }
 
@@ -220,7 +221,7 @@ namespace QLTVT
             txtMaDonDatHang.Enabled = false;
             dteNGAY.Enabled = false;
 
-            txtNhaCungCap.Enabled = false;
+            txtNhaCungCap.Enabled = true; // Cho phép sửa nhà cung cấp
             txtMaNhanVien.Enabled = false;
 
             txtMaKho.Enabled = false;
@@ -259,7 +260,8 @@ namespace QLTVT
                 this.btnTHOAT.Enabled = true;
 
                 this.groupBoxDonDatHang.Enabled = false;
-
+                // Cho phép sửa nhà cung cấp
+                this.txtNhaCungCap.Enabled = true;
 
             }
 
@@ -419,32 +421,63 @@ namespace QLTVT
         {
             if (cheDo == "Đơn Đặt Hàng")
             {
-                if( txtMaDonDatHang.Text == "")
+                // Lấy giá trị từ BindingSource thay vì textbox để hỗ trợ chỉnh sửa grid
+                String maDonDatHang = txtMaDonDatHang.Text;
+                if (string.IsNullOrEmpty(maDonDatHang) && bdsDonDatHang.Current != null)
+                {
+                    maDonDatHang = ((DataRowView)bdsDonDatHang.Current)["MasoDDH"].ToString().Trim();
+                }
+                
+                if( string.IsNullOrEmpty(maDonDatHang))
                 {
                     MessageBox.Show("Không thể bỏ trống mã đơn hàng","Thông báo",MessageBoxButtons.OK);
                     return false;
                 }
-                if (txtMaDonDatHang.Text.Length > 8)
+                if (maDonDatHang.Length > 8)
                 {
                     MessageBox.Show("Mã đơn đặt hàng không quá 8 kí tự", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
-                if ( txtMaNhanVien.Text == "")
+                
+                // Lấy mã nhân viên từ BindingSource nếu textbox trống
+                String maNhanVien = txtMaNhanVien.Text;
+                if (string.IsNullOrEmpty(maNhanVien) && bdsDonDatHang.Current != null)
+                {
+                    maNhanVien = ((DataRowView)bdsDonDatHang.Current)["MANV"].ToString().Trim();
+                }
+                
+                if ( string.IsNullOrEmpty(maNhanVien))
                 {
                     MessageBox.Show("Không thể bỏ trống mã nhân viên", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
-                if( txtNhaCungCap.Text == "")
+                
+                // Lấy nhà cung cấp từ BindingSource nếu textbox trống
+                String nhaCungCap = txtNhaCungCap.Text;
+                if (string.IsNullOrEmpty(nhaCungCap) && bdsDonDatHang.Current != null)
+                {
+                    nhaCungCap = ((DataRowView)bdsDonDatHang.Current)["NhaCC"].ToString().Trim();
+                }
+                
+                if( string.IsNullOrEmpty(nhaCungCap))
                 {
                     MessageBox.Show("Không thể bỏ trống nhà cung cấp", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
-                if (txtNhaCungCap.Text.Length > 100)
+                if (nhaCungCap.Length > 100)
                 {
                     MessageBox.Show("Tên nhà cung cấp không quá 100 kí tự", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
-                if ( txtMaKho.Text == "")
+                
+                // Lấy mã kho từ BindingSource nếu textbox trống
+                String maKho = txtMaKho.Text;
+                if (string.IsNullOrEmpty(maKho) && bdsDonDatHang.Current != null)
+                {
+                    maKho = ((DataRowView)bdsDonDatHang.Current)["MAKHO"].ToString().Trim();
+                }
+                
+                if ( string.IsNullOrEmpty(maKho))
                 {
                     MessageBox.Show("Không thể bỏ trống mã kho", "Thông báo", MessageBoxButtons.OK);
                     return false;
@@ -659,6 +692,14 @@ namespace QLTVT
                         
                         this.bdsDonDatHang.EndEdit();
                         this.bdsChiTietDonDatHang.EndEdit();
+                        
+                        // In ra connection string trước khi save
+                        Console.WriteLine("=== SAVE DON DAT HANG ===");
+                        Console.WriteLine("Connection String: " + this.donDatHangTableAdapter.Connection.ConnectionString);
+                        Console.WriteLine("Database: " + this.donDatHangTableAdapter.Connection.Database);
+                        Console.WriteLine("DataSource: " + this.donDatHangTableAdapter.Connection.DataSource);
+                        Console.WriteLine("========================");
+                        
                         this.donDatHangTableAdapter.Update(this.dataSet.DatHang);
                         this.chiTietDonDatHangTableAdapter.Update(this.dataSet.CTDDH);
 

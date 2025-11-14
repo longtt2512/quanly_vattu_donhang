@@ -531,7 +531,7 @@ namespace QLTVT
             this.colNhaCC.FieldName = "NhaCC";
             this.colNhaCC.MinWidth = 25;
             this.colNhaCC.Name = "colNhaCC";
-            this.colNhaCC.OptionsColumn.AllowEdit = false;
+            this.colNhaCC.OptionsColumn.AllowEdit = true;
             this.colNhaCC.Visible = true;
             this.colNhaCC.VisibleIndex = 2;
             this.colNhaCC.Width = 94;
