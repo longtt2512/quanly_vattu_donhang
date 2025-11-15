@@ -77,11 +77,12 @@ namespace QLTVT
             bool ketQua = kiemTraDuLieuDauVao();
             if (ketQua == false) return;
 
-            taiKhoan = Program.taiKhoan; // theo form gốc: dùng họ tên hiện tại làm login name
+            taiKhoan = Program.taiKhoan; 
             matKhau = txtMatKhau.Text;
             maNhanVien = Program.maNhanVienDuocChon;
+            if (rdChiNhanh.Enabled) { 
             vaiTro = (rdChiNhanh.Checked == true) ? "CHINHANH" : "USER";
-
+            }
             string cauTruyVan =
                 "EXEC sp_TaoTaiKhoan '" + taiKhoan + "' , '" + matKhau + "', '" + maNhanVien + "', '" + vaiTro + "'";
 

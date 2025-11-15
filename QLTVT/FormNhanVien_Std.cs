@@ -407,9 +407,9 @@ namespace QLTVT
         {
             bool ketQua = kiemTraDuLieuDauVao();
             if (!ketQua) return;
-            bdsNhanVien.EndEdit();              // commit binding của control hiện tại
-            var cm = (CurrencyManager)bdsNhanVien.CurrencyManager;
-            cm.EndCurrentEdit();
+           // bdsNhanVien.EndEdit();              // commit binding của control hiện tại
+          //  var cm = (CurrencyManager)bdsNhanVien.CurrencyManager;
+          //  cm.EndCurrentEdit();
             string maNhanVien = txtMANV.Text.Trim();
             DataRowView drv = ((DataRowView)bdsNhanVien[bdsNhanVien.Position]);
             string ho = drv["HO"].ToString();

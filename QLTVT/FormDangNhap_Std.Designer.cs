@@ -30,7 +30,7 @@ namespace QLTVT
             this.cmbCHINHANH.FormattingEnabled = true;
             this.cmbCHINHANH.Location = new System.Drawing.Point(149, 68);
             this.cmbCHINHANH.Name = "cmbCHINHANH";
-            this.cmbCHINHANH.Size = new System.Drawing.Size(256, 24);
+            this.cmbCHINHANH.Size = new System.Drawing.Size(256, 22);
             this.cmbCHINHANH.TabIndex = 0;
             this.cmbCHINHANH.SelectedIndexChanged += new System.EventHandler(this.cmbCHINHANH_SelectedIndexChanged);
             // 
@@ -40,7 +40,7 @@ namespace QLTVT
             this.label1.Font = new System.Drawing.Font("Arial", 7.8F);
             this.label1.Location = new System.Drawing.Point(39, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 16);
+            this.label1.Size = new System.Drawing.Size(62, 14);
             this.label1.TabIndex = 1;
             this.label1.Text = "CHI NHÁNH";
             // 
@@ -49,7 +49,7 @@ namespace QLTVT
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(38, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.Size = new System.Drawing.Size(71, 14);
             this.label2.TabIndex = 2;
             this.label2.Text = "TÀI KHOẢN";
             // 
@@ -65,7 +65,7 @@ namespace QLTVT
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(38, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 17);
+            this.label3.Size = new System.Drawing.Size(67, 14);
             this.label3.TabIndex = 5;
             this.label3.Text = "MẬT KHẨU";
             // 
@@ -109,13 +109,13 @@ namespace QLTVT
             this.label4.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(104, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(252, 33);
+            this.label4.Size = new System.Drawing.Size(200, 26);
             this.label4.TabIndex = 8;
             this.label4.Text = "QUẢN LÝ VẬT TƯ";
             // 
             // FormDangNhap_Std
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 350);
             this.Controls.Add(this.label4);
@@ -133,10 +133,11 @@ namespace QLTVT
             this.MinimizeBox = false;
             this.Name = "FormDangNhap_Std";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đăng Nhập (chuẩn WinForms)";
+            this.Text = "Đăng Nhập";
             this.Load += new System.EventHandler(this.FormDangNhap_Std_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
         #endregion
 

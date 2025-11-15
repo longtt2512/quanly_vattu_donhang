@@ -348,10 +348,10 @@ namespace QLTVT
             menuItem.Font = boldFont;
             
             // Cũng bôi đậm parent menu nếu có
-            if (menuItem.OwnerItem is ToolStripMenuItem parentMenu)
-            {
-                parentMenu.Font = boldFont;
-            }
+         //   if (menuItem.OwnerItem is ToolStripMenuItem parentMenu)
+         //   {
+         //       parentMenu.Font = boldFont;
+         //   }
         }
     }
 }

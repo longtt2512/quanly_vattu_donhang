@@ -102,6 +102,12 @@
     <Compile Include="FormKho.Designer.cs">
       <DependentUpon>FormKho.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhanVien.designer.cs">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNhanVien_Std.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,21 +294,21 @@
     <Compile Include="SubForm\FormThemChiTietPhieuXuat.Designer.cs">
       <DependentUpon>FormThemChiTietPhieuXuat.cs</DependentUpon>
     </Compile>
-	
-	    <Compile Include="SubForm\FormThemPhieuXuat.cs">
+    <Compile Include="SubForm\FormThemPhieuXuat.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SubForm\FormThemPhieuXuat.Designer.cs">
       <DependentUpon>FormThemPhieuXuat.cs</DependentUpon>
     </Compile>
-	
-	    <EmbeddedResource Include="SubForm\FormThemChiTietPhieuXuat.resx">
+    <EmbeddedResource Include="FormNhanVien.resx">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\FormThemChiTietPhieuXuat.resx">
       <DependentUpon>FormThemChiTietPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
-	    <EmbeddedResource Include="SubForm\FormThemPhieuXuat.resx">
+    <EmbeddedResource Include="SubForm\FormThemPhieuXuat.resx">
       <DependentUpon>FormThemPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
-	
     <EmbeddedResource Include="FormChinh_Std.resx">
       <DependentUpon>FormChinh_Std.cs</DependentUpon>
     </EmbeddedResource>
