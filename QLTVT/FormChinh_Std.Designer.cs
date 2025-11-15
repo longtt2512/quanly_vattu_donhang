@@ -148,7 +148,7 @@ namespace QLTVT
             // 
             // menuBaoCao
             // 
-            this.menuBaoCao.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.btnDanhSachNhanVien, this.btnDanhSachVatTu, this.btnChiTietNhapXuat, this.btnDonHangKhongPhieuNhap, this.btnHoatDongNhanVien, this.btnTongHopNhapXuat });
+            this.menuBaoCao.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.btnDanhSachNhanVien, this.btnDanhSachVatTu, this.btnChiTietNhapXuat, this.btnDonHangKhongPhieuNhap });
             this.menuBaoCao.Name = "menuBaoCao";
             this.menuBaoCao.Size = new System.Drawing.Size(102, 29);
             this.menuBaoCao.Text = "BÁO CÁO";
