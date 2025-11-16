@@ -221,7 +221,7 @@ namespace QLTVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtMAKHO.Text, @"^[a-zA-Z0-9]+$") == false)
+            if (Regex.IsMatch(txtMAKHO.Text.Trim(), @"^[\p{L}\p{N}]+$") == false)
             {
                 MessageBox.Show("Mã kho chỉ chấp nhận chữ và số", "Thông báo", MessageBoxButtons.OK);
                 txtMAKHO.Focus();
@@ -242,7 +242,7 @@ namespace QLTVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtTENKHO.Text, @"^[a-zA-Z0-9 ]+$") == false)
+            if (Regex.IsMatch(txtTENKHO.Text, @"^[\p{L}\p{N}\s]+$") == false)
             {
                 MessageBox.Show("Mã kho chỉ chấp nhận chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtTENKHO.Focus();
@@ -263,7 +263,7 @@ namespace QLTVT
                 return false;
             }
 
-            if (Regex.IsMatch(txtDIACHI.Text, @"^[a-zA-Z0-9, ]+$") == false)
+            if (Regex.IsMatch(txtDIACHI.Text, @"^[\p{L}\p{N}\s]+$") == false)
             {
                 MessageBox.Show("Địa chỉ chỉ gồm chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtDIACHI.Focus();
@@ -296,9 +296,18 @@ namespace QLTVT
             String tenKhoHang = drv["TENKHO"].ToString();
             String diaChi = drv["DIACHI"].ToString();
 
-            /*declare @returnedResult int
-              exec @returnedResult = sp_KiemTraMaVatTu '20'
-              select @returnedResult*/
+            /*
+                create procedure sp_TraCuu_KiemTraMaKho
+	                @MAKHO nchar(4)
+                as
+                begin
+	                if( exists( select 1 
+				                from LINK0.QLVT_DATHANG.DBO.KHO as K 
+				                where K.MAKHO = @MAKHO ) )
+		                return 1; -- ton tai
+	                return 0;-- khong ton tai
+                end
+             */
             String cauTruyVan =
                     "DECLARE	@result int " +
                     "EXEC @result = sp_TraCuu_KiemTraMaKho '" +
